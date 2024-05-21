@@ -1,5 +1,3 @@
-import 'daisyui';
-
 function App() {
   return (
     <>
