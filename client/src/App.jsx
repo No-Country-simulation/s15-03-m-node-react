@@ -1,14 +1,14 @@
-import 'daisyui';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 
-function App() {
-  return (
-    <>
-      <main>
-        <h1 className="text-3xl text-center font-bold">C15-03-m-node-react</h1>
-        <button className="btn btn-primary">Click me</button>
-      </main>
-    </>
-  )
-}
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter basename={"/"}>
+    <Routes>
+      <Route element={<App />} path="/" />
+    </Routes>
+  </BrowserRouter>
+);
 
-export default App
