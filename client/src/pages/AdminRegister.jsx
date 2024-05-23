@@ -1,20 +1,10 @@
 import Section from "../components/Section";
 import InputField from "../components/InputField";
-import { useForm } from "react-hook-form";
 import { VALIDATIONS_FORM } from "../configs/constants";
+import useCustomForm from "../hooks/useCustomForm";
 
 const AdminRegister = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => {
-    // En esta funcion se mandaria al backend los datos o al context
-    console.log(data);
-  };
+  const { register, handleSubmit, watch, errors, onSubmit } = useCustomForm();
 
   return (
     <div className="flex flex-col items-center text-white ">
@@ -88,7 +78,7 @@ const AdminRegister = () => {
               placeholder="111-111-1111"
               register={register}
               error={errors.personalPhone}
-              validation={VALIDATIONS_FORM.personalPhone}
+              validation={VALIDATIONS_FORM.phone}
             />
             <InputField
               text="Cedula/DNI:"
@@ -137,7 +127,7 @@ const AdminRegister = () => {
               placeholder="12345678"
               register={register}
               error={errors.compoundPhone}
-              validation={VALIDATIONS_FORM.compoundPhone}
+              validation={VALIDATIONS_FORM.phone}
             />
             <InputField
               text="Cant. de torres/edificios:"
@@ -194,10 +184,7 @@ const AdminRegister = () => {
           </div>
           <div className="flex justify-end gap-4 items">
             <button className="btn btn-neutral">Cancelar</button>
-            <button
-              type="submit"
-              className="btn btn-primary"
-            >
+            <button type="submit" className="btn btn-primary">
               Registrarse
             </button>
           </div>

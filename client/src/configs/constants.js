@@ -9,7 +9,7 @@ export const VALIDATIONS_FORM = {
   },
   password: {
     required: "Contraseña es requerida",
-    minLength: {
+    pattern: {
       value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
       message:
         "Contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una letra minúscula y un número.",
@@ -29,10 +29,10 @@ export const VALIDATIONS_FORM = {
       message: "Apellidos son requeridos y no deben exceder los 40 caracteres",
     },
   },
-  personalPhone: {
-    required: "Telefono personal es requerido",
+  phone: {
+    required: "El numero de telefono es requerido",
     pattern: {
-      value: /^\d{3}-\d{3}-\d{4}$/,
+      value: /^\+?\d{1,4}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
       message: "Teléfono no es válido",
     },
   },
@@ -55,7 +55,7 @@ export const VALIDATIONS_FORM = {
   nitOrCuit: {
     required: "Nit/CUIL/CUIT es requerido",
     pattern: {
-      value: /^\d{2}-\d{8}-\d{1}$/,
+      value: /^\d{8,}$/, // Verificar esto, funciona bien pero tengo mis dudas
       message:
         "Nit/CUIL/CUIT es requerido y debe seguir el formato xx-xxxxxxxx-x",
     },
@@ -65,13 +65,6 @@ export const VALIDATIONS_FORM = {
     pattern: {
       value: /^.{1,40}$/,
       message: "Dirección es requerida y no debe exceder los 40 caracteres",
-    },
-  },
-  compoundPhone: {
-    required: "Telefono de la comunidad es requerido",
-    pattern: {
-      value: /^\d{3}-\d{3}-\d{4}$/,
-      message: "Teléfono no es válido",
     },
   },
   towers: {
