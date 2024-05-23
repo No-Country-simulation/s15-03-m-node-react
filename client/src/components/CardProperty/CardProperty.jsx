@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card() {
+function CardProperty() {
   return (
     <div className="flex justify-center space-x-4  m-10 p-4 ">
       <div className="card w-64 bg-base-100 shadow-xl">
@@ -60,4 +60,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default CardProperty;

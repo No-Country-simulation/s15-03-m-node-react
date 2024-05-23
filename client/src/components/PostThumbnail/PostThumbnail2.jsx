@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Feature2() {
+function PostThumbnail2() {
   return (
     <div className="hero min-h-screen bg-base-200">
     <div className="hero-content flex-col lg:flex-row-reverse">
@@ -23,4 +23,4 @@ function Feature2() {
   )
 }
 
-export default Feature2
+export default PostThumbnail2

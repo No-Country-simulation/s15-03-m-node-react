@@ -1,23 +1,16 @@
-import React from "react";
-import NavBar from "../components/NavBar";
-import Feature from "../components/Feature";
-import CarouselClient from "../components/CarouselClient";
-import Feature2 from "../components/Feature2";
-import Card from "../components/Card";
+import React from 'react'
 
 export default function Home() {
   return (
     <>
-      <main>
-        <NavBar />
-        <Feature />
-        <CarouselClient />
-        <Card />
-       <Feature2 />
-         
-          
-        
-      </main>
-    </>
-  );
+    <main>
+      <NavBar />
+      
+      <h1 className="text-3xl text-center font-bold">C15-03-m-node-react</h1>
+      <button className="btn btn-primary">Click me</button>
+    </main>
+  </>
+  )
 }
+
+//export default Home;
