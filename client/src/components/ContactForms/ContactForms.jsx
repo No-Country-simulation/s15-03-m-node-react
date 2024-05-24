@@ -59,7 +59,7 @@ const ContactForms = () => {
                                     rows={5}
                                     name='message'
                                     id='message'
-                                    {...register('message', { ...VALIDATIONS_FORM.message })}
+                                    {...register('message', { ...VALIDATIONS_FORM.messages })}
                                 />
                                 <span className='text-xs text-red-600 pb-2 xl:text-sm'>{errors.message && errors.message.message}</span>
                             </div>
