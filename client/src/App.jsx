@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <Routes>
+        
         {/* Ruta principal de la app, no hace falta aclararla en el BrowserRouter */}
         <Route path="/" element={<Home />} />
          

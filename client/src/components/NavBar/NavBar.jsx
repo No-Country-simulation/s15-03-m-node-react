@@ -26,7 +26,7 @@ function NavBar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a href="clients">Caracteristicas</a>
+              <a href="#">Caracteristicas</a>
             </li>
             <li>
               <a href="#">Sobre Nosotros</a>
@@ -59,7 +59,7 @@ function NavBar() {
       </div>
       <div className="navbar-end">
         <a className="mr-6" href="#">Registrate</a>
-        <a className="btn">Ingresa</a>
+        <a className="" href="http://localhost:5173/login">Ingresa</a>
       </div>
     </div>
   );
