@@ -48,7 +48,8 @@ const ContactForms = () => {
                     </section>
                 </form>
                 <figure className=' hidden lg:block w-[50%]'>
-                    <img src="#" alt="Imagen del formulario de contacto" />
+                    <img src= "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" 
+                     alt="Imagen del formulario de contacto" />
                 </figure>
             </div>
         </section>

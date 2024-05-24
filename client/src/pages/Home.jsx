@@ -3,8 +3,14 @@ import React from 'react'
 
 import NavBar from '../components/NavBar/NavBar'
 import PostThumbnail from '../components/PostThumbnail/PostThumbnail'
+import PostAboutUs from '../components/PostAboutUs/PostAboutUs'
 import CarouselClient from '../components/CarouselClient/CarouselClient'
+import OurPlants from '../components/OurPlans/OurPlans'
 import CardProperty from '../components/CardProperty/CardProperty'
+import Testimonials from '../components/Testimonials/Testimonials'
+import ContactForms from '../components/ContactForms/ContactForms'
+import Footer from '../components/Footer/Footer'
+
 
 
 
@@ -16,9 +22,13 @@ export default function Home() {
       <PostThumbnail />
       <CarouselClient />
       <CardProperty />
-      <h1 className="text-3xl text-center font-bold">C15-03-m-node-react</h1>
-      <button className="btn btn-primary">Click me</button>
-    </main>
+      <PostAboutUs />
+      <OurPlants />
+      <Testimonials />
+      <ContactForms />
+      <Footer />
+
+     </main>
   </>
   )
 }
