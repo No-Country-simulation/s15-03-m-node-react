@@ -2,6 +2,7 @@ import Section from "../components/Section";
 import InputField from "../components/InputField";
 import { VALIDATIONS_FORM } from "../configs/constants";
 import useCustomForm from "../hooks/useCustomForm";
+import { Link } from "react-router-dom";
 
 const AdminRegister = () => {
   const { register, handleSubmit, watch, errors, onSubmit } = useCustomForm();
@@ -183,7 +184,7 @@ const AdminRegister = () => {
             </p>
           </div>
           <div className="flex justify-end gap-4 items">
-            <button className="btn btn-neutral">Cancelar</button>
+            <Link className="btn btn-neutral" to="/" >Cancelar</Link>
             <button type="submit" className="btn btn-primary">
               Registrarse
             </button>

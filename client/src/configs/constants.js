@@ -94,4 +94,11 @@ export const VALIDATIONS_FORM = {
   terms: {
     required: "Debes aceptar los términos",
   },
+  messages: {
+    required: "Este campo es requerido",
+    pattern: {
+      value: /^.{1,250}$/,
+      message: "Este campo es requerido y no debe exceder los 250 caracteres",
+    }
+  }
 };

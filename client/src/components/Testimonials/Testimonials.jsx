@@ -3,8 +3,8 @@ import CardTestimonials from '../CardTestimonials.jsx/CardTestimonials.jsx'
 
 const Testimonials = () => {
     return (
-        <section>
-            <h2 className=' text-center text-xl font-medium pt-7 pb-3 md:text-2xl lg:text-3xl'>Que dicen nuestros usuarios</h2>
+        <section className='bg-[#F5F6FA]'>
+            <h2 className=' text-center text-2xl font-medium pt-16 pb-3 lg:text-3xl xl:text-4xl'>Que dicen nuestros usuarios</h2>
             <div className="carousel carousel-center w-full p-4 space-x-6 md:flex md:justify-center">
                 <div className="carousel-item">
                     <CardTestimonials
