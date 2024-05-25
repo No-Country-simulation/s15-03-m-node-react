@@ -5,12 +5,19 @@ const BusinessBoard = () => {
       name: "Juanito",
       message:
         "Oferta de churros rellenos de marroc, envío no incluído en el cargo",
+      date: "18/05/2024",
     },
-    { id: 101, name: "Pepe", message: "3x2 en venta de libros usados" },
+    {
+      id: 101,
+      name: "Pepe",
+      message: "3x2 en venta de libros usados",
+      date: "18/05/2024",
+    },
     {
       id: 102,
       name: "Juana",
       message: "A partir de la próxima semana puedo reparar celulares",
+      date: "19/05/2024",
     },
   ];
 
@@ -33,28 +40,52 @@ const BusinessBoard = () => {
   ];
 
   return (
-    <div className="flex">
-      <section className="w-3/5">
-        <h2 className="text-2x1">Anuncios/Novedades</h2>
-        {anunciosPrueba.map((anuncio) => (
-          <div key={anuncio.id}>
-            <h4>{anuncio.name}</h4>
-            <p>{anuncio.message}</p>
+    <>
+      <h1 className="text-3xl text-center">Acá iría la Navbar</h1>
+      <div className="flex">
+        <section className="w-2/3">
+          <h2 className="text-2xl font-bold text-center">Anuncios/Novedades</h2>
+          <button className="bg-blue-400 border text-black">
+            Publicar nuevo anuncio
+          </button>
+          <div>
+            {anunciosPrueba.map((anuncio) => (
+              <div
+                className="border bg-slate-300 text-black py-1 pl-1 pr-2 my-3"
+                key={anuncio.id}
+              >
+                <h4 className="text-lg">{anuncio.name}</h4>
+                <p>{anuncio.date}</p>
+                <p>{anuncio.message}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </section>
-      <section className="w-2/5 ">
-        <h2 className="text-2x1">Negocios Registrados</h2>
-        {negociosPrueba.map((negocio) => (
-          <div key={negocio.id}>
-            <h3>{negocio.name}</h3>
-            <p>{negocio.description}</p>
-            <p>{negocio.address}</p>
-            <p>{negocio.contact}</p>
+        </section>
+        <section className="w-1/3">
+          <h2 className="text-2xl font-bold text-center">
+            Negocios Registrados
+          </h2>
+          <button className="bg-yellow-400 border text-black">
+            Agregar tu negocio
+          </button>
+          <div>
+            {negociosPrueba.map((negocio) => (
+              <div
+                className="border border bg-slate-300 text-black p-2"
+                key={negocio.id}
+              >
+                <h3 className="text-center font-bold text-lg">
+                  {negocio.name}
+                </h3>
+                <p>{negocio.description}</p>
+                <p>Dirección: {negocio.address}</p>
+                <p>Contacto: {negocio.contact}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
 
