@@ -12,25 +12,25 @@ const Register = ({ isAdmin }) => {
 
   return (
     <div
-      className={` flex justify-between gap-16 ${
-        isAdmin === "admin" ? "flex-row" : "flex-row-reverse"
+      className={`bg-base-100 py-8 flex justify-between gap-16 md:w-[90%] md:mx-auto lg:w-full lg:py-12 ${
+        isAdmin === "admin" ? "flex-row lg:pl-0" : "flex-row-reverse lg:pl-20"
       }`}
     >
-      <div className="min-w-[27.25rem]">
+      <div className="min-w-[27.25rem] hidden lg:block">
         <img
           src={isAdmin === "admin" ? adminImg : residentImg}
           alt="Edificio"
           className="h-full"
         />
       </div>
-      <section className="min-w-[53.75rem]">
-        <h1 className="text-5xl font-semibold">
+      <section className="w-full px-3">
+        <h1 className="text-3xl pb-2 font-semibold lg:text-4xl">
           Bienvenido{" "}
           <span className="text-primary">
             {isAdmin === "admin" ? "Administrador" : "Residente"}
           </span>
         </h1>
-        <p className="text-[1.25rem]">
+        <p className=" text-sm pb-6 lg:text-base">
           {isAdmin === "admin"
             ? "Complete los datos y empiece a disfrutar de los beneficios de una gestión eficiente en su edificio."
             : "Por favor, complete la siguiente información para registrar su residencia en el edificio."}
@@ -183,17 +183,17 @@ const Register = ({ isAdmin }) => {
             </Section>
           )}
           {!isAdmin && (
-            <Section title="Direccion de residencia">
-              <div className="flex gap-5">
+            <Section title="Dirección de residencia">
+              <div className="flex flex-col gap-5">
                 <Select title="Numero de apartamento o unidad" />
                 <Select title="Piso (si aplica)" />
               </div>
             </Section>
           )}
           <Section>
-            <div>
-              <div className="form-control max-w-xs">
-                <label className="label cursor-pointer">
+            <div className="pb-6">
+              <div className="form-control">
+                <label className="cursor-pointer flex items-center text-[#000] font-semibold space-x-2">
                   <input
                     type="checkbox"
                     className={`checkbox checkbox-primary ${
@@ -202,13 +202,13 @@ const Register = ({ isAdmin }) => {
                     name="terms"
                     {...register("terms", VALIDATIONS_FORM.terms)}
                   />
-                  <span
+                  <p
                     className={`label-text ${
                       errors.terms ? "text-red-500" : ""
                     }`}
                   >
                     He leído y aceptado las Políticas de Privacidad
-                  </span>
+                  </p>
                 </label>
               </div>
               <p className="text-sm text-slate-700 ml-2">
@@ -217,11 +217,11 @@ const Register = ({ isAdmin }) => {
               </p>
             </div>
             <div className="flex justify-end gap-4 items">
-              <Link className="btn btn-outline btn-accent" to="/">
+              <Link className="btn bg-transparent border-[#FF9337]" to="/">
                 Cancelar
               </Link>
-              <button type="submit" className="btn btn-accent">
-                Registrarse
+              <button type="submit" className="btn bg-[#FF9337] font-semibold text-[#000]">
+                Enviar
               </button>
             </div>
           </Section>
