@@ -25,7 +25,7 @@ const InputField = ({
         type={type}
         name={name}
         placeholder={placeholder}
-        className={`input input-bordered w-full ${error ? "input-error" : ""}`}
+        className={`input input-bordered input-primary w-full ${error ? "input-error" : ""}`}
         {...register(name, validation)}
       />
     </label>
