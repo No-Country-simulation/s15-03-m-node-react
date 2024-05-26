@@ -1,4 +1,3 @@
-import { FaCheck } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 
 function Acepted({ data }) {

@@ -61,6 +61,12 @@ function Pending() {
           aria-label="Pendentes"
         />
         <div role="tabpanel" className="tab-content p-10">
+          <div className="card w-100 h-15 mt-3 bg-gray-200 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">Listado de pendentes</h2>
+            </div>
+          </div>
+
           <div className="mx-auto px-4 sm:px-6 lg:px-8 mt-10">
             <div className="overflow-x-auto">
               <div className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
