@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Error404 from "./components/Error404";
 import Dashboard from "./pages/Dashboard";
+import ResidentsList from "./pages/ResidentsList";
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
 
         {/* Ruta al Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* Ruta al ResidentList */}
+        <Route path="/residentslist" element={<ResidentsList />} />
 
 
         {/* Cualquier otra ruta que nosotros no le demos al router de react va directamente a error y desde aca lo podemos mandar al home o algun otro lado */}
