@@ -15,17 +15,22 @@ const InputField = ({
         <span className="label-text flex items-center justify-evenly gap-1">
           {text}
         </span>
-          {error && (
-            <div className="lg:tooltip relative top-[2.6rem] right-2 z-50" data-tip={error.message}>
-              <MdErrorOutline className="text-red-500 text-xl" />
-            </div>
-          )}
+        {error && (
+          <div
+            className="tooltip relative tooltip-left tooltip-error top-[2.6rem] right-2 z-50"
+            data-tip={error.message}
+          >
+            <MdErrorOutline className="text-red-500 text-xl" />
+          </div>
+        )}
       </div>
       <input
         type={type}
         name={name}
         placeholder={placeholder}
-        className={`input border-primary bg-[#EEF2FF] w-full ${error ? "input-error" : ""}`}
+        className={`input input-bordered input-primary w-full ${
+          error ? "input-error" : ""
+        }`}
         {...register(name, validation)}
       />
     </label>
