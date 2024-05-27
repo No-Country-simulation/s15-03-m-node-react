@@ -15,10 +15,14 @@ function App() {
         <Route path="/register-admin" element={<Register isAdmin="admin" />} />
         <Route path="/register-resident" element={<Register />} />
 
+        {/* Ruta al Dashboard */}
+        <Route path="/dashboard" element={<Dashboard />} />
+
         <Route path="/list-admin" element={<Pending />} />
 
         {/* Cualquier otra ruta que nosotros no le demos al router de react va directamente a error y desde aca lo podemos mandar al home o algun otro lado */}
         <Route path="*" element={<Error404 />} />
+       
       </Routes>
     </>
   );
