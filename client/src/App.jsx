@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Error404 from "./components/Error404";
 import Register from "./pages/Register";
-// import ResidentRegistration from "./pages/ResidentRegistration/ResidentRegistration";
 
 function App() {
   return (

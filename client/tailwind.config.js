@@ -12,7 +12,7 @@ export default {
       // Aca guardamos nuestro tema con las variables que nos proporciona daisyUI y le ponemos nuestros colores
       [
         {
-          buildingHub: {
+          "buildingHub": {
             primary: "#483AE7",
             secondary: "#1e293b",
             accent: "#ffa500",
@@ -21,6 +21,7 @@ export default {
             info: "#3ABFF8",
           },
         },
+        // Otro tema "buildingHubDark" y este seria el tema oscuro de la app
       ],
   },
 };
