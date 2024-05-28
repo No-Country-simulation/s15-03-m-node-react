@@ -39,7 +39,7 @@ const Register = ({ isAdmin }) => {
           />
         </div>
         <section className="w-full px-3">
-          <h1 className="text-3xl pb-2 font-semibold lg:text-4xl">
+          <h1 className="text-3xl pb-2 font-libre font-semibold lg:text-4xl">
             Bienvenido{" "}
             <span className="text-primary">
               {isAdmin === "admin" ? "Administrador" : "Residente"}
@@ -238,12 +238,12 @@ const Register = ({ isAdmin }) => {
                 </p>
               </div>
               <div className="flex justify-end gap-4 items">
-                <Link className="btn btn-outline btn-accent" to="/">
+                <Link className="btn btn-outline bg-accent btn-secondary" to="/">
                   Cancelar
                 </Link>
                 <button
                   type="submit"
-                  className="btn btn-accent font-semibold"
+                  className="btn btn-secondary font-semibold"
                   disabled={loading}
                 >
                   {loading ? "Enviando..." : "Registrarme"}

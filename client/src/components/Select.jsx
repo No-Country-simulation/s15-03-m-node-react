@@ -2,7 +2,7 @@ const Select = ({ title }) => {
   return (
     <div className="form-control w-full">
       <p>{title}</p>
-      <select className="select select-primary w-full">
+      <select className="select select-primary bg-base-200 w-full">
         <option disabled selected></option>
         <option>Game of Thrones</option>
         <option>Lost</option>
