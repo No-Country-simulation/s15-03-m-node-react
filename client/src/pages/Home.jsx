@@ -1,33 +1,25 @@
-import React from 'react'
+import React from "react";
 // importar componentes
-import PostThumbnail from '../components/PostThumbnail/PostThumbnail'
-import PostAboutUs from '../components/PostAboutUs/PostAboutUs'
-import CarouselClient from '../components/CarouselClient/CarouselClient'
-import OurPlants from '../components/OurPlans/OurPlans'
-import CardProperty from '../components/CardProperty/CardProperty'
-import Testimonials from '../components/Testimonials/Testimonials'
-import ContactForms from '../components/ContactForms/ContactForms'
-
-
-
-
+import PostThumbnail from "../components/PostThumbnail/PostThumbnail";
+import PostAboutUs from "../components/PostAboutUs/PostAboutUs";
+import CarouselClient from "../components/CarouselClient/CarouselClient";
+import OurPlants from "../components/OurPlans/OurPlans";
+import CardProperty from "../components/CardProperty/CardProperty";
+import Testimonials from "../components/Testimonials/Testimonials";
+import ContactForms from "../components/ContactForms/ContactForms";
 
 export default function Home() {
   return (
     <>
-    <main>
-     
-      <PostThumbnail />
-      <CarouselClient />
-      <CardProperty />
-      <PostAboutUs />
-      <OurPlants />
-      <Testimonials />
-      <ContactForms />
-    
-     </main>
-  </>
-  )
+      <main>
+        <PostThumbnail />
+        <CarouselClient />
+        <CardProperty />
+        <PostAboutUs />
+        <OurPlants />
+        <Testimonials />
+        <ContactForms />
+      </main>
+    </>
+  );
 }
-
-
