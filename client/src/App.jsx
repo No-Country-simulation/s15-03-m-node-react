@@ -5,8 +5,6 @@ import Board from "./pages/BusinessBoard";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Pending from "./components/AcceptPersonal/Pending";
-// import ResidentRegistration from "./pages/ResidentRegistration/ResidentRegistration";
-import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
