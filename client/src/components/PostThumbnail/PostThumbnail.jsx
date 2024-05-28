@@ -4,9 +4,9 @@ function PostThumbnail() {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-          className="w-2/4 rounded-lg shadow-2xl"
+        <img className='lg:max-h-[44rem] pt-14 border-b-[1rem] border-[#483AE7]' src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" alt="Mujer con auriculares" 
+          // src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+          // className="w-2/4 rounded-lg shadow-2xl"
         />
         <div>
           <h1 className="text-5xl font-bold">

@@ -28,7 +28,7 @@ const ContactForms = () => {
                             </div>
                             <div className=' flex flex-col'>
                                 <InputField
-                                    text="Teléfono"
+                                    text="Teléfono"
                                     type="tel"
                                     name="phone"
                                     register={register}
@@ -63,18 +63,12 @@ const ContactForms = () => {
                         </div>
                     </section>
                 </form>
-<<<<<<< HEAD
-                <figure className=' hidden lg:block w-[50%]'>
-                    <img src= "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" 
-                     alt="Imagen del formulario de contacto" />
-=======
+                {/* <figure className='hidden lg:block w-50%'>
+                    <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
+                        alt="Imagen del formulario de contacto" />
+                </figure> */}
                 <figure className='hidden lg:block'>
-<<<<<<< HEAD
-                    <img className=' lg:max-h-[36rem] pt-14 border-b-[1rem] border-[#483AE7]' src={Image} alt="Mujer con auriculares" />
->>>>>>> 6ebdcc58c1e1661e126edc6652c4688ab726011c
-=======
-                    <img className=' lg:max-h-[44rem] pt-14 border-b-[1rem] border-[#483AE7]' src={Image} alt="Mujer con auriculares" />
->>>>>>> c1bc3bcadf2c352c12c1158786f004feae7c02b9
+                    <img className='lg:max-h-[44rem] pt-14 border-b-[1rem] border-[#483AE7]' src={Image} alt="Mujer con auriculares" />
                 </figure>
             </div>
         </section>
