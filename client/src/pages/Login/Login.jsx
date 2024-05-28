@@ -1,87 +1,67 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import adminImg from '../../assets/Frame 28.png';
 
 
-function Login() {
+const Login = () => {
   return (
-    <div className="grid grid-cols-4 h-screen">
-      {/* Columna izquierda para la imagen de la empresa */}
-      <div
-        className="bg-cover col-span-2"
-        style={{
-          backgroundImage: `url("https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg")`,
-        }}
-      ></div>
-
-      {/* Columna derecha para el contenido */}
-      <div className="col-span-2 bg-gray-100 flex flex-col justify-center items-center">
-        {/* Logo de la empresa */}
-        <img
-          src=""
-          alt="Logo Empresa"
-          className="w-24 h-24 mb-4 mt-4"
-        />
-
-        {/* Título "Inicio de sesión" */}
-        <h2 className=" text-2xl  font-semibold mb-4">
-          Iniciar de sesión 
-        </h2>
-
-        {/* Formulario de inicio de sesión */}
-        <form className="w-full max-w-sm">
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-gray-700  font-bold"
-            >
-              Correo electrónico
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500"
-            />
+    <div className="bg-base-100 py-8 flex justify-between gap-16 md:w-[90%] md:mx-auto lg:w-full lg:py-12 flex-row lg:pl-0">
+      <div className="min-w-[27.25rem] hidden lg:block">
+        <img src={adminImg} alt="Edificio" className="h-full" />
+      </div>
+      <section className="w-full px-3">
+        <h1 className="text-3xl pb-2 font-semibold lg:text-4xl">Bienvenido</h1>
+        <p className="text-sm pb-6 lg:text-base">
+          Por favor, complete la siguiente información para iniciar sesión en su cuenta.
+        </p>
+        <form className="flex flex-col gap-9">
+          <div className="flex flex-col gap-5 pb-3">
+            <div>
+              <label htmlFor="email" className="block text-gray-700 font-bold">
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="ejemplo@ejemplo.com"
+                className="w-full mt-1 px-4 py-2 border border-blue-500 rounded-md focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-gray-700 font-bold">
+                Contraseña
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="********"
+                className="w-full mt-1 px-4 py-2 border border-blue-500 rounded-md focus:outline-none focus:border-blue-500"
+              />
+            </div>
           </div>
-          <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="block text-gray-70 font-poppins font-bold"
-            >
-              Contraseña
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div className="text-sm text-l mt-[1.6rem]">
-            <a
-              className="text-sm  mr-px "
-              href="#"
-            >
-              ¿olvido contraseña?
+          <div className="text-sm text-l mt-4">
+            <a className="text-sm mr-px" href="#">
+              ¿Olvidó su contraseña?
             </a>
           </div>
-          <button
-            type="submit"
-            className="w-full bg-[#0f0f0f] hover:bg-[#d8d8d8] text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-          >
-            Iniciar sesión
-          </button>
-          <div className="text-sm text-center mt-[1.6rem">
-            ¿No tienes una cuenta?
-            <a
-              className="text-sm mx-2"
-              href="#"
-            >
-              registro
-            </a>
+          <div className="flex justify-end gap-4 items">
+            <Link className="btn bg-transparent border-[#FF9337]" to="/">
+              Cancelar
+            </Link>
+            <button type="submit" className="btn bg-[#FF9337] font-semibold text-[#000]">
+              Iniciar sesión
+            </button>
+          </div>
+          <div className="text-sm text-center mt-4">
+            ¿No tienes una cuenta?{' '}
+            <Link className="text-sm mx-2" to="/register">
+              Registro
+            </Link>
           </div>
         </form>
-      </div>
+      </section>
     </div>
   );
 }

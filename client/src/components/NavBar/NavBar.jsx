@@ -17,12 +17,13 @@ function NavBar() {
       <li><a className="hover:text-blue-700">Contacto</a></li>
       </ul>
     </div>
-    <img className=' w-52 ml-11 ' src={Logo} alt="Logo" />
     
+    <Link to="/"><img className=' w-52 ml-11 ' src={Logo} alt="Logo" /></Link>
+        
   </div>
   <div className="navbar-center hidden lg:flex text-sky-800 font-black tracking-wider">
     <ul className="menu menu-horizontal px-1">
-      <li><a className="hover:text-blue-700">Caracteristicas</a></li>
+      <li><a className="hover:text-blue-700"><Link to="/register-admin">Caracteristicas</Link></a></li>
       <li><a className="hover:text-blue-700">Sobre nosotros</a></li>
       <li><a className="hover:text-blue-700">Planes</a></li>
       <li><a className="hover:text-blue-700">Contacto</a></li>
@@ -30,7 +31,7 @@ function NavBar() {
     </ul>
   </div>
   <div className="navbar-end tracking-wider">
-  <a className="btn m-2 font-black border-none bg-transparent">Registrarse</a>
+  <a className="btn m-2 font-black border-none bg-transparent"><Link to="/register-admin">Registrarse</Link></a>
   <a className="btn m-2 font-black bg-orange-500"><Link to="/login">Inicio sesion</Link></a>
 
   </div>
