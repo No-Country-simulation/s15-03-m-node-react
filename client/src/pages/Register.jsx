@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import adminImg from "../assets/Frame 28.png";
 import residentImg from "../assets/Frame 29.png";
 import Select from "../components/Select";
+import PrivacyPolicy from "../components/Modals/Privacy-policy";
 
 const Register = ({ isAdmin }) => {
   const { register, handleSubmit, watch, errors, onSubmit } = useCustomForm();
@@ -193,7 +194,7 @@ const Register = ({ isAdmin }) => {
           <Section>
             <div>
               <div className="form-control max-w-xs">
-                <label className="label cursor-pointer">
+                <div className="label cursor-pointer">
                   <input
                     type="checkbox"
                     className={`checkbox checkbox-primary ${
@@ -207,9 +208,9 @@ const Register = ({ isAdmin }) => {
                       errors.terms ? "text-red-500" : ""
                     }`}
                   >
-                    He leído y aceptado las Políticas de Privacidad
+                    <PrivacyPolicy />
                   </span>
-                </label>
+                </div>
               </div>
               <p className="text-sm text-slate-700 ml-2">
                 Sus datos se almacenarán hasta que elimine su cuenta o ejerza el

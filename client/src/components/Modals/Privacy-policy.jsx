@@ -2,19 +2,17 @@ const PrivacyPolicy = () => {
   return (
     <>
       <p>
-        He leído y acepto las{" "}
+        He leído y aceptado las{" "}
         <span
-          className="cursor-pointer text-blue-600 hover:underline"
+          className="text-blue-600 hover:underline"
           onClick={() => document.getElementById("my_modal_3").showModal()}
         >
-          políticas de privacidad
+          Políticas de Privacidad
         </span>{" "}
-        de este sitio web
       </p>
-      <dialog id="my_modal_3" className="modal width-full">
-        <div className="modal-box">
+      <dialog id="my_modal_3" className="modal">
+        <div className="modal-box border border-blue-600 bg-slate-200">
           <form method="dialog">
-            {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </button>
