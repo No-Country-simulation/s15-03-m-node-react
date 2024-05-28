@@ -1,3 +1,5 @@
+import PrivacyPolicy from "../components/Modals/Privacy-policy";
+
 const BusinessBoard = () => {
   const anunciosPrueba = [
     {
@@ -40,18 +42,22 @@ const BusinessBoard = () => {
   ];
 
   return (
-    <>
-      <h1 className="text-3xl text-center">Acá iría la Navbar</h1>
+    <div>
+      <h1 className="text-xl bg-blue-400 text-white text-center">
+        Aquí puedes revisar los anuncios y negocios de tus vecinos, o puedes
+        crear nuevos!
+      </h1>
+
       <div className="flex">
         <section className="w-2/3">
-          <h2 className="text-2xl font-bold text-center">Anuncios/Novedades</h2>
-          <button className="bg-blue-400 border text-black">
+          <h2 className="text-xl font-bold text-center">Anuncios/Novedades</h2>
+          <button className="bg-blue-400 border text-black py-1 pl-1 pr-2 my-3 mx-2">
             Publicar nuevo anuncio
           </button>
           <div>
             {anunciosPrueba.map((anuncio) => (
               <div
-                className="border bg-slate-300 text-black py-1 pl-1 pr-2 my-3"
+                className="border rounded-2xl bg-slate-300 text-black py-1 pl-1 pr-2 my-3 mx-2"
                 key={anuncio.id}
               >
                 <h4 className="text-lg">{anuncio.name}</h4>
@@ -62,16 +68,16 @@ const BusinessBoard = () => {
           </div>
         </section>
         <section className="w-1/3">
-          <h2 className="text-2xl font-bold text-center">
+          <h2 className="text-xl font-bold text-center">
             Negocios Registrados
           </h2>
-          <button className="bg-yellow-400 border text-black">
+          <button className="bg-yellow-400 border text-black py-1 pl-1 pr-2 my-3 mx-2">
             Agregar tu negocio
           </button>
           <div>
             {negociosPrueba.map((negocio) => (
               <div
-                className="border border bg-slate-300 text-black p-2"
+                className="border border bg-slate-300 text-black py-1 pl-1 pr-2 my-3 mx-2"
                 key={negocio.id}
               >
                 <h3 className="text-center font-bold text-lg">
@@ -85,7 +91,11 @@ const BusinessBoard = () => {
           </div>
         </section>
       </div>
-    </>
+      <div className="flex items-center">
+        <input type="checkbox" className="mr-1"></input>
+        <PrivacyPolicy />
+      </div>
+    </div>
   );
 };
 
