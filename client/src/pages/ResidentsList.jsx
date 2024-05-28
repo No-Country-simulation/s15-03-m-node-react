@@ -1,89 +1,98 @@
 import React from "react";
 
+
 function ResidentsList() {
   return (
-    <div>
+    <div className="bg-gray-100 h-screen">
         {/*Botones categorías bases de datos */}
-      <div class="flex justify-center items-center bg-gray-100">
-        <div class="bg-white p-4 rounded-2xl shadow-lg">
-          <div class="flex space-x-4">
-            <button class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none">
+      <div className="flex justify-center items-center bg-gray-100 pt-12 pb-9">
+        <div className="bg-[#EEF2FF] py-[52px] px-[99px] rounded-2xl border border-1 border-indigo-600">
+          <div className="flex space-x-4 text-xl gap-6">
+            <button className="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg focus:outline-none shadow-xl w-[282px]">
               Pendientes por aprobar
             </button>
-            <button class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none">
+            <button className=" bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg focus:outline-none shadow-xl w-[282px]">
               Usuarios denegados
             </button>
-            <button class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none">
+            <button className="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg focus:outline-none shadow-xl w-[282px]">
               Ex residentes
             </button>
           </div>
         </div>
       </div>
 
-      {/*Filtro de búsqueda*/}
-      <div class="flex items-center bg-blue-100 rounded-md mb-4">
-        <span class="text-gray-500 ml-4"><i class="fas fa-search"></i></span>
-        <input class="bg-blue-100 outline-none p-2 rounded-md w-full" type="text" placeholder="Buscar"/>
-      </div>
+      
 
-      {/*Tabla bases de datos residentes activos */}
-      <table class="min-w-full">
+      <div className="bg-[#EEF2FF] rounded-2xl border border-1 border-indigo-600 w-[1092px] mx-auto">
+        {/*Filtro de búsqueda*/}
+        <div className="relative top-0 left-20 pt-12">
+            <input type="search" placeholder="Buscar" className="bg-white pl-10 p-4 py-2 border rounded-full text-sm outline-none focus:border-indigo-600 w-[666px] h-[40px]"/>
+            <div className="absolute top-12 left-0 mt-2 ml-3 text-blue-500">
+                <i className="fas fa-search"></i>
+            </div>
+        </div>
+        {/*Tabla bases de datos residentes activos */}
+      <table className="mx-auto w-full">
           <thead>
-            <tr class="text-left bg-blue-200">
-              <th class="px-4 py-2">Apartamento</th>
-              <th class="px-4 py-2">Tipo</th>
-              <th class="px-4 py-2">Contacto primario</th>
-              <th class="px-4 py-2">Acciones</th>
+            <tr className=" text-center text-base">
+              <th className="px-6 py-3">Apartamento</th>
+              <th className="px-6 py-3">Tipo</th>
+              <th className="px-6 py-3">Contacto primario</th>
+              <th className="px-6 py-3">Acciones</th>
             </tr>
           </thead>
-          <tbody className="bg-gray-100">
-            <tr class="border-b">
-              <td class="px-4 py-2">401 A</td>
-              <td class="px-4 py-2">Inquilino</td>
-              <td class="px-4 py-2">Carlos Andrés Ramírez</td>
-              <td class="px-4 py-2">
-                <button class="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i class="fas fa-edit"></i> Modificar</button>
-                <button class="text-red-500 hover:text-red-600 focus:outline-none"><i class="fas fa-trash-alt"></i> Eliminar</button>
+          <tbody className="text-center text-xl">
+            <tr className="border-b">
+              <td className="px-6 py-3">401 A</td>
+              <td className="px-6 py-3">Inquilino</td>
+              <td className="px-6 py-3">Carlos Andrés Ramírez</td>
+              <td className="px-6 py-3">
+                <button className="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i className="fas fa-edit"></i> Modificar</button>
+                <button className="text-red-500 hover:text-red-600 focus:outline-none"><i className="fas fa-trash-alt"></i> Eliminar</button>
               </td>
             </tr>
-            <tr class="border-b">
-              <td class="px-4 py-2">401 A</td>
-              <td class="px-4 py-2">Inquilino</td>
-              <td class="px-4 py-2">Carlos Andrés Ramírez</td>
-              <td class="px-4 py-2">
-                <button class="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i class="fas fa-edit"></i> Modificar</button>
-                <button class="text-red-500 hover:text-red-600 focus:outline-none"><i class="fas fa-trash-alt"></i> Eliminar</button>
+            <tr className="border-b">
+              <td className="px-6 py-3">401 A</td>
+              <td className="px-6 py-3">Inquilino</td>
+              <td className="px-6 py-3">Carlos Andrés Ramírez</td>
+              <td className="px-6 py-3">
+                <button className="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i className="fas fa-edit"></i> Modificar</button>
+                <button className="text-red-500 hover:text-red-600 focus:outline-none"><i className="fas fa-trash-alt"></i> Eliminar</button>
               </td>
             </tr>
-            <tr class="border-b">
-              <td class="px-4 py-2">401 A</td>
-              <td class="px-4 py-2">Inquilino</td>
-              <td class="px-4 py-2">Carlos Andrés Ramírez</td>
-              <td class="px-4 py-2">
-                <button class="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i class="fas fa-edit"></i> Modificar</button>
-                <button class="text-red-500 hover:text-red-600 focus:outline-none"><i class="fas fa-trash-alt"></i> Eliminar</button>
+            <tr className="border-b">
+              <td className="px-6 py-3">401 A</td>
+              <td className="px-6 py-3">Inquilino</td>
+              <td className="px-6 py-3">Carlos Andrés Ramírez</td>
+              <td className="px-6 py-3">
+                <button className="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i className="fas fa-edit"></i> Modificar</button>
+                <button className="text-red-500 hover:text-red-600 focus:outline-none"><i className="fas fa-trash-alt"></i> Eliminar</button>
               </td>
             </tr>
-            <tr class="border-b">
-              <td class="px-4 py-2">401 A</td>
-              <td class="px-4 py-2">Inquilino</td>
-              <td class="px-4 py-2">Carlos Andrés Ramírez</td>
-              <td class="px-4 py-2">
-                <button class="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i class="fas fa-edit"></i> Modificar</button>
-                <button class="text-red-500 hover:text-red-600 focus:outline-none"><i class="fas fa-trash-alt"></i> Eliminar</button>
+            <tr className="border-b">
+              <td className="px-6 py-3">401 A</td>
+              <td className="px-6 py-3">Inquilino</td>
+              <td className="px-6 py-3">Carlos Andrés Ramírez</td>
+              <td className="px-6 py-3">
+                <button className="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i className="fas fa-edit"></i> Modificar</button>
+                <button className="text-red-500 hover:text-red-600 focus:outline-none"><i className="fas fa-trash-alt"></i> Eliminar</button>
               </td>
             </tr>
-            <tr class="">
-              <td class="px-4 py-2">401 A</td>
-              <td class="px-4 py-2">Inquilino</td>
-              <td class="px-4 py-2">Carlos Andrés Ramírez</td>
-              <td class="px-4 py-2">
-                <button class="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i class="fas fa-edit"></i> Modificar</button>
-                <button class="text-red-500 hover:text-red-600 focus:outline-none"><i class="fas fa-trash-alt"></i> Eliminar</button>
+            <tr className="">
+              <td className="px-6 py-3">601 A</td>
+              <td className="px-6 py-3">Inquilino</td>
+              <td className="px-6 py-3">Carlos Andrés Ramírez</td>
+              <td className="px-6 py-3">
+                <button className="text-blue-500 hover:text-blue-600 focus:outline-none mr-2"><i className="fas fa-edit"></i> Modificar</button>
+                <button className="text-red-500 hover:text-red-600 focus:outline-none"><i className="fas fa-trash-alt"></i> Eliminar</button>
               </td>
             </tr>
           </tbody>
         </table>
+      </div>
+      
+
+      
     </div>
   );
 }
