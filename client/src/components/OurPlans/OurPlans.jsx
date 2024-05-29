@@ -1,5 +1,5 @@
-import React from "react";
 import CardOurPlans from "../CardOurPlans/CardOurPlans";
+import data from "./data";
 
 const OurPlans = () => {
   return (
@@ -18,43 +18,10 @@ const OurPlans = () => {
           </p>
         </div>
         <div className=" space-y-5 py-5 md:flex justify-center flex-wrap md:pt-8 md:space-y-0 md:gap-4  lg:gap-8">
-          <CardOurPlans
-            title={"Gratuito"}
-            lists={[
-              "Gestión de Perfiles de Residentes",
-              "Registro y administración de información básica de los residentes",
-              "Envió de mensajes y anuncios a los residentes",
-              "Foro Comunitario",
-              "Reservas de Áreas Comunes (gimnasio, salón de eventos, etc)",
-              "Registro y seguimiento básico de solicitudes de mantenimiento",
-            ]}
-          />
-          <CardOurPlans
-            scale={"lg:scale-110"}
-            id={2}
-            title={"Premium"}
-            lists={[
-              "Todas las Funcionalidades de Plan Pro",
-              "Portal de Proveedores",
-              "Registro y Gestión de proveedores de servicios",
-              "Solicitud de cotizaciones y comparación de servicios",
-              "Aplicación Móvil",
-              "Acceso y gestión de la plataforma desde cualquier lugar",
-              "Notificaciones en tiempo real",
-            ]}
-          />
-          <CardOurPlans
-            id={3}
-            title={"Pro"}
-            lists={[
-              "Todas las Funcionalidades de Plan Gratuito",
-              "Generación y envío de facturas",
-              "Informes financieros detallados",
-              "Notificaciones push y correos electrónicos automatizados",
-              "Planificación y programación de tareas de mantenimientos preventivo",
-              "Historial de reparaciones y mantenimiento realizado",
-            ]}
-          />
+          <CardOurPlans data={data[0]} />
+          <CardOurPlans scale={"lg:scale-110"} data={data[1]} />
+
+          <CardOurPlans data={data[2]} />
         </div>
       </div>
     </section>

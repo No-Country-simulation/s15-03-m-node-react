@@ -1,24 +1,20 @@
-import React from "react";
-
-const CardOurPlans = ({ title, lists, scale }) => {
+const CardOurPlans = ({ data, scale }) => {
   return (
     <div
       className={`bg-[#DFE6FF] space-y-6 rounded-lg md:w-72 shadow-lg lg:w-64 ${scale} xl:w-72`}
     >
       <div className="card-body p-0 ">
-        <h2 className=" text-xl font-medium rounded-t-lg p-3 text-[#F5F6FA] bg-[#483AE7] lg:text-2xl">
-          {title}
+        <h2 className=" text-xl font-medium rounded-t-lg p-3 text-[#F5F6FA] bg-[rgb(72,58,231)] lg:text-2xl">
+          {data.title}
         </h2>
-        <p className="text-start px-4 pt-2 text-sm">Incluye:</p>
+        <p className="text-start px-4 pt-2 text-sm font-semibold">Incluye:</p>
         <ul className=" text-start py-1 text-sm space-y-2 md:h-72 lg:h-80 list-disc px-8">
-          {lists &&
-            lists.map((list, index) => {
+          {data.content &&
+            data.content.map((item) => {
               return (
-                <>
-                  <span key={index}>
-                    <li>{list}</li>
-                  </span>
-                </>
+                <span key={item.id}>
+                  <li className="pt-2">{item.text}</li>
+                </span>
               );
             })}
         </ul>
