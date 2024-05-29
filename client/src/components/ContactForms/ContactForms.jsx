@@ -4,8 +4,6 @@ import Image from "./assets/image-contact-form.png";
 import InputField from "../InputField";
 
 const ContactForms = () => {
-  const { register, handleSubmit, watch, errors, onSubmit } = useCustomForm();
-
   const { register, handleSubmit, errors, onSubmit } = useCustomForm({
     urlApi: "/api/contact",
   });
