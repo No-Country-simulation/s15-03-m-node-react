@@ -1,4 +1,3 @@
-//import React from 'react'
 import useCustomForm from "../../hooks/useCustomForm";
 import { VALIDATIONS_FORM } from "../../configs/constants";
 import Image from "./assets/image-contact-form.png";
@@ -6,6 +5,10 @@ import InputField from "../InputField";
 
 const ContactForms = () => {
   const { register, handleSubmit, watch, errors, onSubmit } = useCustomForm();
+
+  const { register, handleSubmit, errors, onSubmit } = useCustomForm({
+    urlApi: "/api/contact",
+  });
 
   return (
     <section id="contactForm" className=" bg-[#F5F6FA] pt-4 pb-9 lg:pb-16">

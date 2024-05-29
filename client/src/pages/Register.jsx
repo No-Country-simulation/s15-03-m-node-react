@@ -47,7 +47,7 @@ const Register = ({ isAdmin }) => {
           </h1>
           <p className=" text-sm pb-6 lg:text-base">
             {isAdmin === "admin"
-              ? "Complete los datos y empiece a disfrutar de los beneficios de una gestión eficiente en su edificio."
+              ? "Complete los datos y empiece a disfrutar de los beneficios de una gestión en su edificio."
               : "Por favor, complete la siguiente información para registrar su residencia en el edificio."}
           </p>
           <form
