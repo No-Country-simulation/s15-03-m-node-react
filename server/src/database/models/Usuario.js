@@ -68,6 +68,14 @@ module.exports = (sequelize, DataTypes) => {
       as: "apartamento",
       foreignKey: "id_apartamento",
     });
+    Usuario.hasMany(models.Reserva, {
+      as: "reservas",
+      foreignKey: "id_usuario",
+    })
+    Usuario.hasMany(models.Anuncio, {
+      as: "anuncios",
+      foreignKey: "id_usuario",
+    })
   };
   return Usuario;
 };

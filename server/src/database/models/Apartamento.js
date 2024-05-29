@@ -41,6 +41,14 @@ module.exports = (sequelize, DataTypes) => {
       as: "edificio",
       foreignKey: "id_edificio",
     });
+    Apartamento.hasMany(models.Mascota, {
+      as: "mascotas",
+      foreignKey: "id_apartamento",
+    });
+    Apartamento.hasMany(models.Vehiculo, {
+      as: "vehiculos",
+      foreignKey: "id_apartamento",
+    });
   }
   return Apartamento;
 }
