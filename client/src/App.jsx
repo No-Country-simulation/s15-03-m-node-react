@@ -1,5 +1,4 @@
 // src/App.js
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Error404 from "./components/Error404";
@@ -9,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Pending from "./components/AcceptPersonal/Pending";
 import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
-import AceptManagment from "./pages/admin/AceptManagment";
+import AceptManagment from "./pages/Admin/AceptManagment";
 
 function App() {
   return (
