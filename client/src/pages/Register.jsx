@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import adminImg from "../assets/Frame 28.png";
 import residentImg from "../assets/Frame 29.png";
 import Select from "../components/Select";
+import PrivacyPolicy from "../components/Modals/Privacy-policy";
 import Alert from "../components/Alert";
 
 const Register = ({ isAdmin }) => {
@@ -30,7 +31,6 @@ const Register = ({ isAdmin }) => {
           isAdmin === "admin" ? "flex-row lg:pl-0" : "flex-row-reverse lg:pl-20"
         }`}
       >
-        
         <div className="min-w-[27.25rem] hidden lg:block">
           <img
             src={isAdmin === "admin" ? adminImg : residentImg}
@@ -39,7 +39,7 @@ const Register = ({ isAdmin }) => {
           />
         </div>
         <section className="w-full px-3">
-          <h1 className="text-3xl pb-2 font-semibold lg:text-4xl">
+          <h1 className="text-3xl pb-2 font-libre font-semibold lg:text-4xl">
             Bienvenido{" "}
             <span className="text-primary">
               {isAdmin === "admin" ? "Administrador" : "Residente"}
@@ -211,7 +211,7 @@ const Register = ({ isAdmin }) => {
             <Section>
               <div className="pb-6">
                 <div className="form-control">
-                  <label className="cursor-pointer flex items-center font-semibold space-x-2">
+                  <div className="cursor-pointer flex items-center font-semibold space-x-2">
                     <input
                       type="checkbox"
                       className={`checkbox checkbox-primary ${
@@ -220,7 +220,8 @@ const Register = ({ isAdmin }) => {
                       name="terms"
                       {...register("terms", VALIDATIONS_FORM.terms)}
                     />
-                    <p
+                    <PrivacyPolicy />
+                    {/* <p
                       className={`label-text ${
                         errors.terms ? "text-red-500" : ""
                       }`}
@@ -229,8 +230,8 @@ const Register = ({ isAdmin }) => {
                       <span className="text-primary underline">
                         Políticas de Privacidad
                       </span>
-                    </p>
-                  </label>
+                    </p> */}
+                  </div>
                 </div>
                 <p className="text-sm text-slate-700 ml-2">
                   Sus datos se almacenarán hasta que elimine su cuenta o ejerza
@@ -238,12 +239,12 @@ const Register = ({ isAdmin }) => {
                 </p>
               </div>
               <div className="flex justify-end gap-4 items">
-                <Link className="btn btn-outline btn-accent" to="/">
+                <Link className="btn btn-outline bg-accent btn-secondary" to="/">
                   Cancelar
                 </Link>
                 <button
                   type="submit"
-                  className="btn btn-accent font-semibold"
+                  className="btn btn-secondary font-semibold"
                   disabled={loading}
                 >
                   {loading ? "Enviando..." : "Registrarme"}

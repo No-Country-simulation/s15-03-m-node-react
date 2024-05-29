@@ -10,7 +10,7 @@ const InputField = ({
   validation,
 }) => {
   return (
-    <label className="form-control w-full">
+    <label className="form-control w-full ">
       <div className="label">
         <span className="label-text flex items-center justify-evenly gap-1">
           {text}
@@ -28,7 +28,7 @@ const InputField = ({
         type={type}
         name={name}
         placeholder={placeholder}
-        className={`input input-bordered input-primary w-full ${
+        className={`input input-bordered input-primary bg-base-200 w-full ${
           error ? "input-error" : ""
         }`}
         {...register(name, validation)}
