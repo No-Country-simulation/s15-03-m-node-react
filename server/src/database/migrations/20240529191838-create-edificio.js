@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable(
-      "unidad_residencial",
+      "edificios",
       {
         id: {
           allowNull: false,
@@ -11,43 +11,37 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER,
         },
-        nombre: {
-          type: Sequelize.STRING(100),
-          allowNull: false,
-        },
-        cuit: {
-          type: Sequelize.STRING(20),
-          allowNull: false,
-        },
-        direccion: {
-          type: Sequelize.STRING(100),
-          allowNull: false,
-        },
-        telefono: {
-          type: Sequelize.STRING(20),
-          allowNull: false,
-        },
-        cant_apartamentos: {
+        numero: {
           type: Sequelize.INTEGER(11),
           allowNull: false,
         },
-        cant_torres: {
+        cant_pisos: {
           type: Sequelize.INTEGER(11),
           allowNull: false,
+        },
+        id_residencia: {
+          type: Sequelize.INTEGER,
+          alertNull: false,
+          references: {
+            model: "Residencias",
+            key: "id",
+          },
+          onUpdate: "CASCADE",
+          onDelete: "CASCADE",
         },
         createdAt: {
           allowNull: false,
           type: Sequelize.DATE,
-          defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+          defaultValue: Sequelize.NOW,
         },
         updatedAt: {
           allowNull: false,
           type: Sequelize.DATE,
-          defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+          defaultValue: Sequelize.NOW,
         },
         deletedAt: {
-          type: Sequelize.DATE,
           allowNull: true,
+          type: Sequelize.DATE,
         },
       },
       {
@@ -58,6 +52,6 @@ module.exports = {
     );
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("unidad_residencial");
+    await queryInterface.dropTable("edificios");
   },
 };
