@@ -31,8 +31,8 @@ function NavBar() {
     </ul>
   </div>
   <div className="navbar-end tracking-wider">
-  <a className="btn m-2 font-bold border-none bg-transparent"><Link to="/register-admin">Registrarse</Link></a>
-  <a className="btn m-2 font-bold bg-secondary"><Link to="/login">Inicio sesion</Link></a>
+  <a className="btn m-2 font-bold font-worksans border-none bg-transparent"><Link to="/register-admin">Registrarse</Link></a>
+  <a className="btn m-2 font-bold font-worksans bg-secondary"><Link to="/login">Inicio sesión</Link></a>
 
   </div>
 </div>

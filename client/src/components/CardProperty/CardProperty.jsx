@@ -11,7 +11,7 @@ function CardProperty() {
     <section className='text-center '>
         <h1 className='text-3xl font-libre font-bold text-center mb-4 mt-20' >Caracteristicas principales</h1>
       
-      <div className="carousel rounded-box p-9 space-x-4  bg-base-100">
+      <div className="carousel rounded-box p-9 w-9/12 space-x-3  bg-base-100">
         <div className="carousel-item w-1/4">
           <img src={image6} alt="icon" />
         </div>

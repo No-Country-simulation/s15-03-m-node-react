@@ -12,7 +12,7 @@ function PostThumbnail() {
         />
         <div className="m-10">
           <h1 className="text-5xl font-bold font-libre">
-            La solucion integral para la <span className="text-primary"> gestion de tu eficiente de tu edificio</span>
+            La solucion integral para la <span className="text-primary"> gestion de tu edificio</span>
           </h1>
           <p className="py-6 font-worksans ">
             Con nuestra plataforma intuitiva y poderosa, poderosa gestionar
