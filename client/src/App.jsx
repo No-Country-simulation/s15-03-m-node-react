@@ -14,7 +14,7 @@ import Layout from "./components/Layout";
 
 function App() {
   return (
-    <>
+    
       <Routes>
         {/* Ruta principal de la app, no hace falta aclararla en el BrowserRouter */}
         <Route path="/" element={<Layout />}>
@@ -34,7 +34,7 @@ function App() {
         <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>
-    </>
+    
   );
 }
 

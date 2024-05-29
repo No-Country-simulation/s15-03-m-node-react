@@ -1,16 +1,18 @@
 import React from "react";
+import adminImg from '../../assets/Frame 5.png';
+
 
 function PostThumbnail() {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-base-100">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img className='lg:max-h-[44rem] pt-14 border-b-[1rem] border-[#483AE7]' src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" alt="Mujer con auriculares" 
-          // src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-          // className="w-2/4 rounded-lg shadow-2xl"
+        <img className='lg:max-h-[44rem] pt-14  border-[#483AE7]' src={adminImg} 
+        alt="foto edificio" 
+          
         />
-        <div>
+        <div className="m-10">
           <h1 className="text-5xl font-bold">
-            La solucion integral para la gestion eficiente de tu edificio
+            La solucion integral para la <span className="text-primary"> gestion de tu eficiente de tu edificio</span>
           </h1>
           <p className="py-6">
             Con nuestra plataforma intuitiva y poderosa, poderosa gestionar
@@ -19,7 +21,8 @@ function PostThumbnail() {
             que esta diseñada para hacer la gestion mas eficiente y efectiva que
             nunca.
           </p>
-          <button className="btn btn-primary">¡Pruevalo gratis ahora!</button>
+          <button className="btn bg-secondary font-semibold text-[#000] m-2">Inicia tu prueva gratis</button>
+          <button className="btn bg-transparent border-secondary m-2">Contáctanos</button>
         </div>
       </div>
     </div>
