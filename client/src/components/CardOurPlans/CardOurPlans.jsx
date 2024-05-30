@@ -7,11 +7,11 @@ const CardOurPlans = ({ title, lists, scale }) => {
                 <h2 className=" text-xl font-medium rounded-t-lg p-3 text-[#F5F6FA] bg-[#483AE7] lg:text-2xl">{title}</h2>
                 <p className='text-start px-4 pt-2 text-sm'>Incluye:</p>
                 <ul className=' text-start py-1 text-sm space-y-2 md:h-72 lg:h-80 list-disc px-8'>
-                    {lists && lists.map((list) => {
+                    {lists && lists.map((list, i) => {
                         return (
-                            <>
+                            <div key={i}>
                                 <li>{list}</li>
-                            </>
+                            </div>
                         )
                     })}
                 </ul>

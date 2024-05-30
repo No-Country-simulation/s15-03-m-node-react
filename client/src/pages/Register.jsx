@@ -47,7 +47,7 @@ const Register = ({ isAdmin }) => {
           </h1>
           <p className=" text-sm pb-6 lg:text-base">
             {isAdmin === "admin"
-              ? "Complete los datos y empiece a disfrutar de los beneficios de una gestión eficiente en su edificio."
+              ? "Complete los datos y empiece a disfrutar de los beneficios de una gestión en su edificio."
               : "Por favor, complete la siguiente información para registrar su residencia en el edificio."}
           </p>
           <form
@@ -221,16 +221,6 @@ const Register = ({ isAdmin }) => {
                       {...register("terms", VALIDATIONS_FORM.terms)}
                     />
                     <PrivacyPolicy />
-                    {/* <p
-                      className={`label-text ${
-                        errors.terms ? "text-red-500" : ""
-                      }`}
-                    >
-                      He leído y aceptado las{" "}
-                      <span className="text-primary underline">
-                        Políticas de Privacidad
-                      </span>
-                    </p> */}
                   </div>
                 </div>
                 <p className="text-sm text-slate-700 ml-2">
@@ -239,7 +229,7 @@ const Register = ({ isAdmin }) => {
                 </p>
               </div>
               <div className="flex justify-end gap-4 items">
-                <Link className="btn btn-outline bg-accent btn-secondary" to="/">
+                <Link className="btn btn-outline md:hidden bg-accent btn-secondary" to="/">
                   Cancelar
                 </Link>
                 <button

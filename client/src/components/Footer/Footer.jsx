@@ -3,7 +3,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import Logo from './assets/Logo-Building-Hub.png'
+import Logo from './assets/Logo-Building.png'
 
 const Footer = () => {
     return (
@@ -11,13 +11,13 @@ const Footer = () => {
             <section className=' md:w-[90%] md:mx-auto space-y-6 lg:flex lg:justify-between md:space-y-0'>
                 <div>
                     <div className='text-[#000] font-semibold space-y-3 flex flex-col md:flex-row md:items-center md:space-y-0 md:space-x-4' >
-                        <a>Características</a>
+                        <a href='#carouselclient' >Características</a>
                         <a>Sobre nosotros</a>
                         <a href='#plans'>Planes</a>
                         <a href='#contactForm'>Contacto</a>
                     </div>
                     <div className='font-medium md:flex md:items-center'>
-                        <img className=' w-52 -ml-11 md:-ml-14' src={Logo} alt="Logo" />
+                        <img className=' w-52 mr-32 mt-8 md:ml-14' src={Logo} alt="Logo" />
                         <div className='space-y-2 text-[#171925] text-xs md:flex md:items-center md:space-y-0 md:space-x-3 lg:-ml-6'>
                             <p>© 2024 - All right reserved</p>
                             <div className="space-x-3 flex items-center">
