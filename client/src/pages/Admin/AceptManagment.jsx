@@ -4,48 +4,43 @@ import Rejected from "../../components/AcceptPersonal/Rejected";
 import OlderPersonal from "../../components/AcceptPersonal/OlderPersonal";
 import BarTitle from "../../components/AcceptPersonal/BarTitle";
 
-export const data = [
+const data = [
   {
     id: 1,
-    name: "Lina",
-    email: "lina@gmail.com",
-    building: "T1",
-    apartment: "A-12",
+    apartment: "401 A",
+    type: "Inquilino",
+    contact: "Miguel",
   },
   {
     id: 2,
-    name: "Edivaldo",
-    email: "edivaldo@gmail.com",
-    building: "T2",
-    apartment: "A-13",
+    apartment: "401 A",
+    type: "Inquilino",
+    contact: "Carlos",
   },
   {
     id: 3,
-    name: "Franco",
-    email: "franco@gmail.com",
-    building: "T3",
-    apartment: "A-14",
+    apartment: "401 A",
+    type: "Inquilino",
+    contact: "Lina",
   },
   {
     id: 4,
     name: "Ignacio",
-    email: "ignacio@gmail.com",
-    building: "T4",
-    apartment: "A-15",
+    apartment: "401 A",
+    type: "Inquilino",
+    contact: "Facundo",
   },
   {
     id: 5,
-    name: "Sebastián",
-    email: "sebastián@gmail.com",
-    building: "T5",
-    apartment: "A-16",
+    apartment: "401 A",
+    type: "Inquilino",
+    contact: "Franco",
   },
   {
     id: 6,
-    name: "Facundo",
-    email: "facundo@gmail.com",
-    building: "T6",
-    apartment: "A-17",
+    apartment: "401 A",
+    type: "Inquilino",
+    contact: "Edivaldo",
   },
 ];
 
