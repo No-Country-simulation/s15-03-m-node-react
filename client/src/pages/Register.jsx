@@ -221,16 +221,6 @@ const Register = ({ isAdmin }) => {
                       {...register("terms", VALIDATIONS_FORM.terms)}
                     />
                     <PrivacyPolicy />
-                    {/* <p
-                      className={`label-text ${
-                        errors.terms ? "text-red-500" : ""
-                      }`}
-                    >
-                      He leído y aceptado las{" "}
-                      <span className="text-primary underline">
-                        Políticas de Privacidad
-                      </span>
-                    </p> */}
                   </div>
                 </div>
                 <p className="text-sm text-slate-700 ml-2">
@@ -239,7 +229,7 @@ const Register = ({ isAdmin }) => {
                 </p>
               </div>
               <div className="flex justify-end gap-4 items">
-                <Link className="btn btn-outline bg-accent btn-secondary" to="/">
+                <Link className="btn btn-outline md:hidden bg-accent btn-secondary" to="/">
                   Cancelar
                 </Link>
                 <button

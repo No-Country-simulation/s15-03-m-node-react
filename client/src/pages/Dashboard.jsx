@@ -1,11 +1,6 @@
-import React from "react";
-import NavbarAdmin from "../components/NavbarAdmin";
-
 const Dashboard = () => {
   return (
     <>
-      <NavbarAdmin />
-
       {/*Sección Datos Unidad Residencial y Administración*/}
       <div className="w-screen mx-auto p-10 shadow-md text-xl mt-12">
         <div className="flex justify-between items-center mb-4">
