@@ -1,69 +1,40 @@
 import React from "react";
-
-// Componente Card reutilizable
-function Card({ image, title, description }) {
-  return (
-    <div className="card w-64 bg-base-100 shadow-xl mr-6">
-      <figure>
-        <img className="h-40" src={image} alt={title} />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title text-3xl font-bold">{title}</h2>
-        <p>{description}</p>
-        <div className="card-actions justify-end"></div>
-      </div>
-    </div>
-  );
-}
+import image6 from "../../assets/Frame 9.png";
+import image7 from "../../assets/Frame 10.png";
+import image8 from "../../assets/Frame 11.png";
+import image9 from "../../assets/Frame 12.png";
+import image10 from "../../assets/Frame 9.png";
+import image11 from "../../assets/Frame 10.png";
 
 function CardProperty() {
-  // Datos de las tarjetas
-  const cards = [
-    {
-      image:
-        "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg",
-      title: "Registro verificado",
-      description:
-        "Todos los perfiles son verificados por tu administración antes de ser publicados en la plataforma para garantizar una experiencia segura.",
-    },
-    {
-      image:
-        "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg",
-      title: "Sala de negocios",
-      description:
-        "Conecta con otros residentes y descubre los servicios que tiene para ofrecer.",
-    },
-    {
-      image:
-        "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg",
-      title: "Reserva tus espacios",
-      description:
-        "Gestiona la reserva de tus zonas sociales, gimnasio, piscina, y los espacios sociales con los que cuenta tu unidad.",
-    },
-    {
-      image:
-        "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg",
-      title: "Servicios de votación",
-      description:
-        "Buen vecino te ahorra gastos adicionales a tu unidad residencial y permite el servicio de votación en asambleas de copropietarios.",
-    },
-  ];
-
   return (
-    <div className="text-center m-1">
-      <h2 className="text-5xl font-bold m-1 p-2">Principales caracteristicas</h2>
-
-      <div className="flex justify-center space-x-4 m-10 p-4 ">
-        {cards.map((card, index) => (
-          <Card
-            key={index}
-            image={card.image}
-            title={card.title}
-            description={card.description}
-          />
-        ))}
+    <section className='text-center '>
+        <h1 className='text-3xl font-libre font-bold text-center mb-4 mt-20' >Caracteristicas principales</h1>
+      
+      <div className="carousel rounded-box p-9 space-x-4  bg-base-100">
+        <div className="carousel-item w-1/4">
+          <img src={image6} alt="icon" />
+        </div>
+        <div className="carousel-item w-1/4">
+          <img src={image7} alt="icon" />
+        </div>
+        <div className="carousel-item w-1/4">
+          <img src={image8} alt="icon" />
+        </div>
+        <div className="carousel-item w-1/4">
+          <img src={image9} alt="icon" />
+        </div>
+        <div className="carousel-item w-1/4">
+          <img src={image10} alt="icon" />
+        </div>
+        <div className="carousel-item w-1/4">
+          <img src={image11} alt="icon" />
+        </div>
+        <div className="carousel-item w-1/4">
+          <img src={image6} alt="icon" />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
