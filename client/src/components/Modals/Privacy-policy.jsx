@@ -4,7 +4,7 @@ const PrivacyPolicy = () => {
       <p>
         He leído y aceptado las{" "}
         <span
-          className="text-blue-600 hover:underline"
+          className="link link-primary"
           onClick={() => document.getElementById("my_modal_3").showModal()}
         >
           Políticas de Privacidad
