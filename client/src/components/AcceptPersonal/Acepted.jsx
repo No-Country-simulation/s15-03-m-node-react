@@ -1,6 +1,12 @@
 import { IoCloseOutline } from "react-icons/io5";
+import { Context } from "../../context/Context";
+import { useContext } from "react";
 
 function Acepted({ data }) {
+  const { userCreated, setUserCreated } = useContext(Context);
+
+  console.log(userCreated);
+
   return (
     <>
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,6 +53,7 @@ function Acepted({ data }) {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-center">
                         <input
                           type="checkbox"
+                          defaultChecked={true}
                           className="checkbox checkbox-sm checkbox-primary"
                         />
                       </td>

@@ -48,6 +48,7 @@ function Rejected({ data }) {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-center">
                         <input
                           type="checkbox"
+                          defaultChecked={true}
                           className="checkbox checkbox-sm checkbox-primary"
                         />
                       </td>
@@ -68,7 +69,7 @@ function Rejected({ data }) {
                         <span className="mr-2 btn btn-outline btn-info btn-sm ">
                           <FaEdit size={20} /> Editar
                         </span>
-                        <span className="btn btn-outline btn-error btn-sm ">
+                        <span className="btn btn-outline btn-error btn-sm mr-2">
                           <IoCloseOutline size={20} /> Eliminar
                         </span>
                       </td>
