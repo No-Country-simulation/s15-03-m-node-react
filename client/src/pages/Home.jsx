@@ -12,12 +12,22 @@ export default function Home() {
   return (
     <>
       <main>
-        
-       <PostThumbnail />
-       <OurPlants />
-       <Testimonials />
-       <ContactForms />
-       
+        <PostThumbnail />
+        <section id="section1">
+          <CarouselClient />
+          <CardProperty />
+        </section>
+        <section id="section2">
+          <PostAboutUs />
+        </section>
+        <section id="section3">
+          <OurPlants />
+          <Testimonials />
+        </section>
+
+        <section id="section4">
+          <ContactForms />
+        </section>
       </main>
     </>
   );

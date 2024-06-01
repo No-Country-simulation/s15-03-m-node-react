@@ -8,6 +8,7 @@ const InputField = ({
   register,
   error,
   validation,
+  is_disabled,
 }) => {
   return (
     <label className="form-control w-full ">
@@ -28,9 +29,10 @@ const InputField = ({
         type={type}
         name={name}
         placeholder={placeholder}
-        className={`input input-bordered input-primary bg-base-200 w-full ${
+        className={` input input-bordered input-primary bg-base-200 w-full ${
           error ? "input-error" : ""
         }`}
+        disabled={is_disabled}
         {...register(name, validation)}
       />
     </label>

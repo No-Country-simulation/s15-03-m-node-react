@@ -11,7 +11,7 @@ const Footer = () => {
             <section className=' md:w-[90%] md:mx-auto space-y-6 lg:flex lg:justify-between md:space-y-0'>
                 <div>
                     <div className='text-[#000] font-semibold space-y-3 flex flex-col md:flex-row md:items-center md:space-y-0 md:space-x-4' >
-                        <a>Características</a>
+                        <a href='#carouselclient' >Características</a>
                         <a>Sobre nosotros</a>
                         <a href='#plans'>Planes</a>
                         <a href='#contactForm'>Contacto</a>
