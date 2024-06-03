@@ -1,31 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import adminImg from '../../assets/Frame 28.png';
-import {useForm} from 'react-hook-form'
-
+import React from "react";
+import { Link } from "react-router-dom";
+import adminImg from "../../assets/Frame 125.png";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const { register, handleSubmit } = useForm();
 
-  const{register,handleSubmit}=useForm()
-
-  const onSubmit= handleSubmit((data)=>{
-    console.log(data)
-  })
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
 
   return (
     <div className="bg-base-100 py-8 flex justify-between gap-6 md:w-[90%] md:mx-auto lg:w-full lg:py-12 flex-row lg:pl-0">
-      <div className="min-w-[27.25rem] hidden lg:block ">
-        <img src={adminImg} alt="Edificio" className="lg:max-h-[40rem] lg:w-full pt-2 " />
-      </div>
-      <section className="w-1/2 px-3">
-        <h1 className="text-3xl pb-2 font-semibold lg:text-4xl">Bienvenido</h1>
-        <p className="text-sm pb-6 lg:text-base">
-          Por favor, complete la siguiente información para iniciar sesión en su cuenta.
+      <section className=" md:w-full lg:w-1/2 px-3 ">
+        <h1 className="text-3xl pb-2 font-semibold font-libre lg:text-4xl">
+          Bienvenido usuario de <br />
+          <span className="text-primary">Building Hub</span>
+        </h1>
+        <p className="text-sm pb-6 lg:text-base font-worksans">
+          Inicie sesión en su cuenta para aprovechar todas las <br />{" "}
+          funcionalidades de la plataforma.
         </p>
-        <form onSubmit={onSubmit}className="flex flex-col gap-9">
+        <p className="font-bold font-worksans">Datos de inicio </p>
+        <form onSubmit={onSubmit} className="flex flex-col gap-9">
           <div className="flex flex-col gap-5 pb-3">
             <div>
-              <label htmlFor="email" className="block text-gray-700 font-bold">
+              <label
+                htmlFor="email"
+                className="block text-gray-700 font-worksans"
+              >
                 Correo electrónico
               </label>
               <input
@@ -33,13 +36,15 @@ const Login = () => {
                 id="email"
                 name="email"
                 placeholder="ejemplo@ejemplo.com"
-                className="w-3/4 mt-1 px-4 py-2 bg-base-200 border border-primary rounded-md focus:outline-none focus:border-primary"
-                {...register("email",{required:true})}
+                className="w-11/12 mt-1 px-4 py-2 bg-base-200 border border-primary rounded-md focus:outline-none focus:border-primary"
+                {...register("email", { required: true })}
               />
-              
             </div>
             <div>
-              <label htmlFor="password" className="block text-gray-700 font-bold">
+              <label
+                htmlFor="password"
+                className="block text-gray-700 font-worksans"
+              >
                 Contraseña
               </label>
               <input
@@ -47,34 +52,43 @@ const Login = () => {
                 id="password"
                 name="password"
                 placeholder="********"
-                className="w-3/4 mt-1 px-4 py-2 bg-base-200 border border-primary rounded-md focus:outline-none focus:border-primary"
-                {...register("password",{required:true})}
+                className="w-11/12 mt-1 px-4 py-2 bg-base-200 border border-primary rounded-md focus:outline-none focus:border-primary"
+                {...register("password", { required: true })}
               />
+              <div className="text-sm mt-2">
+              </div>
             </div>
           </div>
-          <div className="text-sm text-l mt-4">
-            <a className="text-sm mr-px" href="#">
-              ¿Olvidó su contraseña?
-            </a>
-          </div>
-          <div className="flex justify-end gap-4 items">
-            <Link className="btn bg-transparent border-[#FF9337]" to="/">
-              Cancelar
-            </Link>
-            <button type="submit" className="btn bg-[#FF9337] font-semibold text-[#000]">
-              Iniciar sesión
-            </button>
-          </div>
-          <div className="text-sm text-center mt-4">
-            ¿No tienes una cuenta?{' '}
-            <Link className="text-sm mx-2" to="/register-admin">
-              Registro
-            </Link>
+                <a className="text-sm text-l  text-end -m-10 mr-10" href="#">
+                  ¿Olvidó su contraseña?
+                </a>
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-start gap-4 items-center">
+              <button
+                type="submit"
+                className="btn bg-secondary font-semibold text-[#000]"
+              >
+                Iniciar sesión
+              </button>
+              <div className="text-sm text-center mt-8 ml-4">
+                ¿No tienes una cuenta?{" "}
+                <Link className="text-sm mx-2 text-primary" to="/register-admin">
+                  Registro
+                </Link>
+              </div>
+            </div>
           </div>
         </form>
       </section>
+      <div className="min-w-[27.25rem] hidden lg:block">
+        <img
+          src={adminImg}
+          alt="Edificio"
+          className="lg:max-h-[40rem] lg:w-full pt-2"
+        />
+      </div>
     </div>
   );
-}
+};
 
 export default Login;
