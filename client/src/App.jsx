@@ -8,6 +8,7 @@ import Pending from "./components/AcceptPersonal/Pending";
 import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
+import NeigborGroup from "./pages/NeigborGroup";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/list-admin" element={<Pending />} />
         <Route path="/profile" element={<Profile />} /> {/* /:idUser */}
+        <Route path="/neigbor-group" element={<NeigborGroup />} />
         <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>
