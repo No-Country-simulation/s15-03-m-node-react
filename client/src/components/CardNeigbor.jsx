@@ -1,7 +1,7 @@
 const CardNeigbor = ({ name, image, dpto, phone, members, pets }) => {
   return (
     <div className="bg-base-200 shadow-xl w-[24rem] h-[30rem] border rounded-l-3xl border-primary ">
-      <div className="bg-primary w-full h-1/3 rounded-tl-2xl flex items-end justify-center">
+      <div className="bg-primary w-full h-1/3 rounded-tl-2xl flex items-center justify-center">
         <img
           className="w-32 h-32 rounded-full border-base-100 border-2 "
           src={image}
