@@ -88,15 +88,15 @@ function NavBar() {
         </ul>
       </div>
       <div className="navbar-end tracking-wider hidden lg:flex">
-        <a className="btn m-2 font-bold font-worksans border-none bg-transparent ">
-          <Link to="/register-admin">Registrarse</Link>
-        </a>
-        <a className="btn m-2 font-bold font-worksans bg-secondary">
-          <Link to="/login">Inicio sesión</Link>
-        </a>
+        
+        <Link className="btn m-2 font-bold font-worksans border-none bg-transparent " to="/register-admin">Registrarse</Link>
+        <Link className="btn m-2 font-bold font-worksans bg-secondary" to="/login">Inicio sesión</Link>
+        
       </div>
     </div>
   );
 }
 
 export default NavBar;
+        
+        
