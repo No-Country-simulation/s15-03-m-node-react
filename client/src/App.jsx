@@ -8,6 +8,8 @@ import Pending from "./components/AcceptPersonal/Pending";
 import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
+import WelcomeResident from "./components/WelcomeResident/WelcomeResident";
+import WelcomeNavigation from "./components/WelcomeNavigation/WelcomeNavigation";
 import NeigborGroup from "./pages/NeigborGroup";
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path="/register-admin" element={<Register isAdmin />} />
         <Route path="/register-resident" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/welcome" element={<WelcomeResident />} />
+        <Route path="/welcome-navigation" element={<WelcomeNavigation />} />
         <Route path="/list-admin" element={<Pending />} />
         <Route path="/profile" element={<Profile />} /> {/* /:idUser */}
         <Route path="/neigbor-group" element={<NeigborGroup />} />
