@@ -28,12 +28,12 @@ const Register = ({ isAdmin }) => {
     <>
       <div
         className={` py-8 flex justify-between gap-16 md:w-[90%] md:mx-auto lg:w-full lg:py-12 ${
-          isAdmin === "admin" ? "flex-row lg:pl-0" : "flex-row-reverse lg:pl-20"
+          isAdmin ? "flex-row lg:pl-0" : "flex-row-reverse lg:pl-20"
         }`}
       >
         <div className="min-w-[27.25rem] hidden lg:block">
           <img
-            src={isAdmin === "admin" ? adminImg : residentImg}
+            src={isAdmin ? adminImg : residentImg}
             alt="Edificio"
             className="h-full"
           />
@@ -42,11 +42,11 @@ const Register = ({ isAdmin }) => {
           <h1 className="text-3xl pb-2 font-libre font-semibold lg:text-4xl">
             Bienvenido{" "}
             <span className="text-primary">
-              {isAdmin === "admin" ? "Administrador" : "Residente"}
+              {isAdmin ? "Administrador" : "Residente"}
             </span>
           </h1>
           <p className=" text-sm pb-6 lg:text-base">
-            {isAdmin === "admin"
+            {isAdmin
               ? "Complete los datos y empiece a disfrutar de los beneficios de una gestión en su edificio."
               : "Por favor, complete la siguiente información para registrar su residencia en el edificio."}
           </p>
@@ -131,7 +131,7 @@ const Register = ({ isAdmin }) => {
                 />
               </div>
             </Section>
-            {isAdmin === "admin" && (
+            {isAdmin && (
               <Section title="Informacion General de la Unidad:">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pb-3">
                   <InputField
@@ -229,7 +229,10 @@ const Register = ({ isAdmin }) => {
                 </p>
               </div>
               <div className="flex justify-end gap-4 items">
-                <Link className="btn btn-outline md:hidden bg-accent btn-secondary" to="/">
+                <Link
+                  className="btn btn-outline md:hidden bg-accent btn-secondary"
+                  to="/"
+                >
                   Cancelar
                 </Link>
                 <button

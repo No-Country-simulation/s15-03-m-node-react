@@ -1,26 +1,26 @@
 import { useState } from "react";
 import PersonalInfo from "../components/Profile/PersonalInfo";
-import MembersInfo from "../components/Profile/MembersInfo";
-import PetsInfo from "../components/Profile/PetsInfo";
-import CarsInfo from "../components/Profile/CarsInfo";
+import DinamicForm from "../components/Profile/DinamicForm";
 
 const Profile = () => {
+  const [menu, setMenu] = useState(1);
+
   const tabs = ["Personal", "Miembros", "Mascotas", "Vehiculos"];
 
   const [activeTab, setActiveTab] = useState(0);
 
   const tabsContent = [
     <PersonalInfo key={0} />,
-    <MembersInfo key={1} />,
-    <PetsInfo key={2} />,
-    <CarsInfo key={3} />,
-  ]
+    <DinamicForm key={1} type="members" />,
+    <DinamicForm key={2} type="pets" />,
+    <DinamicForm key={3} type="cars" />,
+  ];
 
   return (
-    <div className="flex justify-center items-center gap-5 h-screen">
+    <div className="flex justify-center items-start my-16 gap-5 h-screen">
       <ul className="menu bg-base-200 w-60 min-h-[45rem] border-primary border rounded-l-xl">
         <li>
-          <a className="">
+          <a className={menu === 1 ? "active" : ""} onClick={() => setMenu(1)}>
             <svg
               width="25"
               height="24"
@@ -42,7 +42,7 @@ const Profile = () => {
           </a>
         </li>
         <li className="disabled">
-          <a>
+          <a className={menu === 2 ? "active" : ""} onClick={() => setMenu(2)}>
             <svg
               width="25"
               height="24"
@@ -64,7 +64,7 @@ const Profile = () => {
           </a>
         </li>
         <li>
-          <a>
+          <a className={menu === 3 ? "active" : ""} onClick={() => setMenu(3)}>
             <svg
               width="25"
               height="24"
@@ -88,34 +88,41 @@ const Profile = () => {
           </a>
         </li>
       </ul>
-      <aside className="min-w-[50rem] min-h-[45rem] bg-base-200 ">
-        <div className="flex flex-col gap-4 border-primary border rounded-tr-xl p-8">
-          <h1 className=" font-libre text-5xl">
-            Mi <span className="text-primary">perfil</span>
-          </h1>
-          <p className=" text-lg ">
-            Actualiza tu información personal y la de tu departamento aquí.
-          </p>
-          <div role="tablist" className="tabs tabs-boxed gap-4">
-            {tabs.map((t, i) => (
-              <a
-                key={i}
-                className={
-                  activeTab === i
-                    ? "tab tab-active"
-                    : "tab border border-primary"
-                }
-                onClick={() => setActiveTab(i)}
-              >
-                {t}
-              </a>
-            ))}
+      {menu === 1 && (
+        <aside className="min-w-[50rem] min-h-[35rem] bg-base-200 ">
+          <div className="flex flex-col gap-4 border-primary border rounded-tr-xl p-8">
+            <h1 className=" font-libre text-5xl">
+              Mi <span className="text-primary">perfil</span>
+            </h1>
+            <p className=" text-lg ">
+              Actualiza tu información personal y la de tu departamento aquí.
+            </p>
+            <div role="tablist" className="tabs tabs-boxed gap-4">
+              {tabs.map((t, i) => (
+                <a
+                  key={i}
+                  className={
+                    activeTab === i
+                      ? "tab tab-active"
+                      : "tab border border-primary"
+                  }
+                  onClick={() => setActiveTab(i)}
+                >
+                  {t}
+                </a>
+              ))}
+            </div>
           </div>
+          <div className="p-8 border border-primary rounded-br-lg border-t-0 h-full">
+            {tabsContent[activeTab]}
+          </div>
+        </aside>
+      )}
+      {menu === 3 && (
+        <div className="min-w-[50rem] min-h-[45rem] bg-base-200 grid place-items-center text-3xl text-error border border-primary rounded-r-xl">
+          Seccion no disponible
         </div>
-        <div className="p-8 border border-primary rounded-br-lg border-t-0 h-full">
-          { tabsContent[activeTab] }
-        </div>
-      </aside>
+      )}
     </div>
   );
 };

@@ -23,16 +23,16 @@ export default {
             "primary-content": "#F5F6FA",
             "secondary": "#ffa500", // Color de Naranja para los acentos, para botones que necesitan destacar
             "accent": "#FFF7ED", // Color naranja claro para el background de los acentos
-            "accent-focus": "red",
+            "--accent-focus": "red",
             "accent-content": "blue",
             "base-100": "#F5F6FA", // Color de fondo principal (blanco principal)
             "base-200": "#EEF2FF", // Color de fondo de inputs, navbar, footer, modales, entre otros (violeta muy clarito)
             "base-300": "#171925", // Color de fondo para secciones de la landing page (azul muy oscuro, no lo vi en otro lado asiq no puedo decir donde mas va)
             "info": "#3ABFF8",
             
-            "neutral": "#483AE7", // NO se usa pero tiene q estar porq sino el daisyUI da problemas jaja
+            "neutral": "#DFE6FF", // NO se usa pero tiene q estar porq sino el daisyUI da problemas jaja
             "--neutral-focus": "blue",
-            "neutral-content": "#F5F6FA",
+            "neutral-content": "#171925",
             "base-content" : "#171925" // Color de todos los textos (si a su componente no le dan un color, este es el color q le damos por defecto)
           },
         },
