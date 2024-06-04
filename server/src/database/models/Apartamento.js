@@ -10,10 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER(11),
       allowNull: false,
     },
-    cant_habitaciones: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-    },
     nro_piso: {
       type: DataTypes.INTEGER(11),
       allowNull: true,

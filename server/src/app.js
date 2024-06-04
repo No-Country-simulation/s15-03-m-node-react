@@ -5,6 +5,13 @@ const path = require('path')
 // importamos cors
 const cors = require('cors')
 
+const router = express.Router();
+
+// rutas
+const usuarioRoute = require('./routes/usuariosRoute');
+const reservasRoute = require('./routes/reservasRoute');
+const anuncioRoute = require('./routes/anuncioRoute');
+
 //creamos una instacia de express
 const app = express()
 
@@ -21,6 +28,11 @@ app.use(express.json());
 const swaggerMiddleware = require('./middlewares/swaggerMiddleware')
 
 //importamos rutas
+router.use("/usuarios", usuarioRoute);
+router.use("/reservas", reservasRoute);
+router.use("/anuncio", anuncioRoute);
+
+app.use('/api', router);
 
 //configuramos cors
 app.use(cors())

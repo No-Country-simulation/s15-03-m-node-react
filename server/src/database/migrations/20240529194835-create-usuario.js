@@ -21,7 +21,11 @@ module.exports = {
         type: Sequelize.STRING(20),
         allowNull: false,
       },
-      contraseña: {
+      telefono: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      password: {
         type: Sequelize.STRING(255),
         allowNull: false,
       },
@@ -42,7 +46,7 @@ module.exports = {
       tipo: {
         type: Sequelize.ENUM("propietario", "inquilino", "visitante"),
         allowNull: false,
-        defaultValue: "visitante",
+        defaultValue: "propietario",
       },
       estado: {
         type: Sequelize.ENUM("pendiente", "aprobado", "rechazado"),

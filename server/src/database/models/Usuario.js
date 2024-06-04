@@ -18,12 +18,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(20),
       allowNull: false,
     },
-    contraseña: {
+    password: {
       type: DataTypes.STRING(255),
       allowNull: false,
     },
     email: {
       type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    telefono: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     rol: {
@@ -39,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     tipo: {
       type: DataTypes.ENUM("propietario", "inquilino", "visitante"),
       allowNull: false,
-      defaultValue: "visitante",
+      defaultValue: "propietario",
     },
     estado: {
       type: DataTypes.ENUM("pendiente", "aprobado", "rechazado"),

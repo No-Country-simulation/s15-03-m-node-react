@@ -14,10 +14,6 @@ module.exports = {
         numero: {
           type: Sequelize.INTEGER,
         },
-        cant_habitaciones: {
-          type: Sequelize.INTEGER(11),
-          allowNull: false,
-        },
         nro_piso: {
           type: Sequelize.INTEGER(11),
           allowNull: true,
