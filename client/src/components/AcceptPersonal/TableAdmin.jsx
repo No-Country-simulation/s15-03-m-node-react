@@ -1,9 +1,12 @@
 import { IoCloseOutline } from "react-icons/io5";
 import SearchInput from "./Search";
 import { FaCheck, FaEdit, FaEye } from "react-icons/fa";
+import { useContext } from "react";
+import { Context } from "../../context/Context";
 
 function TableAdmin({ data, status }) {
-  console.log(data, status);
+  const { userCreated } = useContext(Context);
+  console.log(userCreated);
 
   return (
     <>

@@ -9,22 +9,26 @@ import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
 import NeigborGroup from "./pages/NeigborGroup";
+import AceptManagment from "./pages/Admin/AceptManagment";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/board" element={<Board />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register-admin" element={<Register isAdmin />} />
-        <Route path="/register-resident" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/profile" element={<Profile />} /> {/* /:idUser */}
-        <Route path="/neigbor-group" element={<NeigborGroup />} />
-        <Route path="*" element={<Error404 />} />
-      </Route>
-    </Routes>
+    <ContextProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/board" element={<Board />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register-admin" element={<Register isAdmin />} />
+          <Route path="/register-resident" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin-mangment" element={<AceptManagment />} />
+          <Route path="/profile" element={<Profile />} /> {/* /:idUser */}
+          <Route path="/neigbor-group" element={<NeigborGroup />} />
+          <Route path="*" element={<Error404 />} />
+        </Route>
+      </Routes>
+    </ContextProvider>
   );
 }
 
