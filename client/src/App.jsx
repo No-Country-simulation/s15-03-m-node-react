@@ -19,7 +19,7 @@ function App() {
         <Route path="/board" element={<Board />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/register-admin" element={<Register isAdmin="resident" />} />
+        <Route path="/register-admin" element={<Register isAdmin />} />
         <Route path="/register-resident" element={<Register />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
