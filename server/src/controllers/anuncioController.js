@@ -16,12 +16,11 @@ module.exports = {
             if (!user) {
                 return res.status(409).json({ msg: 'El usuario no existe' });
             }
-            if (id_usuario) {
+            if (user) {
                 const newAnuncio = await Anuncio.create({
                     titulo,
                     mensaje,
                     fecha,
-                    es_anuncio,
                     id_usuario
 
                 });

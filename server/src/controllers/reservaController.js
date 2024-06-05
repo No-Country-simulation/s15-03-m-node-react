@@ -13,7 +13,7 @@ create: async (req, res) => {
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-        const { inicio, fin, id_zone, id_usuario } = req.body;
+        const { inicio, fin, id_zona, id_usuario } = req.body;
         /*const user = await Usuario.findOne({ where: { id_usuario } });
         if (!user) {
             return res.status(409).json({ msg: 'El usuario no existe' });
@@ -22,7 +22,7 @@ create: async (req, res) => {
             const newReserva = await Reserva.create({
                 inicio,
                 fin,
-                id_zone,
+                id_zona,
                 id_usuario,
                
             });
