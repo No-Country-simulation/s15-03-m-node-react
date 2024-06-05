@@ -94,11 +94,13 @@ module.exports = {
                         }
                     }
 
-                    for(let j = 1; j <= 10; j++) {
+                    const zonas = ["Pileta", "Gimnasio", "Parrilla", "SUM", "Cocina", "Comedor", "Lavadero", "Perrera"];
+
+                    for(let j = 1; j <= 8; j++) {
                         const newZona = await Zona.create({
                             id_edificio: newEdificio.id,
                             nombre: `Zona ${j}`,
-                            tipo: "Pileta",
+                            tipo: zonas[j-1],
                             activo: false,
                         });
                     }

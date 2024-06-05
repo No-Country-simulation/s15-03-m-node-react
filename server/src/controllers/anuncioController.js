@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
-const { Anuncio } = require('../database/models');
+const { Anuncio, Usuario} = require('../database/models');
 
 
 module.exports = {
@@ -11,19 +11,41 @@ module.exports = {
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array() });
             }
-            const { titulo, mensaje, fecha, es_anuncio, id_usuario } = req.body;
-            const user = await Usuario.findOne({ where: { id_usuario } });
+            const { titulo, mensaje, fecha, es_anuncio, es_negocio, es_incidente, id_usuario, imagen } = req.body;
+            const user = await Usuario.findOne({ where: { id: id_usuario } });
             if (!user) {
                 return res.status(409).json({ msg: 'El usuario no existe' });
             }
             if (user) {
-                const newAnuncio = await Anuncio.create({
-                    titulo,
-                    mensaje,
-                    fecha,
-                    id_usuario
-
-                });
+                if(es_anuncio){
+                    const newAnuncio = await Anuncio.create({
+                        titulo,
+                        mensaje,
+                        fecha,
+                        id_usuario,
+                        es_anuncio: true
+                    });
+                } else if (es_negocio) {
+                    const newAnuncio = await Anuncio.create({
+                        titulo,
+                        mensaje,
+                        fecha,
+                        id_usuario,
+                        es_negocio: true,
+                        es_anuncio: false,
+                        imagen
+                    });
+                } else if (es_incidente) {
+                    const newAnuncio = await Anuncio.create({
+                        titulo,
+                        mensaje,
+                        fecha,
+                        id_usuario,
+                        es_anuncio: false,
+                        es_incidente: true,
+                        imagen
+                    });
+                }
 
                 return res.status(201).json({ msg: "Anuncio creado con exito" });
 
@@ -62,11 +84,14 @@ module.exports = {
             if (!anuncio) {
                 return res.status(404).json({ msg: 'Anuncio no encontrada' });
             }
-            const { titulo, mensaje } = req.body;
-            await Anuncio.update({ titulo, mensaje }, { where: { id } });
+            const { titulo, mensaje, fecha, es_anuncio = false, es_negocio = false, es_incidente = false, imagen } = req.body;
+            await Anuncio.update({ titulo, mensaje, fecha, es_anuncio, es_negocio, es_incidente }, { where: { id } });
+            if(imagen) {
+                await Anuncio.update({ imagen }, { where: { id } });
+            }
             return res.status(200).json({ msg: 'Anuncio actualizado con exito' });
         } catch (error) {
             return res.status(500).json({ msg: error.message });
         }
-}
+    }
 }

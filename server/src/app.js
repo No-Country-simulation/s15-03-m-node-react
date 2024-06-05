@@ -11,6 +11,7 @@ const router = express.Router();
 const usuarioRoute = require('./routes/usuariosRoute');
 const reservasRoute = require('./routes/reservasRoute');
 const anuncioRoute = require('./routes/anuncioRoute');
+const zonasRoute = require('./routes/zonasRoute');
 
 //creamos una instacia de express
 const app = express()
@@ -31,6 +32,7 @@ const swaggerMiddleware = require('./middlewares/swaggerMiddleware')
 router.use("/usuarios", usuarioRoute);
 router.use("/reservas", reservasRoute);
 router.use("/anuncio", anuncioRoute);
+router.use("/zonas", zonasRoute);
 
 app.use('/api', router);
 

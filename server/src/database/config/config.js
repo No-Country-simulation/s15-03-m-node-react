@@ -6,6 +6,7 @@ module.exports = {
     "database": process.env.DB_NAME,
     "host": process.env.DB_HOST,
     "dialect": "mysql",
+    "timezone": "America/Argentina/Buenos_Aires",
     "dialectOptions": {
       "useUTC": false,
       "charset": "utf8mb4",
@@ -14,7 +15,7 @@ module.exports = {
       "bigNumberStrings": true,
       "dateStrings": true,
       "typeCast": true,
-      "timezone": "America/Argentina/Buenos_Aires",
+      "timezone": "local",
       "engine": "INNODB",
       "storageEngine": "INNODB"
     },
