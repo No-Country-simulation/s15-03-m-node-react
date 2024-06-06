@@ -8,6 +8,8 @@ import Pending from "./components/AcceptPersonal/Pending";
 import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
+import Reservation from "./pages/Reservation";
+
 
 function App() {
   return (
@@ -21,6 +23,10 @@ function App() {
         <Route path="/register-resident" element={<Register />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
+
+        
+
+        <Route path="/reservation" element={<Reservation />} />
 
         <Route path="/list-admin" element={<Pending />} />
 
