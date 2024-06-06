@@ -42,9 +42,19 @@ function NavBar() {
               </a>
             </li>
             <li>
-              <a href="#contactForm" className="hover:text-primary">
+              <a href="/#contactForm" className="hover:text-primary">
                 Contacto
               </a>
+            </li>
+            <li>
+              <Link className="hover:text-primary" to="/register-admin">
+                Registrarse
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-primary" to="/login">
+                Inicio sesión
+              </Link>
             </li>
           </ul>
         </div>
@@ -77,19 +87,16 @@ function NavBar() {
           </li>
         </ul>
       </div>
-      <div className="navbar-end tracking-wider">
-        <Link
-          className="btn m-2 font-bold border-none bg-transparent"
-          to="/register-admin"
-        >
-          Registrarse
-        </Link>
-        <Link className="btn m-2 font-bold bg-secondary" to="/login">
-          Inicio sesion
-        </Link>
+      <div className="navbar-end tracking-wider hidden lg:flex">
+        
+        <Link className="btn m-2 font-bold font-worksans border-none bg-transparent " to="/register-admin">Registrarse</Link>
+        <Link className="btn m-2 font-bold font-worksans bg-secondary" to="/login">Inicio sesión</Link>
+        
       </div>
     </div>
   );
 }
 
 export default NavBar;
+        
+        

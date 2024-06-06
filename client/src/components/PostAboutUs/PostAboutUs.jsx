@@ -4,9 +4,9 @@ import imagen from '../../assets/Logo-Building.png'
 
 function PostAboutUs() {
   return (
-  <div id='postaboutus' className="hero min-h-screen bg-base-100 " >
+  <section id='postaboutus' className="hero  bg-base-100 p-6" >
     <div className="hero-content flex-col lg:flex-row-reverse">
-      <img src={imagen} className="w-2/4 rounded-lg " />
+      <img src={imagen} className="w-2/4 rounded-lg min-w-[27.25rem] hidden lg:block" />
       <div className='p-4 border-l-primary border-l-[1rem] '>
         <h1 className="text-5xl font-bold font-libre">Sobre nosotros</h1>
         <p className="py-6 font-worksans">En EdificioManager, nos dedicamos a revolucionar la gestión de edificios y comunidades
@@ -21,7 +21,7 @@ function PostAboutUs() {
         
       </div>
     </div>
-  </div>
+  </section>
   )
 }
 
