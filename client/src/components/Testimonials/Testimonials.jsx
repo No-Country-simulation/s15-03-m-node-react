@@ -7,7 +7,7 @@ import ImageTestimony2 from './assets/Ellipse 11.png'
 const Testimonials = () => {
     return (
         <section className='bg-[#F5F6FA]'>
-            <h2 className=' text-center px-2 text-3xl font-medium pt-12 pb-3 xl:text-4xl'>Que dicen nuestros usuarios</h2>
+            <h2 className='font-libre text-center px-2 text-3xl font-medium pt-12 pb-3 xl:text-4xl'>Que dicen nuestros usuarios</h2>
             <div className="carousel carousel-center w-full p-8 space-x-6 md:w-[90%] md:mx-auto md:flex md:justify-center">
                 <div className="carousel-item">
                     <CardTestimonials

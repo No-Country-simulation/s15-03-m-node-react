@@ -9,7 +9,7 @@ const OurPlans = () => {
     >
       <div className="lg:w-[90%] mx-auto">
         <div className="md:w-[75%] md:mx-auto">
-          <h2 className=" text-3xl pb-2 font-medium text-[#EEF2FF] xl:text-4xl">
+          <h2 className=" text-3xl pb-2 font-libre font-medium text-[#EEF2FF] xl:text-4xl">
             Nuestros planes
           </h2>
           <p className=" text-sm text-[#EEF2FF] lg:pb-4 xl:text-base">
