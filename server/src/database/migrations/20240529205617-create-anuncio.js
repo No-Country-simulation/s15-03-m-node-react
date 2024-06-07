@@ -27,6 +27,20 @@ module.exports = {
         allowNull: false,
         defaultValue: true
       },
+      es_incidente: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
+      es_negocio: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
+      imagen: {
+        type: Sequelize.TEXT,
+        allowNull: true
+      },
       id_usuario: {
         type: Sequelize.INTEGER,
         allowNull: false,

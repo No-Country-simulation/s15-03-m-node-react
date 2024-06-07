@@ -26,6 +26,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: true
     },
+    es_incidente: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    es_negocio: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    imagen: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
     id_usuario: {
       type: DataTypes.INTEGER,
       allowNull: false,
