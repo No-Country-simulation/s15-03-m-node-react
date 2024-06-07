@@ -12,6 +12,7 @@ import WelcomeResident from "./components/WelcomeResident/WelcomeResident";
 import WelcomeNavigation from "./components/WelcomeNavigation/WelcomeNavigation";
 import NeigborGroup from "./pages/NeigborGroup";
 import AceptManagment from "./pages/Admin/AceptManagment";
+import IncidentReport from "./pages/IncidentReport/IncidentReport";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/list-admin" element={<AceptManagment />} />
           <Route path="/profile" element={<Profile />} /> {/* /:idUser */}
           <Route path="/neigbor-group" element={<NeigborGroup />} />
+          <Route path="/incident-report" element={<IncidentReport />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>

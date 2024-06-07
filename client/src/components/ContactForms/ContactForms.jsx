@@ -15,7 +15,7 @@ const ContactForms = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="px-3 md:w-[70%] md:mx-auto"
         >
-          <h2 className="text-center text-[#171925] text-3xl font-medium pt-7 pb-3 xl:text-4xl lg:text-start">
+          <h2 className="text-center font-libre text-[#171925] text-3xl font-medium pt-7 pb-3 xl:text-4xl lg:text-start">
             Contáctate con nosotros
           </h2>
           <p className=" text-center text-sm lg:text-start text-[#000]">
@@ -63,7 +63,7 @@ const ContactForms = () => {
                     </span>
                   </div>
                   <textarea
-                    className="textarea textarea-bordered textarea-md w-full resize-none"
+                    className="textarea textarea-bordered border-primary bg-base-200 textarea-md w-full resize-none"
                     rows={5}
                   ></textarea>
                 </label>
