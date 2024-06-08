@@ -3,6 +3,9 @@ const express = require('express')
 // importamos path
 const path = require('path')
 
+// importamos cors
+const cors = require('cors')
+
 const router = express.Router();
 
 // rutas
@@ -35,17 +38,13 @@ router.use("/zonas", zonasRoute);
 app.use('/api', router);
 
 //configuramos cors
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-    next();
-});
+const corsOptions = {
+    origin: '*',
+    methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}
 
+app.use(cors(corsOptions));
 //habilamos las rutas
 
 // levantamos el servidor
@@ -54,6 +53,5 @@ const  { swaggerDocs } = require('./middlewares/swaggerMiddleware')
 swaggerDocs(app, port);
 app.listen(port, () => {
     console.log(`Server corriendo en  http://localhost:${port}`)
-
     swaggerMiddleware.swaggerDocs(app, port);    
 })
