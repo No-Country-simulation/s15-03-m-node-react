@@ -37,14 +37,9 @@ router.use("/zonas", zonasRoute);
 
 app.use('/api', router);
 
-//configuramos cors
-const corsOptions = {
-    origin: '*',
-    methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}
+app.options("*", cors({ origin: 'http://localhost:5173', optionsSuccessStatus: 200 }));
 
-app.use(cors(corsOptions));
+app.use(cors({ origin: "http://localhost:5173", optionsSuccessStatus: 200 }));
 //habilamos las rutas
 
 // levantamos el servidor
