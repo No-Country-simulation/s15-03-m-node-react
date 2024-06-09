@@ -55,9 +55,11 @@ const customTheme = {
 		"items": {
 		  "base": "grid w-64 grid-cols-4",
 		  "item": {
+			// botones del calendario
 			"base": "block flex-1 cursor-pointer rounded-lg border-0 text-center text-sm font-semibold leading-9 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-600",
 			"selected": "bg-cyan-700 text-white hover:bg-cyan-600",
 			"disabled": "text-gray-500"
+			
 		  }
 		}
 	  },
@@ -86,10 +88,14 @@ const customTheme = {
 
 
 
-export function DatePickerComponent() {
+export function DatePickerComponent({handleChange}) {
   return (
-	<Flowbite >
-      <Datepicker inline theme={ customTheme } showClearButton={false} showTodayButton={false}/>
-    </Flowbite>
+	
+      <Datepicker 
+	   inline theme={ customTheme }
+	   showClearButton={false} 
+	   showTodayButton={false} 
+	   onSelectedDateChanged={ handleChange }/>
+    
   )
 }

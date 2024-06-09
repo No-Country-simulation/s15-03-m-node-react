@@ -1,10 +1,39 @@
 import { DatePickerComponent } from "./DatePickerComponent";
 import TimePickerComponent from "./TimePickerComponent";
-import { Button, Flowbite, Modal } from "flowbite-react";
+import { Modal } from "flowbite-react";
 import { useState } from "react";
+import moment from "moment";
 
 function modalReserva() {
   const [openModal, setOpenModal] = useState(true);
+
+  const reserva = { fecha: "", hora_ini: "", hora_fin: "" };
+
+  const handleChange = (event) => {
+    if (event.target === undefined) {
+      reserva.fecha = moment(event).format("YYYY-MM-DD");
+    } else {
+      if (event.target.name == "hora_ini") {
+        reserva.hora_ini = event.target.value;
+      }
+      if (event.target.name == "hora_fin") {
+        reserva.hora_fin = event.target.value;
+      }
+    }
+    console.log(reserva);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    fecha_ini = reserva.fecha + " " + reserva.hora_ini;
+    fecha_fin = reserva.fecha + " " + reserva.hora_fin;
+
+    // Aquí va el fetch
+    
+    console.log("Reserva creada");
+    setOpenModal(false)
+  };
 
   const customTheme = {
     root: {
@@ -84,43 +113,44 @@ function modalReserva() {
             la aplicación de gestión y seguir las normas de limpieza, dejando el
             área en las mismas condiciones en que la encontraron.
           </p>
-
-          <div className="grid grid-cols-2 gap-8 pt-8">
-            <div>
-              <h2 className="text-2xl font-medium">Seleccionar día</h2>
-              <DatePickerComponent />
-            </div>
-            <div>
-              <h2 className="text-2xl font-medium">
-                Seleccionar rango horario
-              </h2>
-              <TimePickerComponent />
-              <div className="pt-10 relative left-40">
-                <button
-                  onClick={() => setOpenModal(false)}
-                  className="btn btn-primary text-xl"
-                >
-                  Confirmar Reserva
-                </button>
+          <form onSubmit={handleSubmit}>
+            <div className="grid grid-cols-2 gap-8 pt-8">
+              <div>
+                <h2 className="text-2xl font-medium">Seleccionar día</h2>
+                <DatePickerComponent handleChange={handleChange} />
               </div>
-              <h2 className="text-2xl font-medium pt-12">
-                Reservas confirmadas
-              </h2>
-              <div className="flex items-center justify-between bg-white p-4 rounded-lg border border-[#483AE7]">
-                <div>
-                  <p className="text-xl font-medium text-gray-800">
-                    Sebastián Gómez (5B)
-                  </p>
-                  <p className="text-xl text-gray-600">
-                    18/04/2024 desde 12:00 hasta 16:30
-                  </p>
+              <div>
+                <h2 className="text-2xl font-medium">
+                  Seleccionar rango horario
+                </h2>
+                <TimePickerComponent handleChange={handleChange} />
+                <div className="pt-10 relative left-40">
+                  <input
+                    // onClick={() => setOpenModal(false)}
+                    className="btn btn-primary text-xl"
+                    type="submit"
+                    value="Confirmar Reserva"
+                  />
                 </div>
-                <button className="text-red-500 hover:text-red-600 focus:outline-none">
-                  <i className="fas fa-trash"></i>
-                </button>
+                <h2 className="text-2xl font-medium pt-12">
+                  Reservas confirmadas
+                </h2>
+                <div className="flex items-center justify-between bg-white p-4 rounded-lg border border-[#483AE7]">
+                  <div>
+                    <p className="text-xl font-medium text-gray-800">
+                      Sebastián Gómez (5B)
+                    </p>
+                    <p className="text-xl text-gray-600">
+                      18/04/2024 desde 12:00 hasta 16:30
+                    </p>
+                  </div>
+                  <button className="text-red-500 hover:text-red-600 focus:outline-none">
+                    <i className="fas fa-trash"></i>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </Modal.Body>
     </Modal>
