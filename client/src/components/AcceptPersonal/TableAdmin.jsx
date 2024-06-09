@@ -1,12 +1,32 @@
 import { IoCloseOutline } from "react-icons/io5";
 import SearchInput from "./Search";
 import { FaCheck, FaEdit, FaEye } from "react-icons/fa";
-import { useContext } from "react";
-import { Context } from "../../context/Context";
+import { useContext, useState } from "react";
+import Context from "../../context/Context";
 
 function TableAdmin({ data, status }) {
-  const { userCreated } = useContext(Context);
-  console.log(userCreated);
+  const { acceptUser, rejectedUser } = useContext(Context);
+
+  const handleAccept = async (id) => {
+    if (id !== null) {
+      const result = await acceptUser(id);
+      console.log("The result is: ", result);
+    }
+  };
+
+  const handleRejected = async (id) => {
+    if (id !== null) {
+      const result = await rejectedUser(id);
+      console.log("The result is: ", result);
+    }
+  };
+
+  const handleEdit = async (id) => {
+    if (id !== null) {
+      const result = await acceptUser(id);
+      console.log("The result is: ", result);
+    }
+  };
 
   return (
     <>
@@ -59,13 +79,13 @@ function TableAdmin({ data, status }) {
                       />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-center">
-                      {item.apartment}
+                      {item.numero}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                      {item.type}
+                      {item.tipo}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm  text-center">
-                      {item.contact}
+                      {item.telefono}
                     </td>
 
                     <td className="text-center">
@@ -76,10 +96,16 @@ function TableAdmin({ data, status }) {
                       )}
                       {status === "Pending" && (
                         <>
-                          <span className="mr-2 btn btn-outline btn-success btn-sm">
+                          <span
+                            className="mr-2 btn btn-outline btn-success btn-sm"
+                            onClick={() => handleAccept(item.id)}
+                          >
                             <FaCheck size={20} />
                           </span>
-                          <span className="btn btn-outline btn-error btn-sm mr-2">
+                          <span
+                            className="btn btn-outline btn-error btn-sm mr-2"
+                            onClick={() => handleRejected(item.id)}
+                          >
                             <IoCloseOutline size={20} />
                           </span>
                         </>
@@ -87,13 +113,19 @@ function TableAdmin({ data, status }) {
 
                       {status === "Rejected" && (
                         <>
-                          <span className="mr-2 btn btn-outline btn-success btn-sm ">
+                          <span
+                            className="mr-2 btn btn-outline btn-success btn-sm"
+                            onClick={() => handleAccept(item.id)}
+                          >
                             <FaCheck size={20} />
                           </span>
                           <span className="mr-2 btn btn-outline btn-info btn-sm ">
                             <FaEdit size={20} />
                           </span>
-                          <span className="btn btn-outline btn-error btn-sm mr-2">
+                          <span
+                            className="btn btn-outline btn-error btn-sm mr-2"
+                            onClick={() => handleRejected(item.id)}
+                          >
                             <IoCloseOutline size={20} />
                           </span>
                         </>
