@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .vercel
+
+package-lock.json
+package.json
