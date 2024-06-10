@@ -4,8 +4,11 @@ import { Modal } from "flowbite-react";
 import { useState } from "react";
 import moment from "moment";
 
-function modalReserva() {
+function modalReserva({zone}) {
+  const URL = "https://api-test.brangerbriz.com/api";
   const [openModal, setOpenModal] = useState(true);
+
+  const { tipo } = zone;
 
   const reserva = { fecha: "", hora_ini: "", hora_fin: "" };
 
@@ -23,16 +26,30 @@ function modalReserva() {
     console.log(reserva);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     
-    fecha_ini = reserva.fecha + " " + reserva.hora_ini;
-    fecha_fin = reserva.fecha + " " + reserva.hora_fin;
+    let fecha_ini = moment(reserva.fecha + " " + reserva.hora_ini).toLocaleString();
+    let fecha_fin = moment(reserva.fecha + " " + reserva.hora_fin).toLocaleString();
 
     // Aquí va el fetch
+    const response = await fetch( URL + "/reservas/create", {
+      method: "POST",
+      body: JSON.stringify({
+        inicio: fecha_ini,
+          fin: fecha_fin,
+          id_zona: zone.id,
+          id_usuario: "1"
+          
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     
     console.log("Reserva creada");
     setOpenModal(false)
+    console.log(response)
   };
 
   const customTheme = {
@@ -103,7 +120,7 @@ function modalReserva() {
             <i className="fa-solid fa-x text-2xl absolute right-10 top-8"></i>
           </button>
           <h1 className="font-libre text-5xl font-bold py-3">
-            Reservar <span className="text-primary">parrilla</span>
+            Reservar <span className="text-primary">{tipo}</span>
           </h1>
 
           <p className="text-lg">

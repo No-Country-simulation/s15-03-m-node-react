@@ -1,5 +1,5 @@
 import { Datepicker } from "flowbite-react";
-import { Flowbite } from "flowbite-react";
+
 
 const customTheme = {
 	"root": {
