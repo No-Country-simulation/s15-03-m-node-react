@@ -79,6 +79,14 @@ function App() {
             }
           />
           <Route
+            path="/reservation"
+            element={
+              <RequireAuth>
+                <Reservation />
+              </RequireAuth>
+            }
+          />
+          <Route
             path="/neigbor-group"
             element={
               <RequireAuth>
