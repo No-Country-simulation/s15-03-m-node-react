@@ -28,7 +28,7 @@ export const ContextProvider = ({ children }) => {
 
   const loginUser = async (email, password) => {
     try {
-      let url = "http://localhost:3050/api/usuarios/login";
+      let url = "https://api-test.brangerbriz.com/api/usuarios/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
