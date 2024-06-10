@@ -1,4 +1,3 @@
-import React from "react";
 import adminImg from '../../assets/Frame 5.png';
 
 

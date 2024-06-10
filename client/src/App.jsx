@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
+import Reservation from "./pages/Reservation";
 import WelcomeResident from "./components/WelcomeResident/WelcomeResident";
 import WelcomeNavigation from "./components/WelcomeNavigation/WelcomeNavigation";
 import NeigborGroup from "./pages/NeigborGroup";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/welcome" element={<WelcomeResident />} />
           <Route path="/welcome-navigation" element={<WelcomeNavigation />} />
+          <Route path="/reservation" element={<Reservation />} />
           <Route path="/list-admin" element={<AceptManagment />} />
           <Route path="/profile" element={<Profile />} /> {/* /:idUser */}
           <Route path="/neigbor-group" element={<NeigborGroup />} />
