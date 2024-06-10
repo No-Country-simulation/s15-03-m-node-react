@@ -1,53 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableAdmin from "../../components/AcceptPersonal/TableAdmin";
-
-const data = [
-  {
-    id: 1,
-    apartment: "401 A",
-    type: "Inquilino",
-    contact: "Miguel",
-  },
-  {
-    id: 2,
-    apartment: "401 A",
-    type: "Inquilino",
-    contact: "Carlos",
-  },
-  {
-    id: 3,
-    apartment: "401 A",
-    type: "Inquilino",
-    contact: "Lina",
-  },
-  {
-    id: 4,
-    name: "Ignacio",
-    apartment: "401 A",
-    type: "Inquilino",
-    contact: "Facundo",
-  },
-  {
-    id: 5,
-    apartment: "401 A",
-    type: "Inquilino",
-    contact: "Franco",
-  },
-  {
-    id: 6,
-    apartment: "401 A",
-    type: "Inquilino",
-    contact: "Edivaldo",
-  },
-];
+import { useContext } from "react";
+import { Context } from "../../context/Context";
 
 function AceptManagment() {
+  const { users, getApartments, apartments, getUsers } = useContext(Context);
+  const [isChecked, setIsChecked] = useState(false);
+
+  useEffect(() => {
+    getApartments();
+    getUsers();
+  }, []);
+
+  const [completeUser, setCompleteUser] = useState([]);
+  useEffect(() => {
+    if (users.length > 0 && apartments.length > 0) {
+      const combinedData = users.map((user) => {
+        const userApartment = apartments.find(
+          (apartment) => apartment.id === user.id_apartment
+        );
+        return {
+          ...user,
+          apartment: userApartment || null, // Si no se encuentra el apartamento, se establece como null
+        };
+      });
+      setCompleteUser(combinedData);
+    }
+  }, [users, apartments]);
+
   const [tabState, setTabState] = useState(0);
   const array = [
-    <TableAdmin data={data} key={0} status="Pending" />,
-    <TableAdmin data={data} key={1} status="Acepted" />,
-    <TableAdmin data={data} key={2} status="Rejected" />,
-    <TableAdmin data={data} key={3} status="OlderPersonal" />,
+    <TableAdmin data={completeUser} key={0} status="Pending" />,
+    <TableAdmin data={completeUser} key={1} status="Acepted" />,
+    <TableAdmin data={completeUser} key={2} status="Rejected" />,
+    <TableAdmin data={completeUser} key={3} status="OlderPersonal" />,
   ];
 
   return (
@@ -73,7 +59,7 @@ function AceptManagment() {
             className="tab"
             aria-label="Aceptados"
             onClick={() => setTabState(1)}
-            checked
+            defaultChecked={isChecked}
           />
 
           <input

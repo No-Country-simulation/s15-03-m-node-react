@@ -1,13 +1,23 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import adminImg from "../../assets/Frame 125.png";
 import { useForm } from "react-hook-form";
+import Context from "../../context/Context";
+import { useContext } from "react";
 
 const Login = () => {
+  const { loginUser } = useContext(Context);
+
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     console.log(data);
+    const { email, password } = data;
+    try {
+      const response = await loginUser(email, password);
+      console.log("THE RESULT: ", response);
+    } catch (error) {
+      console.log("error", error);
+    }
   });
 
   return (
@@ -55,13 +65,12 @@ const Login = () => {
                 className="w-11/12 mt-1 px-4 py-2 bg-base-200 border border-primary rounded-md focus:outline-none focus:border-primary"
                 {...register("password", { required: true })}
               />
-              <div className="text-sm mt-2">
-              </div>
+              <div className="text-sm mt-2"></div>
             </div>
           </div>
-                <a className="text-sm text-l  text-end -m-10 mr-10" href="#">
-                  ¿Olvidó su contraseña?
-                </a>
+          <a className="text-sm text-l  text-end -m-10 mr-10" href="#">
+            ¿Olvidó su contraseña?
+          </a>
           <div className="flex flex-col gap-4">
             <div className="flex justify-start gap-4 items-center">
               <button
@@ -72,7 +81,10 @@ const Login = () => {
               </button>
               <div className="text-sm text-center mt-8 ml-4">
                 ¿No tienes una cuenta?{" "}
-                <Link className="text-sm mx-2 text-primary" to="/register-admin">
+                <Link
+                  className="text-sm mx-2 text-primary"
+                  to="/register-admin"
+                >
                   Registro
                 </Link>
               </div>

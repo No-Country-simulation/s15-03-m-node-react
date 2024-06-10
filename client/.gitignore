@@ -25,3 +25,6 @@ package-lock.json
 *.sw?
 
 .vercel
+
+package-lock.json
+package.json
