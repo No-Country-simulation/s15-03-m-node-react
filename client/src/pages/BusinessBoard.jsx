@@ -1,66 +1,56 @@
+import axios from "axios";
 import ButtonModalIncidentAndBusiness from "../components/ButtonModalIncidentAndBusiness/ButtonModalIncidentAndBusiness";
 import ButtonModalNews from "../components/ButtonModalNews/ButtonModalNews";
 import CardBusiness from "../components/CardBusiness/CardBusiness";
 import CardIncidentsAndNews from "../components/CardIncidentsAndNews/CardIncidentsAndNews";
+import { useEffect, useState } from "react";
 
 const BusinessBoard = () => {
-	const anunciosPrueba = [
-		{
-			id: 100,
-			name: "Juanito",
-			message:
-				"Oferta de churros rellenos de marroc, envío no incluído en el cargo",
-			date: "18/05/2024",
-		},
-		{
-			id: 101,
-			name: "Pepe",
-			message: "3x2 en venta de libros usados",
-			date: "18/05/2024",
-		},
-		{
-			id: 102,
-			name: "Juana",
-			message: "A partir de la próxima semana puedo reparar celulares",
-			date: "19/05/2024",
-		},
-	];
+	
+	const [newsList, setNewsList] = useState([])
+	const [message, setMessage] = useState('')
+	const [loading, setLoading] = useState(true)
 
-	const negociosPrueba = [
-		{
-			id: 200,
-			name: "La Churrería",
-			description:
-				"Hago churros caseros rellenos de dulce de leche, pastelera, marroc, membrillo o nutela.",
-			address: "3A",
-			contact: "233348273",
-		},
-		{
-			id: 201,
-			name: "Tech Reparaciores",
-			description: "Reparo celulares, tablets, notebooks, etc.",
-			address: "5B",
-			contact: "249582732",
+	const URL = 'https://api-test.brangerbriz.com/api'
+
+	const getNewsList = async () => {
+		try {
+			const response = await axios.get(URL + '/anuncio/list')
+			const newsListData = await response.data
+			setNewsList(newsListData)
+			if (newsListData.length === 0) setMessage('No hay anuncios')
+		} catch (error) {
+			setMessage('Error al cargar los anuncios')
+		} finally {
+			setLoading(false)
 		}
-	];
+	}
+
+	useEffect(() => {
+		getNewsList()
+	}, [])
 
 	return (
-		<section className='px-3 pb-8 md:w-[90%] md:mx-auto md:py-6 xl:py-10'>
+		<section className='px-3 min-h-screen pb-8 md:w-[90%] md:mx-auto md:py-6 xl:py-10'>
 			<h2 className=' font-libre font-bold py-3 text-2xl xl:text-4xl'>Sala de <span className=' text-primary'>negocios</span></h2>
 			<p className="text-sm text-base-300">Este espacio está diseñado para fomentar el espíritu emprendedor y la colaboración entre los residentes, brindando una plataforma donde pueden promocionar sus servicios, productos y eventos especiales, así como mantenerse informados sobre las iniciativas locales.</p>
-			<section className=" py-6 flex flex-col space-y-5 lg:space-y-0  lg:flex-row lg:justify-between">
-				<section className=' border space-y-4 border-primary rounded-md p-5 bg-base-200 lg:w-[60%]'>
+			<section className=" py-6 space-y-5 lg:space-y-0">
+				<section className=' border space-y-4 border-primary rounded-md p-5 bg-base-200'>
 					<div className=' space-y-3 md:flex items-center justify-between md:space-y-0'>
 						<h4 className="font-semibold">Anuncios y novedades</h4>
 						<ButtonModalNews
-							buttonName='Publicar anuncio'
-							title='Publicar'
-							spanTitle='anuncio'
+							getNewsList={getNewsList}
 						/>
 					</div>
 					<div className='space-y-5'>
-						{
-							anunciosPrueba && anunciosPrueba.map((item) => {
+						{ loading ? 
+							<div className=" flex justify-center">
+								<p className="loading loading-bars loading-lg text-primary"></p>
+							</div> 
+						: 
+							message ? <p className=" text-lg text-center font-medium">{ message }</p>
+						:
+							newsList.map((item) => {
 								const { id, name, message, date } = item
 								return (
 									<div key={id}>
@@ -75,43 +65,7 @@ const BusinessBoard = () => {
 						}
 					</div>
 				</section>
-				<section className=' border space-y-4 border-[#FF9337] rounded-md p-5 bg-[#fff7ed] lg:w-[35%]'>
-					<div className=' space-y-3 md:flex items-center justify-between md:space-y-0'>
-						<h4 className="font-semibold">Negocios</h4>
-						<ButtonModalIncidentAndBusiness
-							buttonName='Agregar negocio'
-							title='Agregar'
-							spanTitle='negocio'
-							spanStyle='#F05806'
-							buttonStyleSubmit='#FF9337'
-							buttonNameSubmit='Agregar'
-							backgroundColor='#fff7ed'
-
-						/>
-					</div>
-					<div className='space-y-5'>
-
-						{
-							negociosPrueba && negociosPrueba.map((item) => {
-								const { id, name, date, address, description, contact } = item
-								return (
-									<div key={id}>
-										<CardBusiness
-											reportTitle={name}
-											description={description}
-											date={date}
-											address={address}
-											contact={contact}
-										/>
-									</div>
-								)
-							})
-						}
-					</div>
-				</section>
 			</section>
-
-
 		</section>
 	);
 };
