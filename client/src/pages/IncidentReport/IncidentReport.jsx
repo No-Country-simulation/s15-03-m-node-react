@@ -23,8 +23,7 @@ const IncidentReport = () => {
 						title='Reportar'
 						spanTitle='incidente'
 						buttonNameSubmit='Reportar'
-
-					/>
+                    />
                 </div>
                 <div className=' space-y-5'>
                     {
