@@ -104,6 +104,14 @@ const PersonalInfo = ({ user }) => {
             errors={errors}
             is_disabled
           />
+          <InputField
+            text="Telefono"
+            type="tel"
+            name="telefono"
+            value={profile.telefono}
+            register={register}
+            errors={errors}
+          />
           <h1 className="col-span-2">Informacion de la residencia</h1>
           <InputField
             text="Numero de apartamento"
