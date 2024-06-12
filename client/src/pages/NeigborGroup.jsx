@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CardNeigbor from "../components/CardNeigbor";
+import Context from "../context/Context";
 
 const NeigborGroup = () => {
   const [search, setSearch] = useState("");
   const [neigbors, setNeigbors] = useState([]);
   const [originNeigbors, setOriginNeigbors] = useState([]);
 
+  const { users, getUsers } = useContext(Context);
+
   useEffect(() => {
-    fetch("https://randomuser.me/api/?results=10")
-      .then((res) => res.json())
-      .then((data) => {
-        setNeigbors(data.results);
-        setOriginNeigbors(data.results);
-      });
+    getUsers();
+    setNeigbors(users);
+    setOriginNeigbors(users);
   }, []);
 
   const handleChange = (e) => {
@@ -24,8 +24,8 @@ const NeigborGroup = () => {
     } else {
       const filteredNeigbors = originNeigbors.filter(
         (neigbor) =>
-          neigbor.name.first.toLowerCase().includes(search.toLowerCase()) ||
-          neigbor.name.last.toLowerCase().includes(search.toLowerCase())
+          neigbor.nombre.toLowerCase().includes(search.toLowerCase()) ||
+          neigbor.apellido.toLowerCase().includes(search.toLowerCase())
       );
       setNeigbors(filteredNeigbors);
     }
@@ -44,15 +44,15 @@ const NeigborGroup = () => {
         edificio.
       </p>
       <div>
-        <label className="input input-bordered input-primary mb-4 flex items-center gap-2">
+        <label className="form-control flex items-center gap-2 input-primary mb-6 w-96">
           <input
             type="text"
-            className="grow"
+            className="input input-bordered input-primary w-full"
             placeholder="Busca a un vecino por nombre"
             onChange={handleChange}
             value={search}
           />
-          <svg
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
             fill="currentColor"
@@ -63,19 +63,24 @@ const NeigborGroup = () => {
               d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
               clipRule="evenodd"
             />
-          </svg>
+          </svg> */}
         </label>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {neigbors.map((neigbor) => (
-          <CardNeigbor
-            key={neigbor.login.uuid}
-            name={neigbor.name.first + " " + neigbor.name.last}
-            image={neigbor.picture.large}
-            dpto={neigbor.location.state}
-            phone={neigbor.phone}
-          />
-        ))}
+        {!neigbors ? (
+          <div className="flex justify-center items-center w-full min-h-[40vh]">
+            <span className="loading loading-bars w-16 h-16"></span>
+          </div>
+        ) : (
+          neigbors.map((neigbor) => (
+            <CardNeigbor
+              key={neigbor.id}
+              name={neigbor.nombre + " " + neigbor.apellido}
+              dpto={neigbor.tipo}
+              phone={neigbor.telefono}
+            />
+          ))
+        )}
       </div>
     </div>
   );

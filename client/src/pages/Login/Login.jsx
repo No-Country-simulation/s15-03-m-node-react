@@ -13,8 +13,8 @@ const Login = () => {
     console.log(data);
     const { email, password } = data;
     try {
-      const response = await loginUser(email, password);
-      console.log("THE RESULT: ", response);
+      await loginUser(email, password);
+      console.log("Se inicio sesion correctamente!!!");
     } catch (error) {
       console.log("error", error);
     }

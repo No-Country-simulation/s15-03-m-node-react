@@ -35,11 +35,15 @@ const DinamicForm = ({ type }) => {
 
   const [extras, setExtras] = useState([]);
 
-  const addExtra = (e) => {
+  const addExtra = (data) => {
+    setExtras([...extras, data]);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    setExtras([...extras, data]);
+    addExtra(data);
     e.target.reset();
   };
 
@@ -50,14 +54,17 @@ const DinamicForm = ({ type }) => {
           <p className="font-bold">
             {currentType.name} {i + 1}
           </p>
-          <form className="grid grid-cols-2 gap-6" onSubmit={addExtra}>
+          <form
+            className="grid grid-cols-2 gap-6"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <InputField
               text={currentType.input1}
               type="text"
               name="firstName"
               register={register}
               errors={errors}
-              value={e.name}
+              value={e.firstName}
             />
             <InputField
               text={currentType.input2}
@@ -65,7 +72,7 @@ const DinamicForm = ({ type }) => {
               name="lastName"
               register={register}
               errors={errors}
-              value={e.last}
+              value={e.lastName}
             />
             <InputField
               text={currentType.input3}
@@ -102,12 +109,44 @@ const DinamicForm = ({ type }) => {
           </form>
         </div>
       ))}
-      <div className="flex justify-end gap-4 mt-6">
-        <button className="btn btn-primary btn-outline">Editar</button>
-        <button onClick={addExtra} className="btn btn-primary">
-          Agregar
-        </button>
-      </div>
+      <p className="font-bold">{currentType.name}</p>
+      <form className="grid grid-cols-2 gap-6 mt-6" onSubmit={handleSubmit}>
+        <InputField
+          text={currentType.input1}
+          type="text"
+          name="firstName"
+          register={register}
+          errors={errors}
+        />
+        <InputField
+          text={currentType.input2}
+          type="text"
+          name="lastName"
+          register={register}
+          errors={errors}
+        />
+        <InputField
+          text={currentType.input3}
+          type="text"
+          name="dni"
+          register={register}
+          errors={errors}
+        />
+        {(type === "members" || type === "cars") && (
+          <InputField
+            text={currentType.input4}
+            type="text"
+            name="phone"
+            register={register}
+            errors={errors}
+          />
+        )}
+        <div className="flex justify-end gap-4 col-span-2">
+          <button type="submit" className="btn btn-primary">
+            Agregar
+          </button>
+        </div>
+      </form>
     </>
   );
 };

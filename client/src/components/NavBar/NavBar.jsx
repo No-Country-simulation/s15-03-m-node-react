@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import Logo from "../../assets/Logo-Building.png";
+import { useContext } from "react";
+import Context from "../../context/Context";
+import { jwtDecode } from "jwt-decode";
 
 function NavBar() {
+  const { authTokens, logoutUser } = useContext(Context);
+
+  let { nombre, apellido, id } = {};
+
+  if (authTokens) {
+    ({ nombre, apellido, id } = jwtDecode(authTokens));
+  }
+
   return (
     <div className="navbar bg-base-200">
       <div className="navbar-start">
@@ -59,44 +70,115 @@ function NavBar() {
           </ul>
         </div>
 
-        <Link to="/">
+        <Link to={authTokens ? "/welcome-navigation" : "/"}>
           <img className=" w-52 ml-11 " src={Logo} alt="Logo" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex text-base-content font-bold  g-wider">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <a href="#carouselclient" className="hover:text-primary">
-              Caracteristicas
-            </a>
-          </li>
-          <li>
-            <a href="#postaboutus" className="hover:text-primary">
-              Sobre nosotros
-            </a>
-          </li>
-          <li>
-            <a href="#plans" className="hover:text-primary">
-              Planes
-            </a>
-          </li>
-          <li>
-            <a href="#contactForm" className="hover:text-primary">
-              Contacto
-            </a>
-          </li>
+          {authTokens ? (
+            <>
+              <li>
+                <Link to="/incident-report">Incidentes</Link>
+              </li>
+              <li>
+                <Link to="/reservation">Espacios comunes</Link>
+              </li>
+              <li>
+                <Link to="/board">Sala de negocios</Link>
+              </li>
+              <li>
+                <Link to="/neigbor-group">Vecinos</Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <a href="#carouselclient" className="hover:text-primary">
+                  Caracteristicas
+                </a>
+              </li>
+              <li>
+                <a href="#postaboutus" className="hover:text-primary">
+                  Sobre nosotros
+                </a>
+              </li>
+              <li>
+                <a href="#plans" className="hover:text-primary">
+                  Planes
+                </a>
+              </li>
+              <li>
+                <a href="#contactForm" className="hover:text-primary">
+                  Contacto
+                </a>
+              </li>
+            </>
+          )}
         </ul>
       </div>
       <div className="navbar-end tracking-wider hidden lg:flex">
-        
-        <Link className="btn m-2 font-bold font-worksans border-none bg-transparent " to="/register-admin">Registrarse</Link>
-        <Link className="btn m-2 font-bold font-worksans bg-secondary" to="/login">Inicio sesión</Link>
-        
+        {authTokens ? (
+          <>
+            <p className="font-medium mr-2">{`${nombre} ${apellido}`}</p>
+            <div className="dropdown dropdown-end">
+              <div className="avatar" role="button" tabIndex={0}>
+                <div className="w-14 rounded-full">
+                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-4 shadow bg-base-100 rounded-box w-[20rem] flex gap-2"
+              >
+                <p className="font-medium text-center text-lg">Mi Cuenta</p>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <Link to={`/profile/${id}`}>Mi perfil</Link>
+                </li>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <button>Cambiar al modo oscuro</button>
+                </li>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <button>Configuracion y privacidad</button>
+                </li>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <button>Ayuda y soporte técnico</button>
+                </li>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <button
+                    className="btn btn-outline btn-secondary"
+                    onClick={logoutUser}
+                  >
+                    Cerrar Sesión
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </>
+        ) : (
+          <>
+            <Link
+              className="btn m-2 font-bold font-worksans border-none bg-transparent "
+              to="/register-admin"
+            >
+              Registrarse
+            </Link>
+            <Link
+              className="btn m-2 font-bold font-worksans bg-secondary"
+              to="/login"
+            >
+              Inicio sesión
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
 export default NavBar;
-        
-        
