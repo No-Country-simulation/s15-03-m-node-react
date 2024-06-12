@@ -18,8 +18,8 @@ function useCustomForm({ urlApi, sendTo }) {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      await axios.post(urlApi, data);
-      console.log({ urlApi, data, sendTo });
+      const response = await axios.post(urlApi, data);
+      console.log({ urlApi, data, sendTo, response });
       setErrorsBackend(null);
       if (sendTo) {
         navigate(sendTo);

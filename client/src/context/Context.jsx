@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -18,31 +17,16 @@ export const ContextProvider = ({ children }) => {
       : null
   );
 
-  const [user, setUser] = useState(
-    localStorage.getItem("authTokens")
-      ? jwtDecode(localStorage.getItem("authTokens"))
-      : null
-  );
-
-  const [loading, setLoading] = useState(true);
-
   const loginUser = async (email, password) => {
     try {
       let url = "https://api-test.brangerbriz.com/api/usuarios/login";
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await response.json();
+      const response = await axios.post(url, { email, password });
 
+      const { data } = response;
       if (response.status === 200) {
         setAuthTokens(data.token);
-        //setUser(jwtDecode(data.access));
         localStorage.setItem("authTokens", JSON.stringify(data.token));
-        navigate("/");
+        navigate("/welcome");
         console.log("Login Success");
       } else {
         console.log(response.status);
@@ -57,15 +41,12 @@ export const ContextProvider = ({ children }) => {
   const getUsers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3050/api/usuarios/list",
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        "https://api-test.brangerbriz.com/api/usuarios/list"
       );
       if (response.statusText === "OK") {
-        setUsers(response.data);
+        if (users.length === 0) {
+          setUsers(response.data);
+        }
       } else {
         console.log(response.error);
       }
@@ -77,15 +58,12 @@ export const ContextProvider = ({ children }) => {
   const getApartments = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3050/api/apartamento/list",
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        "http://localhost:3050/api/apartamento/list"
       );
       if (response.statusText === "OK") {
-        setApartments(response.data);
+        if (apartments.length === 0) {
+          setApartments(response.data);
+        }
       } else {
         console.log(response.error);
       }
@@ -136,9 +114,8 @@ export const ContextProvider = ({ children }) => {
 
   const logoutUser = () => {
     setAuthTokens(null);
-    setUser(null);
-    localStorage.removeItem("authTokens");
-    navigate("/login");
+    localStorage.clear();
+    navigate("/");
   };
 
   return (
@@ -152,9 +129,6 @@ export const ContextProvider = ({ children }) => {
         getApartments,
         acceptUser,
         rejectedUser,
-
-        user,
-        setUser,
         authTokens,
         setAuthTokens,
         loginUser,

@@ -7,7 +7,7 @@ import adminImg from "../assets/Frame 28.png";
 import residentImg from "../assets/Frame 29.png";
 import Select from "../components/Select";
 import PrivacyPolicy from "../components/Modals/Privacy-policy";
-import Alert from "../components/Alert";
+// import Alert from "../components/Alert";
 
 const Register = ({ isAdmin }) => {
   const {
@@ -16,11 +16,12 @@ const Register = ({ isAdmin }) => {
     watch,
     errors,
     onSubmit,
-    errorsBackend,
+    // errorsBackend,
     loading,
   } = useCustomForm({
-    urlApi:
-      isAdmin === "admin" ? "/api/register-admin" : "/api/register-resident",
+    urlApi: isAdmin
+      ? "https://api-test.brangerbriz.com/api/usuarios/register"
+      : "/api/register-resident",
     sendTo: "/login",
   });
 
@@ -96,7 +97,7 @@ const Register = ({ isAdmin }) => {
                 <InputField
                   text="Nombres:"
                   type="text"
-                  name="firstName"
+                  name="nombre"
                   placeholder="Juan Pablo"
                   register={register}
                   error={errors.firstName}
@@ -105,7 +106,7 @@ const Register = ({ isAdmin }) => {
                 <InputField
                   text="Apellidos:"
                   type="text"
-                  name="lastName"
+                  name="apellido"
                   placeholder="Perez Parra"
                   register={register}
                   error={errors.lastName}
@@ -114,7 +115,7 @@ const Register = ({ isAdmin }) => {
                 <InputField
                   text="Teléfono:"
                   type="tel"
-                  name="personalPhone"
+                  name="telefono"
                   placeholder="111-111-1111"
                   register={register}
                   error={errors.personalPhone}
@@ -123,7 +124,7 @@ const Register = ({ isAdmin }) => {
                 <InputField
                   text="Cedula/DNI:"
                   type="number"
-                  name="documentNumber"
+                  name="dni"
                   placeholder="12345678"
                   register={register}
                   error={errors.documentNumber}
@@ -146,7 +147,7 @@ const Register = ({ isAdmin }) => {
                   <InputField
                     text="Nit/CUIL/CUIT:"
                     type="number"
-                    name="nitOrCuit"
+                    name="cuit"
                     placeholder="11-11111111-1"
                     register={register}
                     error={errors.nitOrCuit}
@@ -155,7 +156,7 @@ const Register = ({ isAdmin }) => {
                   <InputField
                     text="Dirección:"
                     type="text"
-                    name="address"
+                    name="direccion"
                     placeholder="Gral. Pablo Iglesias 123"
                     register={register}
                     error={errors.address}
@@ -173,7 +174,7 @@ const Register = ({ isAdmin }) => {
                   <InputField
                     text="Cant. de torres/edificios:"
                     type="number"
-                    name="towers"
+                    name="cantidad_edificios"
                     placeholder="5"
                     register={register}
                     error={errors.towers}
@@ -182,7 +183,7 @@ const Register = ({ isAdmin }) => {
                   <InputField
                     text="Cant. de dptos por torre/edificio:"
                     type="number"
-                    name="departments"
+                    name="cantidad_departamentos_por_piso"
                     placeholder="4"
                     register={register}
                     error={errors.departments}
@@ -191,7 +192,7 @@ const Register = ({ isAdmin }) => {
                   <InputField
                     text="Cant. de pisos por torres/edificios:"
                     type="number"
-                    name="floors"
+                    name="cant_pisos"
                     placeholder="3"
                     register={register}
                     error={errors.floors}
@@ -247,7 +248,7 @@ const Register = ({ isAdmin }) => {
           </form>
         </section>
       </div>
-      {errorsBackend && <Alert text={errorsBackend} />}
+      {/* {errorsBackend && <Alert text={errorsBackend} />} */}
     </>
   );
 };

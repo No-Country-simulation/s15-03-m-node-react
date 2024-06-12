@@ -1,12 +1,21 @@
 import { DatePickerComponent } from "./DatePickerComponent";
 import TimePickerComponent from "./TimePickerComponent";
 import { Modal } from "flowbite-react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import moment from "moment";
+import { jwtDecode } from "jwt-decode";
+import Context from "../context/Context";
 
-function modalReserva({zone}) {
+function ModalReserva({ zone }) {
   const URL = "https://api-test.brangerbriz.com/api";
   const [openModal, setOpenModal] = useState(true);
+
+  // Seteo el context en el modal
+  const { authTokens } = useContext(Context);
+  let { id } = {};
+  if (authTokens) {
+    ({ id } = jwtDecode(authTokens));
+  }
 
   const { tipo } = zone;
 
@@ -28,28 +37,31 @@ function modalReserva({zone}) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    let fecha_ini = moment(reserva.fecha + " " + reserva.hora_ini).toLocaleString();
-    let fecha_fin = moment(reserva.fecha + " " + reserva.hora_fin).toLocaleString();
+
+    let fecha_ini = moment(
+      reserva.fecha + " " + reserva.hora_ini
+    ).toLocaleString();
+    let fecha_fin = moment(
+      reserva.fecha + " " + reserva.hora_fin
+    ).toLocaleString();
 
     // Aquí va el fetch
-    const response = await fetch( URL + "/reservas/create", {
+    const response = await fetch(URL + "/reservas/create", {
       method: "POST",
       body: JSON.stringify({
         inicio: fecha_ini,
-          fin: fecha_fin,
-          id_zona: zone.id,
-          id_usuario: "1"
-          
+        fin: fecha_fin,
+        id_zona: zone.id,
+        id_usuario: id,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    
+
     console.log("Reserva creada");
-    setOpenModal(false)
-    console.log(response)
+    setOpenModal(false);
+    console.log(response);
   };
 
   const customTheme = {
@@ -174,4 +186,4 @@ function modalReserva({zone}) {
   );
 }
 
-export default modalReserva;
+export default ModalReserva;
