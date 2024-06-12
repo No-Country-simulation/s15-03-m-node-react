@@ -80,13 +80,13 @@ function NavBar() {
             (rol === "admin" && (
               <>
                 <li>
-                  <Link to="/list-admin">Aprobacion de recidentes</Link>
+                  <Link to="/list-admin">Aprobación de residentes</Link>
                 </li>
                 <li>
                   <Link to="/reservation">Espacios comunes</Link>
                 </li>
                 <li>
-                  <Link to="/neigbor-group">Sala de negocios</Link>
+                  <Link to="/board">Sala de negocios</Link>
                 </li>
               </>
             )) ||

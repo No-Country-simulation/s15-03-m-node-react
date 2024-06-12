@@ -121,7 +121,7 @@ const Register = ({ isAdmin }) => {
                 />
                 <InputField
                   text="Cedula/DNI:"
-                  type="number"
+                  type="text"
                   name="dni"
                   placeholder="12345678"
                   register={register}

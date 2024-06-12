@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import Error404 from "./pages/Error404";
 import Board from "./pages/BusinessBoard";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
@@ -35,14 +34,6 @@ function App() {
           element={
             <RequireAuth>
               <Board />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <RequireAuth>
-              <Dashboard />
             </RequireAuth>
           }
         />

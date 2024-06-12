@@ -20,7 +20,7 @@ const Profile = () => {
   ];
 
   return (
-    <div className="flex justify-center items-start my-16 gap-5 h-screen">
+    <div className="flex justify-center items-start my-16 gap-5 min-h-screen">
       <ul className="menu bg-base-200 w-60 min-h-[45rem] border-primary border rounded-l-xl">
         <li>
           <a className={menu === 1 ? "active" : ""} onClick={() => setMenu(1)}>
