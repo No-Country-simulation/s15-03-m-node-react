@@ -1,6 +1,6 @@
 import Section from "../components/Section";
 import InputField from "../components/InputField";
-import { VALIDATIONS_FORM } from "../configs/constants";
+import { URL, VALIDATIONS_FORM } from "../configs/constants";
 import useCustomForm from "../hooks/useCustomForm";
 import { Link } from "react-router-dom";
 import adminImg from "../assets/Frame 28.png";
@@ -19,9 +19,7 @@ const Register = ({ isAdmin }) => {
     // errorsBackend,
     loading,
   } = useCustomForm({
-    urlApi: isAdmin
-      ? "https://api-test.brangerbriz.com/api/usuarios/register"
-      : "/api/register-resident",
+    urlApi: `${URL}/usuarios/register`,
     sendTo: "/login",
   });
 

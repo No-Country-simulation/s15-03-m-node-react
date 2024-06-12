@@ -44,7 +44,7 @@ const NeigborGroup = () => {
         edificio.
       </p>
       <div>
-        <label className="form-control flex items-center gap-2 input-primary mb-6 w-96">
+        <label className="form-control flex items-center gap-2 input-primary my-6 w-96">
           <input
             type="text"
             className="input input-bordered input-primary w-full"

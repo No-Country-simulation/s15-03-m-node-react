@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+// import { URL } from "../configs/constants";
 
 export const Context = createContext();
 
@@ -58,7 +59,7 @@ export const ContextProvider = ({ children }) => {
   const getApartments = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3050/api/apartamento/list"
+        "https://api-test.brangerbriz.com/api/apartamento/list"
       );
       if (response.statusText === "OK") {
         if (apartments.length === 0) {
@@ -75,7 +76,7 @@ export const ContextProvider = ({ children }) => {
   const acceptUser = async (id) => {
     try {
       const response = await axios.put(
-        `http://localhost:3050/api/usuarios/approve/${id}`,
+        `https://api-test.brangerbriz.com/api/usuarios/approve/${id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -95,7 +96,7 @@ export const ContextProvider = ({ children }) => {
   const rejectedUser = async (id) => {
     try {
       const response = await axios.put(
-        `http://localhost:3050/api/usuarios/disapprove/${id}`,
+        `https://api-test.brangerbriz.com/api/usuarios/disapprove/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

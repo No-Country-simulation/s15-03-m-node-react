@@ -4,6 +4,7 @@ import InputField from "../InputField";
 import cargarImg from "../../assets/cargarImagen.jpg";
 import { uploadImg } from "../../utils/handleImgs";
 import axios from "axios";
+import { URL } from "../../configs/constants";
 
 const PersonalInfo = ({ user }) => {
   const { register, errors, handleSubmit } = useCustomForm({
@@ -14,12 +15,7 @@ const PersonalInfo = ({ user }) => {
 
   const getUser = async (id) => {
     try {
-      const response = await axios.get(
-        `https://api-test.brangerbriz.com/api/usuarios/info/${id}`,
-        {
-          headers: "Content-Type: application/json",
-        }
-      );
+      const response = await axios.get(URL + `/usuarios/info/${id}`);
       if (response.statusText === "OK") {
         setProfile(response.data);
       } else {
@@ -32,10 +28,7 @@ const PersonalInfo = ({ user }) => {
 
   const editUser = handleSubmit(async (data) => {
     try {
-      const response = await axios.put(
-        `https://api-test.brangerbriz.com/api/usuarios/edit/${user}`,
-        data
-      );
+      const response = await axios.put(URL + `/usuarios/edit/${user}`, data);
 
       if (response.statusText === "OK") {
         const data = await response.json();

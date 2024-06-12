@@ -7,10 +7,10 @@ import { jwtDecode } from "jwt-decode";
 function NavBar() {
   const { authTokens, logoutUser } = useContext(Context);
 
-  let { nombre, apellido, id } = {};
+  let { nombre, apellido, id, rol } = {};
 
   if (authTokens) {
-    ({ nombre, apellido, id } = jwtDecode(authTokens));
+    ({ nombre, apellido, id, rol } = jwtDecode(authTokens));
   }
 
   return (
@@ -77,20 +77,35 @@ function NavBar() {
       <div className="navbar-center hidden lg:flex text-base-content font-bold  g-wider">
         <ul className="menu menu-horizontal px-1">
           {authTokens ? (
-            <>
-              <li>
-                <Link to="/incident-report">Incidentes</Link>
-              </li>
-              <li>
-                <Link to="/reservation">Espacios comunes</Link>
-              </li>
-              <li>
-                <Link to="/board">Sala de negocios</Link>
-              </li>
-              <li>
-                <Link to="/neigbor-group">Vecinos</Link>
-              </li>
-            </>
+            (rol === "admin" && (
+              <>
+                <li>
+                  <Link to="/list-admin">Aprobacion de recidentes</Link>
+                </li>
+                <li>
+                  <Link to="/reservation">Espacios comunes</Link>
+                </li>
+                <li>
+                  <Link to="/neigbor-group">Sala de negocios</Link>
+                </li>
+              </>
+            )) ||
+            (rol === "resident" && (
+              <>
+                <li>
+                  <Link to="/incident-report">Incidentes</Link>
+                </li>
+                <li>
+                  <Link to="/reservation">Espacios comunes</Link>
+                </li>
+                <li>
+                  <Link to="/board">Sala de negocios</Link>
+                </li>
+                <li>
+                  <Link to="/neigbor-group">Vecinos</Link>
+                </li>
+              </>
+            ))
           ) : (
             <>
               <li>
@@ -120,11 +135,11 @@ function NavBar() {
       <div className="navbar-end tracking-wider hidden lg:flex">
         {authTokens ? (
           <>
-            <p className="font-medium mr-2">{`${nombre} ${apellido}`}</p>
             <div className="dropdown dropdown-end">
-              <div className="avatar" role="button" tabIndex={0}>
-                <div className="w-14 rounded-full">
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              <div className="avatar items-center" role="button" tabIndex={0}>
+                <p className="font-medium mr-2">{`${nombre} ${apellido}`}</p>
+                <div className="w-14 rounded-full border border-primary">
+                  <img src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
                 </div>
               </div>
               <ul

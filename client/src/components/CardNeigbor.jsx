@@ -4,7 +4,11 @@ const CardNeigbor = ({ name, image, dpto, phone, members, pets }) => {
       <div className="bg-primary w-full h-1/3 rounded-tl-2xl flex items-center justify-center">
         <img
           className="w-32 h-32 rounded-full border-base-100 border-2 "
-          src={image}
+          src={
+            image
+              ? image
+              : "https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
+          }
           alt="Imagen de perfil"
         />
       </div>
