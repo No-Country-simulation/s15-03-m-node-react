@@ -1,4 +1,3 @@
-import React from "react";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
 import Image1 from "../../assets/Group 8.png";
 import Image2 from "../../assets/Group 9.png";
@@ -10,7 +9,7 @@ const CarouselClient = () => {
   const images = [Image1, Image2, Image3, Image4, Image5];
 
   return (
-    <section className="bg-base-300  border-b-primary border-b-[1rem]" >
+    <section className="bg-base-300  border-b-primary border-b-[1rem]">
       <div
         id="carouselclient"
         className="container mx-auto p-4  bg-base-300 text-base-100 w-full py-6 px-3 text-center  lg:pb-12 "

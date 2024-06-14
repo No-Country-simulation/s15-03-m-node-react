@@ -1,6 +1,6 @@
 import useCustomForm from "../../hooks/useCustomForm";
 import { VALIDATIONS_FORM } from "../../configs/constants";
-import Image from "./assets/image-contact-form.png";
+import Image from "../../assets/contactForms/image-contact-form.png";
 import InputField from "../InputField";
 
 const ContactForms = () => {
