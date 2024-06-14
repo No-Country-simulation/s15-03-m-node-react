@@ -1,35 +1,31 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import CardNeigbor from "../components/CardNeigbor";
 import Context from "../context/Context";
 
 const NeigborGroup = () => {
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
   const [neigbors, setNeigbors] = useState([]);
-  const [originNeigbors, setOriginNeigbors] = useState([]);
+  const originNeigbors = useRef([]);
 
   const { users, getUsers } = useContext(Context);
 
   useEffect(() => {
     getUsers();
     setNeigbors(users);
-    setOriginNeigbors(users);
+    originNeigbors.current = users;
+    setLoading(false);
   }, []);
 
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setSearch(value);
-
-    if (value === "") {
-      setNeigbors(originNeigbors);
-    } else {
-      const filteredNeigbors = originNeigbors.filter(
-        (neigbor) =>
-          neigbor.nombre.toLowerCase().includes(search.toLowerCase()) ||
-          neigbor.apellido.toLowerCase().includes(search.toLowerCase())
-      );
-      setNeigbors(filteredNeigbors);
-    }
-  };
+  const filteredNeigbors = useMemo(() => {
+    return search === ""
+      ? originNeigbors.current
+      : neigbors.filter(
+          (neigbor) =>
+            neigbor.nombre.toLowerCase().includes(search.toLowerCase()) ||
+            neigbor.apellido.toLowerCase().includes(search.toLowerCase())
+        );
+  }, [neigbors, search]);
 
   return (
     <div className="flex flex-col items-center min-h-[80vh] ">
@@ -49,7 +45,7 @@ const NeigborGroup = () => {
             type="text"
             className="input input-bordered input-primary w-full"
             placeholder="Busca a un vecino por nombre"
-            onChange={handleChange}
+            onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
           {/* <svg
@@ -67,12 +63,12 @@ const NeigborGroup = () => {
         </label>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {!neigbors ? (
+        {loading ? (
           <div className="flex justify-center items-center w-full min-h-[40vh]">
-            <span className="loading loading-bars w-16 h-16"></span>
+            <span className="loading loading-bars text-primary w-16 h-16"></span>
           </div>
         ) : (
-          neigbors.map((neigbor) => (
+          filteredNeigbors.map((neigbor) => (
             <CardNeigbor
               key={neigbor.id}
               name={neigbor.nombre + " " + neigbor.apellido}
