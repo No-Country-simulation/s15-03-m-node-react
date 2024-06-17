@@ -1,58 +1,83 @@
-# S15-03-M-NODE-REACT
+# Projecto: Building Hub
+![image](https://github.com/No-Country/s15-03-m-node-react/assets/66230572/f1ca7b8d-e475-49d4-8748-80acdf7435a1)
 
-## Nombre del projecto
-Descripcion detalla de manera concisa y clara cuál es el propósito y
-objetivo del proyecto.
 
-## Colaboradores
+
+
+Despliegue: 
+- https://buildinghub.vercel.app/
+
+## Tabla de Contenido:
+1. Información general
+2. Colaboradores
+3. Tecnologías
+4. Agradecimientos
+
+
+## 1. Información General: 
+
+Building Hub es una plataforma desarrollada para Unidades Residenciales cuyo objetivo principal es crear conexiones de negocios entre los residentes de modo que se puedan generar compra y venta de productos y servicios, aportándo a la economía familiar y como un incentivo para evitar los posibles atrasos en las cuotas de administración. Adicionalmente, mediante Building Hub se favorece para el manejo de las bases de datos dentro de las Unidades residenciales, puesto que la información de registro de los Residentes pasa a formar parte de la Unidad residencial y será gestionada por la administración del conjunto. <br> 
+
+En Building Hub habrán dos tipos de Usuario: El administrador de la Unidad residencial y el Residente, ambos tendrán acceso a la Sala de negocios donde se podrán publicar anuncios ofreciendo productos y servicios, además de un listado de emprendimientos o empresas de los Residentes de la Unidad. Acceso a tu perfil donde aparecen los datos referentes a tu Unidad habitacional, como son: Tus datos personales, listado de personas que residen en tu apartamento, mascotas, vehículos pertenecientes, entre otros. Adicionalmente, se podrá reservar las zonas sociales de la Unidad residencial, como: Salones sociales, gimnasio, zona co-working, entre otros. <br> 
+
+Como administrador de la Unidad residencial contará también con una plataforma con acceso a la base de datos de residentes, mascotas, vehículos, etc. Adicionalmente, podrás aprobar las suscripciones de usuarios que sí pertenencen a la Unidad residencial, para garantizar la seguridad de la plataforma y sus integrantes. <br> 
+
+
+
+## 2. Colaboradores: 
+
+Conformado por el equipo S15-03-M-NODE-REACT durante Simulación realizada entre el 13 de Mayo al 12 de Junio de 2024 
+
 ### Frontend:
 
-- Conrado Carlos Alberto Gonzalez <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+- Edivaldo Gomes (Nacionalidad: Angóla) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
-- Franco Javier Nieva <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francojnieva/)
+- Lina María (Nacionalidad: Colombia) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lina-mar%C3%ADa-cardona-giraldo)
 
-- Rodrigo Gastón Muñoz <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-muñoz-389825223/)
+- Franco Javier Nieva (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francojnieva/)
 
-- Lina María <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lina-mar%C3%ADa-cardona-giraldo)
+- Rodrigo Gastón Muñoz (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-muñoz-389825223/)
 
-- Edivaldo Gomes <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+- Oliva Facundo (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/facundo-oliva-0999bb252)
 
-- Oliva Facundo <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/facundo-oliva-0999bb252)
+- Conrado Carlos Alberto Gonzalez (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+    
 
 ### Diseñadores UX/UI:
 
-- Sebastián Gomez <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebasr-gomez90/)
+- Sebastián Gomez (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebasr-gomez90/)
 
-- Valeria Arias <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
 ### Backend:
 
-- Ignacio Freilij <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ignacio-freilij/)
+- Ignacio Freilij (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ignacio-freilij/)
 
-- Kalil Sat <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+- Kalil Sat (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
-- Enzo Soliz <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+- Enzo Soliz (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
-- Lucas Scifo <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+- Lucas Scifo (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
-## Tecnologias
+### Team Leader (TL)
+
+- Guillermo Diván (Nacionalidad: Argentina)  <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guillermo-divan/)
+  
+
+## 3. Tecnologias
 ### Utilizamos las siguientes tecnologias en el desarrollo:
 
 ### Frontend
 - ![Static Badge](https://img.shields.io/badge/ReactJS-black?logo=REACT)
 - ![Static Badge](https://img.shields.io/badge/Tailwindcss-black?logo=Tailwindcss)
 
-### Diseño UX/UI
-
 ### Backend
+- Node.js
+- MySQL
 
-## Enlaces del Projecto
+### Diseño UX/UI
+- Figma
 
-- <a href="#">Sitio Web<a>
+## 4. Agradecimientos:
 
-<div align='center'>
-<h3>Agradecimientos</h3>
-  <a href="https://www.nocountry.tech/" target="_blank">
-    <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
-  </a>
-</div>
+Agradecimiento especial a 'No Country' por contribuir a que esta simulación sea posible, por generar los espacios que nos permiten desarrollar experiencia real en el campo de la programación y permitir el fortalecimiento de nuestras Soft skills mediante una iniciativa sin animo de lucro :raised_hands:
+
