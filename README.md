@@ -20,7 +20,7 @@ Building Hub es una plataforma desarrollada para Unidades Residenciales cuyo obj
 
 En Building Hub habrán dos tipos de Usuario: El administrador de la Unidad residencial y el Residente, ambos tendrán acceso a la Sala de negocios donde se podrán publicar anuncios ofreciendo productos y servicios, además de un listado de emprendimientos o empresas de los Residentes de la Unidad. Acceso a tu perfil donde aparecen los datos referentes a tu Unidad habitacional, como son: Tus datos personales, listado de personas que residen en tu apartamento, mascotas, vehículos pertenecientes, entre otros. Adicionalmente, se podrá reservar las zonas sociales de la Unidad residencial, como: Salones sociales, gimnasio, zona co-working, entre otros y el reporte de incidentes que encuentres dentro de tu Unidad residencial y requieran ser atendidos por parte de la administración. <br> 
 
-Como administrador de la Unidad residencial contará también con una plataforma con acceso a la base de datos de residentes, mascotas, vehículos, etc. Adicionalmente, podrás aprobar las suscripciones de usuarios que sí pertenencen a la Unidad residencial, para garantizar la seguridad de la plataforma y sus integrantes y tener el manejo de las reservas de las zonas sociales y acceso a los reporetes de incidentes presentados por los residentes. <br> 
+Como administrador de la Unidad residencial contará también con una plataforma con acceso a la base de datos de residentes, mascotas, vehículos, etc. Adicionalmente, podrás aprobar las suscripciones de usuarios que sí pertenencen a la Unidad residencial, para garantizar la seguridad de la plataforma y sus integrantes y tener el manejo de las reservas de las zonas sociales y acceso a los reportes de incidentes presentados por los residentes. <br> 
 
 
 
@@ -30,7 +30,7 @@ Conformado por el equipo S15-03-M-NODE-REACT durante Simulación realizada entre
 
 ### Frontend:
 
-- Edivaldo Gomes (Nacionalidad: Angola) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+- Edivaldo Gomes (Nacionalidad: Angola) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/](https://www.linkedin.com/in/edivaldo-gomes/))
 
 - Lina María (Nacionalidad: Colombia) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lina-mar%C3%ADa-cardona-giraldo)
 
@@ -40,7 +40,7 @@ Conformado por el equipo S15-03-M-NODE-REACT durante Simulación realizada entre
 
 - Oliva Facundo (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/facundo-oliva-0999bb252)
 
-- Conrado Carlos Alberto Gonzalez (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+- Conrado Carlos Alberto Gonzalez (Nacionalidad: Argentina) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/](https://www.linkedin.com/in/conrado-carlos-alberto-gonzalez-3a4730b4/)
     
 
 ### Diseñadores UX/UI:
