@@ -30,7 +30,7 @@ Conformado por el equipo S15-03-M-NODE-REACT durante Simulación realizada entre
 
 ### Frontend:
 
-- Edivaldo Gomes (Nacionalidad: Angola) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/](https://www.linkedin.com/in/edivaldo-gomes/))
+- Edivaldo Gomes (Nacionalidad: Angola) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/](https://www.linkedin.com/in/edivaldo-gomes/)
 
 - Lina María (Nacionalidad: Colombia) <br> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lina-mar%C3%ADa-cardona-giraldo)
 
