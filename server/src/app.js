@@ -13,6 +13,7 @@ const usuarioRoute = require('./routes/usuariosRoute');
 const reservasRoute = require('./routes/reservasRoute');
 const anuncioRoute = require('./routes/anuncioRoute');
 const zonasRoute = require('./routes/zonasRoute');
+const residenciasRoute = require('./routes/residenciasRoute');
 
 //creamos una instacia de express
 const app = express()
@@ -46,6 +47,7 @@ router.use("/usuarios", usuarioRoute);
 router.use("/reservas", reservasRoute);
 router.use("/anuncio", anuncioRoute);
 router.use("/zonas", zonasRoute);
+router.use("/residencias", residenciasRoute);
 
 app.use('/api', router);
 

@@ -3,6 +3,6 @@ const router = express.Router();
 const { residenciaController } = require('../controllers');
 
 
-router.get('/list', residenciaController.list);
-router.delete('/delete/:id', residenciaController.delete);
+router.get('/getResidenciaByCode/:codigo', residenciaController.getResidenciaByCode);
+router.get('/getApartamentosByEdificio/:id_edificio', residenciaController.getApartamentosByEdificio);
 module.exports = router

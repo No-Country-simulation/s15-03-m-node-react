@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
 const { Usuario, Residencia, Edificio, Apartamento, Zona } = require('../database/models');
+const sendMail = require('../tools/sendMail');
 
 function makeid(length) {
     let result = '';
@@ -46,6 +47,7 @@ module.exports = {
         }
     },
     register: async (req, res) => {
+        const zonas = ["Pileta", "Gimnasio", "Parrilla", "SUM", "Cocina", "Comedor", "Lavadero", "Perrera"];
         try {
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
@@ -68,7 +70,7 @@ module.exports = {
                 });
 
                 const newResidencia = await Residencia.create({
-                    nombre,
+                    nombre: "Residencia",
                     cuit,
                     direccion,
                     telefono,
@@ -80,7 +82,7 @@ module.exports = {
                     console.log("Edificio " + i);
                     const newEdificio = await Edificio.create({
                         numero: `${i}`,
-                        id_residencia: newResidencia.id_residencia,
+                        id_residencia: newResidencia.id,
                         cant_pisos
                     });
                     
@@ -94,8 +96,6 @@ module.exports = {
                         }
                     }
 
-                    const zonas = ["Pileta", "Gimnasio", "Parrilla", "SUM", "Cocina", "Comedor", "Lavadero", "Perrera"];
-
                     for(let j = 1; j <= 8; j++) {
                         const newZona = await Zona.create({
                             id_edificio: newEdificio.id,
@@ -106,15 +106,19 @@ module.exports = {
                     }
                 }
 
-                const token = jwt.sign({
-                    id: newUser.id,
-                    nombre: newUser.nombre,
-                    apellido: newUser.apellido,
-                    email: newUser.email,
-                    telefono: newUser.telefono,
-                    rol: newUser.rol
-                }, process.env.JWT_SECRET, { expiresIn: '1h' });
-                return res.status(201).json({ token });
+                const mail = sendMail(email, newResidencia.codigo);
+                if(mail) {
+                    const token = jwt.sign({
+                        id: newUser.id,
+                        nombre: newUser.nombre,
+                        apellido: newUser.apellido,
+                        email: newUser.email,
+                        telefono: newUser.telefono,
+                        rol: newUser.rol
+                    }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+                    return res.status(201).json({ token });
+                }
             } else {
                 const newUser = await Usuario.create({
                     nombre,
@@ -161,6 +165,13 @@ module.exports = {
             return res.status(500).json({ msg: error.message });
         }
     
+    },
+    uploadPicture: async (req, res) => {
+        try {
+            //TODO
+        } catch (error) {
+            return res.status(500).json({ msg: error.message });
+        }
     },
     activate: async (req, res) => {
         try {
