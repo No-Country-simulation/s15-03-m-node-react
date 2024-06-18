@@ -7,7 +7,7 @@ import image9 from "../../assets/Frame 12.png";
 function CardProperty() {
   return (
     <section id="cardProperty" className="text-center">
-      <h1 className="text-3xl font-libre font-bold text-center mb-4 mt-20">
+      <h1 className="md:text-2xl lg:text-4xl font-libre font-bold text-center mb-4 mt-20">
         Características principales
       </h1>
       

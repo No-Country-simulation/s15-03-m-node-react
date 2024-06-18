@@ -8,9 +8,12 @@ import Pending from "./components/AcceptPersonal/Pending";
 import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
-import WelcomeResident from "./components/WelcomeResident/WelcomeResident";
-import WelcomeNavigation from "./components/WelcomeNavigation/WelcomeNavigation";
+import WelcomeResident  from "./components/Welcome/WelcomeResident";
+import WelcomeAdmin from "./components/Welcome/WelcomeAdmin";
+import WelcomeNavResident from "./components/WelcomeNavigation/WelcomeNavResident";
+import WelcomeNavAdmin  from "./components/WelcomeNavigation/WelcomeNavAdmin";
 import NeigborGroup from "./pages/NeigborGroup";
+import IncidentReport from "./pages/IncidentReport/IncidentReport";
 
 function App() {
   return (
@@ -22,9 +25,12 @@ function App() {
         <Route path="/register-admin" element={<Register isAdmin />} />
         <Route path="/register-resident" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/welcome" element={<WelcomeResident />} />
-        <Route path="/welcome-navigation" element={<WelcomeNavigation />} />
+        <Route path="/welcome-resident" element={<WelcomeResident />} />
+        <Route path="/welcome-admin" element={<WelcomeAdmin />} />
+        <Route path="/welcome-nav-admin" element={<WelcomeNavAdmin />} />
+        <Route path="/welcome-nav-resident" element={<WelcomeNavResident />} />
         <Route path="/list-admin" element={<Pending />} />
+        <Route path="/incident-report" element={<IncidentReport />} />
         <Route path="/profile" element={<Profile />} /> {/* /:idUser */}
         <Route path="/neigbor-group" element={<NeigborGroup />} />
         <Route path="*" element={<Error404 />} />
