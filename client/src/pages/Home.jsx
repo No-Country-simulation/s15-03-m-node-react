@@ -1,4 +1,3 @@
-import React from "react";
 // importar componentes
 import PostThumbnail from "../components/PostThumbnail/PostThumbnail";
 import PostAboutUs from "../components/PostAboutUs/PostAboutUs";
