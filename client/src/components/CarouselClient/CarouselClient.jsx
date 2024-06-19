@@ -15,10 +15,10 @@ const CarouselClient = () => {
         id="carouselclient"
         className="container mx-auto p-4  bg-base-300 text-base-100 w-full py-6 px-3 text-center  lg:pb-12 "
       >
-        <h1 className="text-3xl font-libre font-bold text-center mb-4">
+        <h1 className="sm:text-2xl lg:text-3xl font-libre font-bold text-center mb-4">
           Clientes que confian en nosotros
         </h1>
-        <p className="p-2 font-bold font-worksans text-center text-sm">
+        <p className="p-2  font-worksans text-center text-xs md:text-base">
           Los administradores de edificios de ultima generacionestan acelerando
           el crecimiento de sus <br /> comunidades al tomar decisiones
           estrategicas con ayuda de Building Hub.
