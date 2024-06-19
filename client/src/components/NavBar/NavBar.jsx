@@ -14,7 +14,7 @@ function NavBar() {
   }
 
   return (
-    <div className="navbar bg-base-200">
+    <div className="navbar bg-base-200 font-worksans">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -177,16 +177,10 @@ function NavBar() {
           </>
         ) : (
           <>
-            <Link
-              className="btn m-2 font-bold font-worksans border-none bg-transparent "
-              to="/register-admin"
-            >
+            <Link className="btn font-bold mr-4" to="/register-admin">
               Registrarse
             </Link>
-            <Link
-              className="btn m-2 font-bold font-worksans bg-secondary"
-              to="/login"
-            >
+            <Link className="btn font-bold btn-secondary" to="/login">
               Inicio sesión
             </Link>
           </>

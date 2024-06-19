@@ -1,11 +1,11 @@
 import useCustomForm from "../../hooks/useCustomForm";
-import { VALIDATIONS_FORM } from "../../configs/constants";
+import { URL, VALIDATIONS_FORM } from "../../configs/constants";
 import Image from "./assets/image-contact-form.png";
 import InputField from "../InputField";
 
 const ContactForms = () => {
   const { register, handleSubmit, errors, onSubmit } = useCustomForm({
-    urlApi: "/api/contact",
+    urlApi: `${URL}/api/contact`,
   });
 
   return (
@@ -63,7 +63,7 @@ const ContactForms = () => {
                     </span>
                   </div>
                   <textarea
-                    className="textarea textarea-bordered border-primary bg-base-200 textarea-md w-full resize-none"
+                    className="textarea textarea-primary border-primary bg-base-200 textarea-md w-full resize-none"
                     rows={5}
                   ></textarea>
                 </label>
@@ -71,7 +71,7 @@ const ContactForms = () => {
             </div>
             <div>
               <input
-                className="py-2 mt-2 px-4 text-sm shadow-lg font-semibold rounded-md bg-[#FF9337] text-[#000]"
+                className="py-2 mt-2 px-4 btn btn-secondary"
                 type="submit"
                 value="Enviar mensaje"
               />

@@ -20,9 +20,7 @@ const CardOurPlans = ({ data, scale }) => {
         </ul>
       </div>
       <div className="pb-4 px-3">
-        <button className="text-[#171925] text-sm font-semibold rounded-md py-2 w-full bg-[#FF9337]">
-          Comenzar
-        </button>
+        <button className="btn btn-secondary w-full">Comenzar</button>
       </div>
     </div>
   );

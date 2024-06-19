@@ -179,7 +179,7 @@ const Register = ({ isAdmin }) => {
                     validation={VALIDATIONS_FORM.towers}
                   />
                   <InputField
-                    text="Cant. de dptos por torre/edificio:"
+                    text="Cant. de dptos por piso:"
                     type="number"
                     name="cantidad_departamentos_por_piso"
                     placeholder="4"
