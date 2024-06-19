@@ -16,9 +16,13 @@ const BusinessBoard = () => {
   const getNewsList = async () => {
     try {
       const response = await axios.get(URL + "/anuncio/list");
-      const newsListData = await response.data;      
-      setNewsList( newsListData.filter( item => item.es_anuncio?item:null ) );
-      setBusiness(newsListData.filter(item => item.es_negocio?item:null))
+      const newsListData = await response.data;
+      setNewsList(
+        newsListData.filter((item) => (item.es_anuncio ? item : null))
+      );
+      setBusiness(
+        newsListData.filter((item) => (item.es_negocio ? item : null))
+      );
       if (newsListData.length === 0) setMessage("No hay anuncios");
     } catch (error) {
       setMessage("Error al cargar los anuncios");
@@ -61,8 +65,7 @@ const BusinessBoard = () => {
                 return (
                   <div key={id}>
                     <CardIncidentsAndNews
-                      reportTitle={usuario==null?'No definido':usuario.nombre}
-
+                      reportTitle={usuario == null ? "Titulo" : usuario.nombre}
                       description={mensaje}
                       date={fecha}
                     />
@@ -81,14 +84,9 @@ const BusinessBoard = () => {
             </button> */}
           </div>
           <div className="flex flex-col justify-items-center space-y-4 rounded-2xl max-w-sm mx-auto gap-5">
-            {business.map((item) => {
-              return(
-                <CardBusinessLoad item={item}/>
-              )       
-            } 
-            )}
-            
-
+            {business.map((item, i) => {
+              return <CardBusinessLoad key={i} item={item} />;
+            })}
           </div>
         </section>
       </section>
