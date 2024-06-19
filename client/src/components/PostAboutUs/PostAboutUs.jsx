@@ -4,12 +4,12 @@ import imagen from '../../assets/Logo-Building.png'
 
 function PostAboutUs() {
   return (
-  <section id='postaboutus' className="hero  bg-base-100 p-6" >
+  <section id='postAboutUs' className="hero  bg-base-100 p-6" >
     <div className="hero-content flex-col lg:flex-row-reverse">
       <img src={imagen} className="w-2/4 rounded-lg min-w-[27.25rem] hidden lg:block" />
       <div className='p-4 border-l-primary border-l-[1rem] '>
-        <h1 className="text-5xl font-bold font-libre">Sobre nosotros</h1>
-        <p className="py-6 font-worksans">En EdificioManager, nos dedicamos a revolucionar la gestión de edificios y comunidades
+        <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold font-libre">Sobre nosotros</h1>
+        <p className=" text-xs sm:text-base py-6 font-worksans">En EdificioManager, nos dedicamos a revolucionar la gestión de edificios y comunidades
          residenciales con nuestra innovadora plataforma digital. Nuestro equipo, compuesto por expertos en tecnología, 
          administración y servicios inmobiliarios, ha desarrollado una solución integral que simplifica y optimiza 
          cada aspecto de la administración de edificios. Desde la comunicación efectiva con los residentes hasta

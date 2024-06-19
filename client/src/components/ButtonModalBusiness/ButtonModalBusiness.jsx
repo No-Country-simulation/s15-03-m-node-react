@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import Context from "../../context/Context";
 
-const ButtonModalNews = ({ getNewsList }) => {
+const ButtonModalBusiness = ({ getNewsList }) => {
   const { authTokens } = useContext(Context);
 
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ const ButtonModalNews = ({ getNewsList }) => {
       document.getElementById("my_modal_2").close();
     } catch (error) {
       setError(
-        "No se puede publicar el anuncio. Por favor inténtalo más tarde."
+        "No se puede agregar el negocio. Por favor inténtalo más tarde."
       );
     } finally {
       setLoading(false);
@@ -62,12 +62,12 @@ const ButtonModalNews = ({ getNewsList }) => {
         className="py-3 px-5 rounded-md bg-primary text-sm text-[#fff]"
         onClick={() => document.getElementById("my_modal_2").showModal()}
       >
-        Publicar anuncio
+        Agregar negocio
       </button>
       <dialog id="my_modal_2" className="modal">
         <div className={`modal-box bg-base-200`}>
           <h3 className="font-libre font-bold py-3 text-xl xl:text-3xl">
-            Publicar <span className={`text-primary`}>anuncio</span>
+            Agregar <span className={`text-primary`}>negocio</span>
           </h3>
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
             <p
@@ -81,6 +81,24 @@ const ButtonModalNews = ({ getNewsList }) => {
               ✕
             </p>
             <div className=" space-y-4">
+            <div>
+                <label className="form-control w-full">
+                  <div className="label">
+                    <span className="label-text flex items-center justify-evenly gap-1">
+                      Titulo:
+                    </span>
+                  </div>
+                  <textarea
+                    name="titulo"
+                    id="titulo"
+                    {...register("titulo", { required: true })}
+                    autoComplete="off"
+                    className="textarea bg-base-100 border-primary textarea-md w-full resize-none"
+                    rows={4}
+                  ></textarea>
+                </label>
+                {error && <p className="text-red-500 py-2 text-sm">{error}</p>}
+              </div>
               <div>
                 <label className="form-control w-full">
                   <div className="label">
@@ -99,18 +117,18 @@ const ButtonModalNews = ({ getNewsList }) => {
                 </label>
                 {error && <p className="text-red-500 py-2 text-sm">{error}</p>}
               </div>
-              <input
+              {/* <input
                 type="text"
                 className="hidden"
                 name="titulo"
                 defaultValue={"Titulo del anuncio"}
                 {...register("titulo", { required: true })}
-              />
+              /> */}
               <input
                 type="text"
                 className="hidden"
                 name="es_anuncio"
-                defaultValue={true}
+                defaultValue={false}
                 {...register("es_anuncio", { required: true })}
               />
               <input
@@ -135,7 +153,7 @@ const ButtonModalNews = ({ getNewsList }) => {
                   {loading ? (
                     <p className="loading loading-bars loading-sm text-[#fff]"></p>
                   ) : (
-                    "Publicar"
+                    "Agregar"
                   )}
                 </button>
               </div>
@@ -147,4 +165,4 @@ const ButtonModalNews = ({ getNewsList }) => {
   );
 };
 
-export default ButtonModalNews;
+export default ButtonModalBusiness;

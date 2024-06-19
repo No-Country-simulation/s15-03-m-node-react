@@ -10,11 +10,9 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
     const { email, password } = data;
     try {
       await loginUser(email, password);
-      console.log("Se inicio sesion correctamente!!!");
     } catch (error) {
       console.log("error", error);
     }
