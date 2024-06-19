@@ -1,8 +1,11 @@
 import { useState } from "react";
 import PersonalInfo from "../components/Profile/PersonalInfo";
 import DinamicForm from "../components/Profile/DinamicForm";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
+  const { idUser } = useParams();
+
   const [menu, setMenu] = useState(1);
 
   const tabs = ["Personal", "Miembros", "Mascotas", "Vehiculos"];
@@ -10,14 +13,14 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabsContent = [
-    <PersonalInfo key={0} />,
+    <PersonalInfo key={0} user={idUser} />,
     <DinamicForm key={1} type="members" />,
     <DinamicForm key={2} type="pets" />,
     <DinamicForm key={3} type="cars" />,
   ];
 
   return (
-    <div className="flex justify-center items-start my-16 gap-5 h-screen">
+    <div className="flex justify-center items-start my-16 gap-5 min-h-screen">
       <ul className="menu bg-base-200 w-60 min-h-[45rem] border-primary border rounded-l-xl">
         <li>
           <a className={menu === 1 ? "active" : ""} onClick={() => setMenu(1)}>

@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+package-lock.json
 
 # Editor directories and files
 .vscode/*
@@ -24,3 +25,6 @@ dist-ssr
 *.sw?
 
 .vercel
+
+package-lock.json
+package.json

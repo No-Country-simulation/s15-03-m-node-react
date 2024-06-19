@@ -1,25 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useCustomForm from "../../hooks/useCustomForm";
 import InputField from "../InputField";
 import cargarImg from "../../assets/cargarImagen.jpg";
 import { uploadImg } from "../../utils/handleImgs";
+import axios from "axios";
+import { URL } from "../../configs/constants";
 
-const PersonalInfo = () => {
-  const { register, errors } = useCustomForm({ urlApi: "/users" });
+const PersonalInfo = ({ user }) => {
+  const { register, errors, handleSubmit } = useCustomForm({
+    urlApi: "/users",
+  });
 
-  const [profile, setProfile] = useState({
-    firstName: "Eva",
-    lastName: "Gonzalez",
-    dni: "12345678",
-    numApartament: "312d",
-    floor: "2",
-    img: "",
+  const [profile, setProfile] = useState([]);
+
+  const getUser = async (id) => {
+    try {
+      const response = await axios.get(URL + `/usuarios/info/${id}`);
+      if (response.statusText === "OK") {
+        setProfile(response.data);
+      } else {
+        console.log(response.error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const editUser = handleSubmit(async (data) => {
+    try {
+      const response = await axios.put(URL + `/usuarios/edit/${user}`, data);
+
+      if (response.statusText === "OK") {
+        const data = await response.json();
+        console.log("Usuario editado con exito:", data);
+      } else {
+        console.log(response.error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   });
 
   const handleImgProfile = async (e) => {
     const img = await uploadImg(e);
     setProfile({ ...profile, img });
   };
+
+  useEffect(() => {
+    getUser(user);
+  }, [user]);
 
   return (
     <>
@@ -38,30 +67,33 @@ const PersonalInfo = () => {
             />
           )}
           <input
-            type="file"
             className="file-input file-input-bordered file-input-secondary w-full max-w-xs"
+            type="file"
             onChange={handleImgProfile}
           />
         </div>
       </div>
       <div>
         <h3>Información básica</h3>
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <form
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          onSubmit={editUser}
+        >
           <InputField
             text="Nombre"
             type="text"
-            name="firstName"
+            name="nombre"
             register={register}
             errors={errors}
-            value={profile.firstName}
+            value={profile.nombre}
           />
           <InputField
             text="Apellido"
             type="text"
-            name="lastName"
+            name="apellido"
             register={register}
             errors={errors}
-            value={profile.lastName}
+            value={profile.apellido}
           />
           <InputField
             text="Identificacion (DNI, pasaporte, etc)"
@@ -71,6 +103,14 @@ const PersonalInfo = () => {
             register={register}
             errors={errors}
             is_disabled
+          />
+          <InputField
+            text="Telefono"
+            type="tel"
+            name="telefono"
+            value={profile.telefono}
+            register={register}
+            errors={errors}
           />
           <h1 className="col-span-2">Informacion de la residencia</h1>
           <InputField

@@ -1,3 +1,6 @@
+// URL del Backend
+export const URL = "https://api-test.brangerbriz.com/api";
+
 // Validaciones para los formularios de React Hook Form
 export const VALIDATIONS_FORM = {
   email: {
@@ -32,7 +35,8 @@ export const VALIDATIONS_FORM = {
   phone: {
     required: "El numero de telefono es requerido",
     pattern: {
-      value: /^\+?\d{1,4}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
+      value:
+        /^\+?\d{1,4}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
       message: "Teléfono no es válido",
     },
   },
@@ -99,6 +103,6 @@ export const VALIDATIONS_FORM = {
     pattern: {
       value: /^.{1,250}$/,
       message: "Este campo es requerido y no debe exceder los 250 caracteres",
-    }
-  }
+    },
+  },
 };
