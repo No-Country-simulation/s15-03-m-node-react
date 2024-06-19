@@ -39,7 +39,7 @@ const ButtonModalIncidentAndBusiness = ( { buttonName, title, spanTitle, buttonN
                                 </label>
                             </div>
                             <div className=' flex justify-end'>
-                                <input className={`py-1 px-4 rounded-md bg-primary text-sm text-[#fff]`} type="submit" value='Reportar incidente' />
+                                <input className={`py-1 px-4 rounded-md bg-primary text-sm text-[#fff]`} type="submit" value={buttonName} />
                             </div>
                         </div>
                     </form>

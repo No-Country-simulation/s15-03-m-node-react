@@ -11,10 +11,10 @@ const CardIncidentsAndNews = ({
   date,
 }) => {
   return (
-    <article className="p-4 bg-base-100 space-y-3 border border-primary rounded-md lg:p-6">
+    <article className="p-6 bg-base-100 space-y-3 border border-primary rounded-2xl lg:p-6">
       <div className="flex items-center justify-between">
         <h6 className=" font-semibold lg:text-xl">{reportTitle}</h6>
-        <div className=" hidden flex items-center text-xl space-x-3">
+        <div className=" flex items-center text-xl space-x-3">
           <button>
             <RiEdit2Fill className=" text-blue-500" />
           </button>
