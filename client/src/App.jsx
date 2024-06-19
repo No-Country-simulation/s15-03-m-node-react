@@ -32,9 +32,9 @@ function App() {
         <Route
           path="/board"
           element={
-            <RequireAuth>
+             <RequireAuth>
               <Board />
-            </RequireAuth>
+             </RequireAuth>
           }
         />
         <Route

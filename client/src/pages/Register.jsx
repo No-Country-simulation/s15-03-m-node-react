@@ -181,7 +181,7 @@ const Register = ({ isAdmin }) => {
                   <InputField
                     text="Cant. de dptos por piso:"
                     type="number"
-                    name="cantidad_departamentos_por_piso"
+                    name="cantidad_apartamentos_por_piso"
                     placeholder="4"
                     register={register}
                     error={errors.departments}
