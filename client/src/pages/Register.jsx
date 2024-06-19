@@ -2,14 +2,22 @@ import Section from "../components/Section";
 import InputField from "../components/InputField";
 import { URL, VALIDATIONS_FORM } from "../configs/constants";
 import useCustomForm from "../hooks/useCustomForm";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import adminImg from "../assets/Frame 28.png";
 import residentImg from "../assets/Frame 29.png";
 import Select from "../components/Select";
 import PrivacyPolicy from "../components/Modals/Privacy-policy";
+import { useEffect, useState } from "react";
+import axios from "axios";
 // import Alert from "../components/Alert";
 
 const Register = ({ isAdmin }) => {
+  const { code } = useParams();
+
+  const [residencia, setResidencia] = useState({});
+  const [optionsApartamento, setOptionsApartamento] = useState(null);
+  const [apartamento, setApartamento] = useState({});
+
   const {
     register,
     handleSubmit,
@@ -22,6 +30,47 @@ const Register = ({ isAdmin }) => {
     urlApi: `${URL}/usuarios/register`,
     sendTo: "/login",
   });
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setOptionsApartamento(value);
+  };
+
+  const getResidencia = async () => {
+    try {
+      const response = await axios.get(
+        `${URL}/residencias/getResidenciaByCode/${code}`
+      );
+      console.log(response);
+      setResidencia(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getApartamentos = async () => {
+    try {
+      const response = await axios.get(
+        `${URL}/residencias/getApartamentosByEdificio/${optionsApartamento}`
+      );
+      console.log(response);
+      setApartamento(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (code) {
+      getResidencia();
+    }
+  }, [code]);
+
+  useEffect(() => {
+    if (optionsApartamento) {
+      getApartamentos();
+    }
+  }, [optionsApartamento]);
 
   return (
     <>
@@ -181,7 +230,7 @@ const Register = ({ isAdmin }) => {
                   <InputField
                     text="Cant. de dptos por piso:"
                     type="number"
-                    name="cantidad_departamentos_por_piso"
+                    name="cantidad_apartamentos_por_piso"
                     placeholder="4"
                     register={register}
                     error={errors.departments}
@@ -202,8 +251,22 @@ const Register = ({ isAdmin }) => {
             {!isAdmin && (
               <Section title="Dirección de residencia">
                 <div className="flex flex-col md:flex-row gap-5">
-                  <Select title="Numero de apartamento o unidad" />
-                  <Select title="Piso (si aplica)" />
+                  <Select
+                    title="Edificio"
+                    options={residencia.edificios}
+                    handleChange={handleChange}
+                    register={register}
+                    name="edificio"
+                  />
+                  {apartamento && (
+                    <Select
+                      title="Numero de apartamento o unidad"
+                      options={apartamento}
+                      register={register}
+                      handleChange={handleChange}
+                      name="id_apartamento"
+                    />
+                  )}
                 </div>
               </Section>
             )}

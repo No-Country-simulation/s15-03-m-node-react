@@ -14,7 +14,8 @@ const BusinessBoard = () => {
     try {
       const response = await axios.get(URL + "/anuncio/list");
       const newsListData = await response.data;
-      setNewsList(newsListData);
+      // esto trae todo lo anuncios, negocios e incidentes, hay que filtrarlos xD
+      setNewsList(newsListData.filter((data) => data.is_anuncio === true));
       if (newsListData.length === 0) setMessage("No hay anuncios");
     } catch (error) {
       setMessage("Error al cargar los anuncios");
@@ -53,13 +54,11 @@ const BusinessBoard = () => {
               <p className=" text-lg text-center font-medium">{message}</p>
             ) : (
               newsList.map((item) => {
-                const { id, mensaje, fecha } = item;
+                const { id, mensaje, fecha, usuario } = item;
                 return (
                   <div key={id}>
                     <CardIncidentsAndNews
-                      reportTitle={
-                        "Cambiar esto por el nombre de quien lo crea"
-                      }
+                      reportTitle={usuario === null}
                       description={mensaje}
                       date={fecha}
                     />

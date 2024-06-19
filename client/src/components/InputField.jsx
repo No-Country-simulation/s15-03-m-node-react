@@ -10,9 +10,14 @@ const InputField = ({
   validation,
   is_disabled,
   value,
+  edited,
 }) => {
   return (
-    <label className={`form-control w-full ${is_disabled ? "border border-error rounded-lg" : ""}`}>
+    <label
+      className={`${edited} form-control w-full ${
+        is_disabled ? "border border-error rounded-lg" : ""
+      }`}
+    >
       <div className="label">
         <span className="label-text flex items-center justify-evenly gap-1">
           {text}

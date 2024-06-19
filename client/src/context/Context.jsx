@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 // import { URL } from "../configs/constants";
 
 export const Context = createContext();
@@ -27,7 +28,14 @@ export const ContextProvider = ({ children }) => {
       if (response.status === 200) {
         setAuthTokens(data.token);
         localStorage.setItem("authTokens", JSON.stringify(data.token));
-        navigate("/welcome");
+
+        if (data.token) {
+          const { rol } = jwtDecode(data.token);
+          const welcome =
+            rol === "admin" ? "/welcome-admin" : "/welcome-resident";
+          navigate(welcome);
+        }
+
         console.log("Login Success");
       } else {
         console.log(response.status);
