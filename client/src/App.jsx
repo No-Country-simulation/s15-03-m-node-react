@@ -8,15 +8,12 @@ import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
 import Reservation from "./pages/Reservation";
-import WelcomeResident from "./components/WelcomeResident/WelcomeResident";
-import WelcomeNavigation from "./components/WelcomeNavigation/WelcomeNavigation";
-import WelcomeNavAdmin  from "./components/WelcomeNavigation/WelcomeNavAdmin"
-import WelcomeAdmin from "./components/Welcome/WelcomeAdmin";
+import WelcomeResident from "./components/Welcome/WelcomeResident";
+import WelcomeNavigation from "./components/WelcomeNavigation/WelcomeNavAdmin";
 import NeigborGroup from "./pages/NeigborGroup";
 import AceptManagment from "./pages/Admin/AceptManagment";
 import IncidentReport from "./pages/IncidentReport/IncidentReport";
 import { useContext } from "react";
-
 
 function App() {
   const { authTokens } = useContext(Context);
@@ -95,18 +92,6 @@ function App() {
               <IncidentReport />
             </RequireAuth>
           }
-        />
-        <Route path="/welcome-nav-admin" element={
-            <RequireAuth>
-          <WelcomeNavAdmin />
-          </RequireAuth>
-        } 
-        />
-        <Route path="/welcome-nav-resident" element={
-           <RequireAuth>
-          <WelcomeNavResident />
-          </RequireAuth>
-        }
         />
         <Route path="*" element={<Error404 />} />
       </Route>
