@@ -59,7 +59,7 @@ const ButtonModalNews = ({ getNewsList }) => {
   return (
     <>
       <button
-        className="py-1 px-4 rounded-md bg-primary text-sm text-[#fff]"
+        className="py-3 px-5 rounded-md bg-primary text-sm text-[#fff]"
         onClick={() => document.getElementById("my_modal_2").showModal()}
       >
         Publicar anuncio
