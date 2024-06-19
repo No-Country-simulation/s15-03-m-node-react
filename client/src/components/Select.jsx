@@ -1,13 +1,24 @@
-const Select = ({ title }) => {
+const Select = ({ title, options, handleChange, register, name }) => {
+  const nombre = name === "id_apartamento" ? "Apartamento" : "Edificio";
+
   return (
     <div className="form-control w-full">
       <p>{title}</p>
-      <select className="select select-primary bg-base-200 w-full">
+      <select
+        name={name}
+        {...register(name, { required: true })}
+        className="select select-primary bg-base-200 w-full"
+      >
         <option disabled selected></option>
-        <option>Game of Thrones</option>
-        <option>Lost</option>
-        <option>Breaking Bad</option>
-        <option>Walking Dead</option>
+        {options &&
+          options.length > 0 &&
+          options.map((option) => (
+            <option
+              onClick={handleChange}
+              value={option.id}
+              key={option.id}
+            >{`${nombre} ${option.numero}`}</option>
+          ))}
       </select>
     </div>
   );

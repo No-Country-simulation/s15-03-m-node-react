@@ -19,18 +19,18 @@ function Reservation() {
 
   return (
     <div className="">
-      <div className="px-[120px] pt-24 pb-10">
+      <div className="px-4 lg:px-[120px] pt-24 pb-10">
         <h1 className="font-libre text-5xl font-bold py-3">
           Espacios <span className="text-primary">comunes</span>
         </h1>
-        <p className="font-worksans text-xl">
+        <p className="text-xl">
           Gestiona y reserva las áreas comunes de manera rápida y eficiente. Con
           solo unos clics, puede ver la disponibilidad en tiempo real y hacer
           sus reservas de manera rápida y conveniente, asegurando un uso
           organizado y equitativo de las instalaciones compartidas
         </p>
       </div>
-      <div className="px-[120px] grid grid-cols-3 gap-6 justify-center pb-32">
+      <div className="px-3 lg:px-[120px] grid grid-cols-1 lg:grid-cols-3 gap-6 justify-center pb-32">
         {data
           .filter((zone) => zone.id_edificio == 1)
           .map((zone) => (

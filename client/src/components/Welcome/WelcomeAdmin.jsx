@@ -29,15 +29,8 @@ function WelcomeAdmin() {
           </p>
 
           <Link
-            className="btn m-2 font-bold font-worksans bg-secondary"
+            className="btn m-2 font-bold btn-secondary"
             to="/welcome-nav-admin"
-          >
-            Empezar recorrido
-          </Link>
-
-          <Link
-            className="btn m-2 font-bold bg-secondary"
-            to="/welcome-navigation"
           >
             Empezar recorrido
           </Link>

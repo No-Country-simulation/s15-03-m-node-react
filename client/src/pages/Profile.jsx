@@ -20,8 +20,8 @@ const Profile = () => {
   ];
 
   return (
-    <div className="flex justify-center items-start my-16 gap-5 min-h-screen">
-      <ul className="menu bg-base-200 w-60 min-h-[45rem] border-primary border rounded-l-xl">
+    <div className="flex justify-center items-center lg:items-start flex-col my-16 gap-5 min-h-screen lg:flex-row">
+      <ul className="menu bg-base-200 w-60 lg:min-h-[45rem] border-primary border rounded-xl lg:rounded-l-xl">
         <li>
           <a className={menu === 1 ? "active" : ""} onClick={() => setMenu(1)}>
             <svg
@@ -45,7 +45,10 @@ const Profile = () => {
           </a>
         </li>
         <li className="disabled">
-          <a className={menu === 2 ? "active" : ""} onClick={() => setMenu(2)}>
+          <a
+            className={menu === 2 ? "active" : "pointer-events-none"}
+            onClick={() => setMenu(2)}
+          >
             <svg
               width="25"
               height="24"
@@ -92,15 +95,18 @@ const Profile = () => {
         </li>
       </ul>
       {menu === 1 && (
-        <aside className="min-w-[50rem] min-h-[35rem] bg-base-200 ">
-          <div className="flex flex-col gap-4 border-primary border rounded-tr-xl p-8">
+        <aside className="min-w-[10rem] lg:min-w-[50rem] max-w-[50rem] min-h-[35rem] bg-base-200 mx-4 lg:mx-0">
+          <div className="flex flex-col gap-4 border-primary border rounded-t-xl lg:rounded-tr-xl p-8">
             <h1 className=" font-libre text-5xl">
               Mi <span className="text-primary">perfil</span>
             </h1>
             <p className=" text-lg ">
               Actualiza tu información personal y la de tu departamento aquí.
             </p>
-            <div role="tablist" className="tabs tabs-boxed gap-4">
+            <div
+              role="tablist"
+              className="lg:tabs tabs-boxed flex flex-col gap-2 lg:gap-4"
+            >
               {tabs.map((t, i) => (
                 <a
                   key={i}

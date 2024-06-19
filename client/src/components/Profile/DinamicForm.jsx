@@ -55,7 +55,7 @@ const DinamicForm = ({ type }) => {
             {currentType.name} {i + 1}
           </p>
           <form
-            className="grid grid-cols-2 gap-6"
+            className="lg:grid lg:grid-cols-2 gap-6"
             onSubmit={(e) => e.preventDefault()}
           >
             <InputField
@@ -92,7 +92,7 @@ const DinamicForm = ({ type }) => {
                 value={e.phone}
               />
             )}
-            <div className="flex justify-end gap-4 col-span-2">
+            <div className="flex justify-end gap-4 col-span-2 mt-4 lg:mt-0">
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -110,7 +110,10 @@ const DinamicForm = ({ type }) => {
         </div>
       ))}
       <p className="font-bold">{currentType.name}</p>
-      <form className="grid grid-cols-2 gap-6 mt-6" onSubmit={handleSubmit}>
+      <form
+        className="lg:grid lg:grid-cols-2 lg:gap-6 mt-6"
+        onSubmit={handleSubmit}
+      >
         <InputField
           text={currentType.input1}
           type="text"
@@ -141,7 +144,7 @@ const DinamicForm = ({ type }) => {
             errors={errors}
           />
         )}
-        <div className="flex justify-end gap-4 col-span-2">
+        <div className="flex justify-end gap-4 col-span-2 mt-4 lg:mt-0">
           <button type="submit" className="btn btn-primary">
             Agregar
           </button>

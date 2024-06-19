@@ -27,13 +27,8 @@ const BusinessBoard = () => {
     }
   };
 
-  
-
-  
-
   useEffect(() => {
     getNewsList();
-   
   }, []);
 
   return (
@@ -67,6 +62,7 @@ const BusinessBoard = () => {
                   <div key={id}>
                     <CardIncidentsAndNews
                       reportTitle={usuario==null?'No definido':usuario.nombre}
+
                       description={mensaje}
                       date={fecha}
                     />

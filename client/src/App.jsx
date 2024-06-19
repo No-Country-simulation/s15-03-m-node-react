@@ -8,12 +8,14 @@ import Login from "./pages/Login/Login";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
 import Reservation from "./pages/Reservation";
-import WelcomeResident from "./components/Welcome/WelcomeResident";
-import WelcomeNavigation from "./components/WelcomeNavigation/WelcomeNavAdmin";
 import NeigborGroup from "./pages/NeigborGroup";
 import AceptManagment from "./pages/Admin/AceptManagment";
 import IncidentReport from "./pages/IncidentReport/IncidentReport";
 import { useContext } from "react";
+import WelcomeResident from "./components/Welcome/WelcomeResident";
+import WelcomeAdmin from "./components/Welcome/WelcomeAdmin";
+import WelcomeNavAdmin from "./components/WelcomeNavigation/WelcomeNavAdmin";
+import WelcomeNavResident from "./components/WelcomeNavigation/WelcomeNavResident";
 
 function App() {
   const { authTokens } = useContext(Context);
@@ -28,17 +30,17 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register-admin" element={<Register isAdmin />} />
-        <Route path="/register-resident" element={<Register />} />
+        <Route path="/register-resident/:code" element={<Register />} />
         <Route
           path="/board"
           element={
-             <RequireAuth>
+            <RequireAuth>
               <Board />
-             </RequireAuth>
+            </RequireAuth>
           }
         />
         <Route
-          path="/welcome"
+          path="/welcome-resident"
           element={
             <RequireAuth>
               <WelcomeResident />
@@ -46,10 +48,10 @@ function App() {
           }
         />
         <Route
-          path="/welcome-navigation"
+          path="/welcome-admin"
           element={
             <RequireAuth>
-              <WelcomeNavigation />
+              <WelcomeAdmin />
             </RequireAuth>
           }
         />
@@ -93,6 +95,22 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path="/welcome-nav-admin"
+          element={
+            <RequireAuth>
+              <WelcomeNavAdmin />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/welcome-nav-resident"
+          element={
+            <RequireAuth>
+              <WelcomeNavResident />
+            </RequireAuth>
+          }
+        />
         <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>
@@ -100,3 +118,4 @@ function App() {
 }
 
 export default App;
+

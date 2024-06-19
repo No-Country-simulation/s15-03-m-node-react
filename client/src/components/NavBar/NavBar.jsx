@@ -7,10 +7,10 @@ import { jwtDecode } from "jwt-decode";
 function NavBar() {
   const { authTokens, logoutUser } = useContext(Context);
 
-  let { nombre, apellido, id, rol } = {};
+  let { nombre, apellido, id, rol, imagen } = {};
 
   if (authTokens) {
-    ({ nombre, apellido, id, rol } = jwtDecode(authTokens));
+    ({ nombre, apellido, id, rol, imagen } = jwtDecode(authTokens));
   }
 
   return (
@@ -35,42 +35,83 @@ function NavBar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64 gap-2"
           >
-            <li>
-              <a href="#carouselclient" className="hover:text-primary">
-                Caracteristicas
-              </a>
-            </li>
-            <li>
-              <a href="#postaboutus" className="hover:text-primary">
-                Sobre nosotros
-              </a>
-            </li>
-            <li>
-              <a href="#plans" className="hover:text-primary">
-                Planes
-              </a>
-            </li>
-            <li>
-              <a href="/#contactForm" className="hover:text-primary">
-                Contacto
-              </a>
-            </li>
-            <li>
-              <Link className="hover:text-primary" to="/register-admin">
-                Registrarse
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary" to="/login">
-                Inicio sesión
-              </Link>
-            </li>
+            {authTokens ? (
+              <>
+                <p className="font-medium text-center text-lg">Mi Cuenta</p>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <Link to={`/profile/${id}`}>Mi perfil</Link>
+                </li>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <button>Cambiar al modo oscuro</button>
+                </li>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <button>Configuracion y privacidad</button>
+                </li>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <button>Ayuda y soporte técnico</button>
+                </li>
+                <div className="divider divider-primary m-0 h-[1px]"></div>
+                <li>
+                  <button
+                    className="btn btn-outline btn-secondary"
+                    onClick={logoutUser}
+                  >
+                    Cerrar Sesión
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <a href="#carouselclient" className="hover:text-primary">
+                    Caracteristicas
+                  </a>
+                </li>
+                <li>
+                  <a href="#postaboutus" className="hover:text-primary">
+                    Sobre nosotros
+                  </a>
+                </li>
+                <li>
+                  <a href="#plans" className="hover:text-primary">
+                    Planes
+                  </a>
+                </li>
+                <li>
+                  <a href="/#contactForm" className="hover:text-primary">
+                    Contacto
+                  </a>
+                </li>
+                <li>
+                  <Link className="hover:text-primary" to="/register-admin">
+                    Registrarse
+                  </Link>
+                </li>
+                <li>
+                  <Link className="hover:text-primary" to="/login">
+                    Inicio sesión
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
-        <Link to={authTokens ? "/welcome-navigation" : "/"}>
+        <Link
+          to={
+            rol === "admin"
+              ? "/welcome-nav-admin"
+              : rol === "user"
+              ? "/welcome-nav-resident"
+              : "/"
+          }
+        >
           <img className=" w-52 ml-11 " src={Logo} alt="Logo" />
         </Link>
       </div>
@@ -80,7 +121,7 @@ function NavBar() {
             (rol === "admin" && (
               <>
                 <li>
-                  <Link to="/list-admin">Aprobación de residentes</Link>
+                  <Link to="/list-admin">Panel</Link>
                 </li>
                 <li>
                   <Link to="/reservation">Espacios comunes</Link>
@@ -90,7 +131,7 @@ function NavBar() {
                 </li>
               </>
             )) ||
-            (rol === "resident" && (
+            (rol === "user" && (
               <>
                 <li>
                   <Link to="/incident-report">Incidentes</Link>
@@ -139,7 +180,13 @@ function NavBar() {
               <div className="avatar items-center" role="button" tabIndex={0}>
                 <p className="font-medium mr-2">{`${nombre} ${apellido}`}</p>
                 <div className="w-14 rounded-full border border-primary">
-                  <img src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
+                  <img
+                    src={
+                      imagen
+                        ? imagen
+                        : "https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png"
+                    }
+                  />
                 </div>
               </div>
               <ul
