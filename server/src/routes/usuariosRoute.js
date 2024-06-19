@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { usuarioController } = require('../controllers');
 
-// Middlewares
-
 // Rutas
 
 router.post('/login', usuarioController.login);
@@ -15,5 +13,5 @@ router.put('/disapprove/:id', usuarioController.disapprove);
 router.put('/activate/:id', usuarioController.activate);
 router.put('/edit/:id', usuarioController.edit);
 router.get('/info/:id', usuarioController.info);
-
+router.post('/uploadPicture', usuarioController.uploadPicture);
 module.exports = router;

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     titulo: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: true
     },
     mensaje: {
       type: DataTypes.TEXT,

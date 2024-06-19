@@ -11,7 +11,8 @@ module.exports = {
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array() });
             }
-            const { titulo, mensaje, fecha, es_anuncio, es_negocio, es_incidente, id_usuario, imagen } = req.body;
+            const { titulo, mensaje, es_anuncio, es_negocio, es_incidente, id_usuario, imagen } = req.body;
+            const fecha = new Date();
             const user = await Usuario.findOne({ where: { id: id_usuario } });
             if (!user) {
                 return res.status(409).json({ msg: 'El usuario no existe' });
@@ -19,7 +20,6 @@ module.exports = {
             if (user) {
                 if(es_anuncio){
                     const newAnuncio = await Anuncio.create({
-                        titulo,
                         mensaje,
                         fecha,
                         id_usuario,
@@ -57,7 +57,7 @@ module.exports = {
     list: async (req, res) => {
 
         try {
-            const anuncios = await Anuncio.findAll();
+            const anuncios = await Anuncio.findAll({ include: [{ model: Usuario, as: 'usuario', attributes: ['nombre', 'apellido'] }] });
             return res.status(200).json(anuncios);
         } catch (error) {
             return res.status(500).json({ msg: error.message });

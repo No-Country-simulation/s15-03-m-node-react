@@ -60,6 +60,10 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: "CASCADE",
       onDelete: "NO ACTION",
     },
+    imagen: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    }
   };
   let config = {
     tableName: "usuarios",

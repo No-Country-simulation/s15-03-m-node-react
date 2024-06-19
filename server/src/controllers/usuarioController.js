@@ -168,7 +168,26 @@ module.exports = {
     },
     uploadPicture: async (req, res) => {
         try {
-            //TODO
+            const { id_usuario, filePath } = req.body;
+            
+            const user = await Usuario.findOne({ where: { id: id_usuario } });
+            
+            if (!user) {
+                return res.status(404).json({ msg: 'Usuario no encontrado' });
+            }
+            user.imagen = filePath;
+            await user.save();
+
+            const token = jwt.sign({
+                id: user.id,
+                nombre: user.nombre,
+                apellido: user.apellido,
+                email: user.email,
+                telefono: user.telefono,
+                rol: user.rol,
+                imagen: user.imagen
+            }, process.env.JWT_SECRET, { expiresIn: '1h' });
+            return res.status(201).json({ token });
         } catch (error) {
             return res.status(500).json({ msg: error.message });
         }

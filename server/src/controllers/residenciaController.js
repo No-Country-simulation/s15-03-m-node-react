@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const { Residencia, Apartamento } = require('../database/models');
+const { Residencia, Apartamento, Edificio } = require('../database/models');
 
 module.exports = {
     getResidenciaByCode: async (req, res) => {
@@ -9,14 +9,15 @@ module.exports = {
                 return res.status(400).json({ errors: errors.array() });
             }
             const { codigo } = req.params;
-            const residencia = await Residencia.findOne({ where: { codigo } });
+            const residencia = await Residencia.findOne({
+                where: { codigo },
+                include: [{
+                  model: Edificio,
+                  as: 'edificios',
+                }]
+              });
             if (residencia) {
-                const edificios = await residencia.getEdificios();
-                const info = {
-                    ...residencia.dataValues,
-                    edificios: edificios
-                }
-                return res.status(200).json(info);
+                return res.status(200).json(residencia);
             } else {
                 return res.status(404).json({ msg: 'Residencia no encontrada' });
             }

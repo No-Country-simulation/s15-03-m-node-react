@@ -76,7 +76,7 @@ module.exports = (email, code) => {
                 <p><strong>Invita a tus Residentes</strong>:</p>
 
                 <ul>
-                    <li>Ahora es el momento de invitar a tus residentes a unirse a la comunidad. Simplemente comparte este enlace con ellos: <a href="https://buildinghub.vercel.app/register/${code}">Reg&iacute;strate en BuildingHub.</a></li>
+                    <li>Ahora es el momento de invitar a tus residentes a unirse a la comunidad. Simplemente comparte este enlace con ellos: <a href="https://buildinghub.vercel.app/register-resident/${code}">Reg&iacute;strate en BuildingHub.</a></li>
                     <li>Cuantos m&aacute;s residentes se unan, m&aacute;s vibrante ser&aacute; nuestra comunidad. &#128588;</li>
                 </ul>
                 </li>
